@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Profesionales YottaByte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #e2e8f0;
+            --accent: #38bdf8;
+            --accent-highlight: #fbbf24;
+            --card-bg: #1e293b;
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--bg-secondary);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        header img {
+            height: 50px; /* ← TU LOGO VA AQUÍ */
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        main {
+            padding: 100px 5% 140px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('assets/banner-hero.jpg') center/cover no-repeat; /* ← IMAGEN DE FONDO AQUÍ */
+            color: white;
+            text-align: center;
+            padding: 6rem 1rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-highlight);
+            color: #0f172a;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
+        }
+
+        /* Sección: ¿Qué ofrecemos? */
+        .offerings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .offering-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .offering-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .offering-icon-img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        /* Sección: Servicios destacados */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 3rem 0 2rem;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-highlight);
+            margin: 10px auto;
+            border-radius: 3px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem 5%;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 2px solid var(--accent);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            nav a { margin-left: 1rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <!-- 👇 TU LOGO VA AQUÍ -->
+            <img src="assets/logo.png" alt="YottaByte">
+        </div>
+        <nav>
+            <a href="servicios.html">Servicios</a>
+            <a href="equipos.html">Equipos</a>
+            <a href="electronica.html">Electrónica</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Soluciones más allá del requerimiento</h1>
+            <p>Expertos en configuración, mantenimiento y venta de equipos tecnológicos de alto rendimiento. ¡Tu socio tecnológico de confianza!</p>
+            <a href="contacto.html" class="btn">¡Hablemos de tu proyecto!</a>
+        </section>
+
+        <!-- ¿Qué ofrecemos? -->
+        <h2 class="section-title">¿Qué ofrecemos?</h2>
+        <div class="offerings">
+            <div class="offering-card">
+                <!-- 👇 ICONO DE SERVICIOS TÉCNICOS -->
+                <img src="assets/icons/server-icon.svg" alt="Servidores" class="offering-icon-img">
+                <h3>Servicios Técnicos</h3>
+                <p>Mantenimiento, configuración y soporte para servidores y PCs.</p>
+            </div>
+            <div class="offering-card">
+                <!-- 👇 ICONO DE EQUIPOS -->
+                <img src="assets/icons/pc-icon.svg" alt="Equipos" class="offering-icon-img">
+                <h3>Equipos de Cómputo</h3>
+                <p>Servidores, PCs gamer, de oficina y más — ¡a tu medida!</p>
+            </div>
+            <div class="offering-card">
+                <!-- 👇 ICONO DE ELECTRÓNICA -->
+                <img src="assets/icons/electronics-icon.svg" alt="Electrónica" class="offering-icon-img">
+                <h3>Componentes Electrónicos</h3>
+                <p>Desde tarjetas de red hasta herramientas profesionales.</p>
+            </div>
+        </div>
+
+        <!-- Servicios destacados -->
+        <h2 class="section-title">Servicios Destacados</h2>
+        <div class="offerings">
+            <div class="offering-card">
+                <!-- 👇 IMAGEN DEL SERVICIO -->
+                <img src="assets/servicios/config-servidores.jpg" alt="Configuración de Servidores" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                <h3>Configuración de Servidores</h3>
+                <p>Desde $150. Ideal para PYMES. ¡Listos en 24h!</p>
+                <a href="servicios.html" style="color: var(--accent); text-decoration: underline; display: inline-block; margin-top: 1rem;">Ver más →</a>
+            </div>
+            <div class="offering-card">
+                <!-- 👇 IMAGEN DEL PRODUCTO -->
+                <img src="assets/equipos/pc-gamer-xtreme.jpg" alt="PC Gamer Xtreme 9000" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                <h3>PC Gamer Xtreme 9000</h3>
+                <p>Desde $1,800. ¡Potencia para jugar y crear!</p>
+                <a href="equipos.html" style="color: var(--accent); text-decoration: underline; display: inline-block; margin-top: 1rem;">Ver más →</a>
+            </div>
+            <div class="offering-card">
+                <!-- 👇 IMAGEN DEL SERVICIO -->
+                <img src="assets/servicios/soporte-remoto.jpg" alt="Soporte Técnico Remoto" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                <h3>Soporte Técnico Remoto</h3>
+                <p>Desde $25/hora. Resolvemos tu problema YA.</p>
+                <a href="servicios.html" style="color: var(--accent); text-decoration: underline; display: inline-block; margin-top: 1rem;">Ver más →</a>
+            </div>
+        </div>
+
+        <!-- Testimonio -->
+        <div style="text-align: center; margin: 4rem 0; padding: 2rem; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border);">
+            <!-- 👇 FOTO DEL CLIENTE (OPCIONAL) -->
+            <img src="assets/team/tecnico-1.jpg" alt="Carlos M." style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 1rem;">
+            <p style="font-style: italic; font-size: 1.2rem;">“YottaByte resolvió nuestro problema de servidor en menos de 3 horas. ¡Profesionales de verdad!”</p>
+            <p><strong>— Carlos M., Gerente de Sistemas, Quito</strong></p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-item">📞 +593 99 999 9999</div>
+        <div class="footer-item">💬 <a href="https://wa.me/593999999999" style="color: var(--accent); text-decoration: none;">WhatsApp</a></div>
+        <div class="footer-item">✉️ info@yottabyte.com</div>
+        <div class="footer-item">🏢 Quito, Ecuador</div>
+        <div class="footer-item">🕘 L-V: 9am - 6pm</div>
+    </footer>
+</body>
+</html>

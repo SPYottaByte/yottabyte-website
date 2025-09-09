@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios Profesionales YottaByte Cia. Ltda.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              100: '#1a1a1a',
+              200: '#262626',
+              300: '#333333',
+              400: '#404040',
+              500: '#4d4d4d',
+              600: '#595959',
+              700: '#666666',
+              800: '#737373',
+              900: '#808080'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      scroll-behavior: smooth;
+      background-color: #111827;
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+    }
+    .search-input {
+      transition: all 0.3s ease;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    .search-input:focus {
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    }
+    .suggestions-container {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: #1f2937;
+      border: 1px solid #374151;
+      border-top: none;
+      border-radius: 0 0 0.5rem 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      z-index: 50;
+      max-height: 300px;
+      overflow-y: auto;
+      width: 100%;
+      max-width: 400px;
+    }
+    .suggestion-item {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .suggestion-item:hover {
+      background-color: #374151;
+    }
+    .suggestion-category {
+      font-weight: 600;
+      color: #9ca3af;
+      padding: 0.5rem 1rem;
+      background-color: #374151;
+      border-bottom: 1px solid #4b5563;
+    }
+    .highlighted {
+      animation: pulse 1s ease-in-out;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4); }
+    }
+    .searching {
+      transform: scale(1.01);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+    }
+    
+    /* Logo YB creado con CSS */
+    .logo-yb {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    /* Gráfico superior izquierdo creado con CSS */
+    .grafico-top-left {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .grafico-top-left::before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 24px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 4px;
+      transform: rotate(-45deg);
+      left: 8px;
+      bottom: 8px;
+    }
+    
+    .grafico-top-left::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      top: 8px;
+      right: 8px;
+    }
+    
+    /* Estilo para el botón de modo noche/día */
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #374151;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      background: #4b5563;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
+  <!-- Botón de Modo Noche/Día -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Encabezado Fijo -->
+  <header class="bg-gray-900 border-b border-gray-700 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Primera fila: Logo, Nombre completo y Búsqueda -->
+      <div class="flex items-center justify-between py-4">
+        <div class="flex items-center">
+          <!-- Gráfico en esquina superior izquierda (Creado con CSS) -->
+          <div class="grafico-top-left mr-4" aria-label="Gráfico YottaByte"></div>
+          
+          <!-- Logo (Creado con CSS) -->
+          <div class="logo-yb mr-4" aria-label="Logo YottaByte">YB</div>
+          
+          <!-- Contenedor del nombre y eslogan -->
+          <div>
+            <!-- Nombre COMPLETO en una sola línea -->
+            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">Servicios Profesionales YottaByte Cia. Ltda.</h1>
+            <!-- ESLOGAN -->
+            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento....."</p>
+          </div>
+        </div>
+
+        <!-- Campo de Búsqueda en esquina superior derecha -->
+        <div class="relative w-64">
+          <input 
+            type="text" 
+            id="search-input"
+            placeholder="Buscar producto o servicio..." 
+            class="search-input w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
+          >
+          <div id="suggestions-container" class="suggestions-container hidden"></div>
+          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Segunda fila: Menú de navegación -->
+      <div class="border-t border-gray-700">
+        <nav class="flex flex-wrap justify-center py-3 space-x-6">
+          <a href="#inicio" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Inicio</a>
+          <a href="#productos" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Productos</a>
+          <a href="#servicios" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Servicios</a>
+          <a href="quienes-somos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Quiénes Somos</a>
+          <a href="#contacto" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contáctanos</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Bienvenido a YottaByte</h2>
+        <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
+          Encuentra rápidamente lo que necesitas con nuestra búsqueda inteligente.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sección de Productos y Servicios -->
+    <section class="py-16 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <!-- Cuadro de Productos -->
+          <div id="productos-section" class="bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 border border-blue-800/30">
+            <div class="text-center mb-8">
+              <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-box-open text-3xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-white mb-4">Productos</h3>
+              <p class="text-gray-300 text-lg mb-6">
+                Equipamiento tecnológico de alta calidad para potenciar tu negocio.
+              </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="tel:+59323945678" class="bg-blue-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-800 transition-colors flex items-center">
+                <i class="fas fa-phone mr-2"></i> Llamar
+              </a>
+              <a href="https://wa.me/593998765432" target="_blank" class="bg-green-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center">
+                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+              </a>
+              <a href="mailto:ventas@yottabyte.com.ec" class="bg-gray-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors flex items-center">
+                <i class="fas fa-envelope mr-2"></i> Email
+              </a>
+            </div>
+          </div>
+
+          <!-- Cuadro de Servicios -->
+          <div id="servicios-section" class="bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-300 border border-purple-800/30">
+            <div class="text-center mb-8">
+              <div class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-concierge-bell text-3xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-white mb-4">Servicios</h3>
+              <p class="text-gray-300 text-lg mb-6">
+                Soluciones profesionales personalizadas para tus necesidades tecnológicas.
+              </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="tel:+59323945678" class="bg-blue-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-800 transition-colors flex items-center">
+                <i class="fas fa-phone mr-2"></i> Llamar
+              </a>
+              <a href="https://wa.me/593998765432" target="_blank" class="bg-green-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center">
+                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+              </a>
+              <a href="mailto:servicios@yottabyte.com.ec" class="bg-gray-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors flex items-center">
+                <i class="fas fa-envelope mr-2"></i> Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página Fijo -->
+  <footer id="contacto" class="bg-gray-900 border-t border-gray-700 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div>
+          <div class="flex items-center mb-4">
+            <!-- Logo en el pie de página (Creado con CSS) -->
+            <div class="logo-yb mr-3" aria-label="Logo YottaByte"></div>
+            <h3 class="text-lg font-bold text-white">Servicios Profesionales YottaByte Cia. Ltda.</h3>
+          </div>
+          <p class="text-gray-400 text-sm">
+            "Soluciones mas alla del requerimiento....."
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4 text-white">Contacto</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-2 text-blue-400"></i>
+              <span>Av. Amazonas N34-123, Quito, Ecuador</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-2 text-blue-400"></i>
+              <span>Teléfono: +593 2 394 5678</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fab fa-whatsapp mt-1 mr-2 text-green-400"></i>
+              <span>WhatsApp: +593 99 876 5432</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-2 text-blue-400"></i>
+              <span>info@yottabyte.com.ec</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4 text-white">Horario</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+            <li>Sábado: 9:00 AM - 1:00 PM</li>
+            <li class="mt-4">Soporte técnico 24/7 para clientes con contrato</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
+        <p>&copy; 2024 Servicios Profesionales YottaByte Cia. Ltda. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Función para cambiar entre modo oscuro y claro
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const html = document.documentElement;
+    
+    // Verificar preferencia del usuario o usar modo oscuro por defecto
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    if (currentTheme === 'light') {
+      body.classList.remove('dark');
+      html.classList.remove('dark');
+      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+      body.classList.add('dark');
+      html.classList.add('dark');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      if (body.classList.contains('dark')) {
+        body.classList.remove('dark');
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      } else {
+        body.classList.add('dark');
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      }
+    });
+
+    // Base de datos de búsqueda (simulada)
+    const searchDatabase = {
+      productos: [
+        { nombre: "Servidor Dell PowerEdge", categoria: "hardware", keywords: ["servidor", "dell", "poweredge", "rack", "data center", "centro de datos"] },
+        { nombre: "Laptop ThinkPad X1 Carbon", categoria: "hardware", keywords: ["laptop", "thinkpad", "lenovo", "portátil", "notebook", "computadora"] },
+        { nombre: "Switch Cisco Catalyst", categoria: "hardware", keywords: ["switch", "cisco", "catalyst", "red", "networking", "conmutador"] },
+        { nombre: "Monitor Dell UltraSharp", categoria: "hardware", keywords: ["monitor", "dell", "ultrasharp", "pantalla", "display", "4k"] },
+        { nombre: "Microsoft 365 Empresarial", categoria: "software", keywords: ["microsoft", "office", "365", "word", "excel", "powerpoint", "teams"] },
+        { nombre: "Licencia Windows Server", categoria: "licencias", keywords: ["windows", "server", "licencia", "microsoft", "servidor", "sistemas"] },
+        { nombre: "Antivirus ESET", categoria: "software", keywords: ["antivirus", "eset", "seguridad", "protección", "malware", "ransomware"] },
+        { nombre: "Router MikroTik", categoria: "hardware", keywords: ["router", "mikrotik", "internet", "wifi", "inalámbrico", "red"] },
+        { nombre: "Impresora HP Enterprise", categoria: "hardware", keywords: ["impresora", "hp", "enterprise", "láser", "multifuncional", "oficina"] },
+        { nombre: "Teclado Logitech MX", categoria: "accesorios", keywords: ["teclado", "logitech", "mx", "inalámbrico", "bluetooth", "ergonómico"] }
+      ],
+      servicios: [
+        { nombre: "Desarrollo de Software a Medida", categoria: "desarrollo", keywords: ["desarrollo", "software", "a medida", "personalizado", "aplicación", "programación"] },
+        { nombre: "Migración a la Nube", categoria: "cloud", keywords: ["migración", "nube", "cloud", "aws", "azure", "google cloud", "digitalización"] },
+        { nombre: "Ciberseguridad y Auditoría", categoria: "seguridad", keywords: ["ciberseguridad", "auditoría", "seguridad", "protección", "firewall", "vulnerabilidades"] },
+        { nombre: "Soporte Técnico 24/7", categoria: "soporte", keywords: ["soporte", "técnico", "24/7", "mantenimiento", "asistencia", "helpdesk"] },
+        { nombre: "Capacitación Corporativa", categoria: "capacitación", keywords: ["capacitación", "corporativa", "entrenamiento", "cursos", "talleres", "formación"] },
+        { nombre: "Consultoría IT", categoria: "consultoría", keywords: ["consultoría", "it", "tecnología", "asesoría", "estrategia", "digital"] },
+        { nombre: "Automatización de Procesos", categoria: "automatización", keywords: ["automatización", "procesos", "rpa", "robot", "eficiencia", "productividad"] },
+        { nombre: "Backup y Recuperación", categoria: "backup", keywords: ["backup", "recuperación", "datos", "respaldo", "disaster recovery", "continuidad"] },
+        { nombre: "Instalación de Redes", categoria: "redes", keywords: ["instalación", "redes", "cableado", "estructurado", "wifi", "inalámbrico"] },
+        { nombre: "Monitoreo de Sistemas", categoria: "monitoreo", keywords: ["monitoreo", "sistemas", "servidores", "alertas", "rendimiento", "disponibilidad"] }
+      ]
+    };
+
+    // Elementos del DOM
+    const searchInput = document.getElementById('search-input');
+    const suggestionsContainer = document.getElementById('suggestions-container');
+    const productosSection = document.getElementById('productos-section');
+    const serviciosSection = document.getElementById('servicios-section');
+
+    // Mostrar/ocultar sugerencias
+    searchInput.addEventListener('focus', () => {
+      if (searchInput.value.length > 0) {
+        showSuggestions(searchInput.value);
+      }
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value;
+      if (searchTerm.length > 0) {
+        showSuggestions(searchTerm);
+        highlightRelevantSections(searchTerm);
+      } else {
+        suggestionsContainer.classList.add('hidden');
+        resetSectionHighlights();
+      }
+    });
+
+    searchInput.addEventListener('blur', () => {
+      // Pequeño retraso para permitir clics en sugerencias
+      setTimeout(() => {
+        suggestionsContainer.classList.add('hidden');
+      }, 200);
+    });
+
+    // Mostrar sugerencias
+    function showSuggestions(term) {
+      const searchTerm = term.toLowerCase();
+      
+      // Buscar coincidencias
+      const productoMatches = searchDatabase.productos.filter(item => 
+        item.nombre.toLowerCase().includes(searchTerm) || 
+        item.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm))
+      );
+      
+      const servicioMatches = searchDatabase.servicios.filter(item => 
+        item.nombre.toLowerCase().includes(searchTerm) || 
+        item.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm))
+      );
+      
+      // Generar HTML de sugerencias
+      let suggestionsHTML = '';
+      
+      if (productoMatches.length > 0) {
+        suggestionsHTML += '<div class="suggestion-category">Productos</div>';
+        productoMatches.slice(0, 5).forEach(item => {
+          suggestionsHTML += `
+            <div class="suggestion-item" data-type="producto" data-name="${item.nombre}">
+              <i class="fas fa-box-open text-blue-400 mr-2"></i>
+              ${item.nombre}
+            </div>
+          `;
+        });
+      }
+      
+      if (servicioMatches.length > 0) {
+        if (suggestionsHTML) suggestionsHTML += '<div class="border-t border-gray-600 my-1"></div>';
+        suggestionsHTML += '<div class="suggestion-category">Servicios</div>';
+        servicioMatches.slice(0, 5).forEach(item => {
+          suggestionsHTML += `
+            <div class="suggestion-item" data-type="servicio" data-name="${item.nombre}">
+              <i class="fas fa-concierge-bell text-purple-400 mr-2"></i>
+              ${item.nombre}
+            </div>
+          `;
+        });
+      }
+      
+      if (suggestionsHTML === '') {
+        suggestionsHTML = '<div class="suggestion-item text-gray-500">No se encontraron resultados</div>';
+      }
+      
+      suggestionsContainer.innerHTML = suggestionsHTML;
+      suggestionsContainer.classList.remove('hidden');
+      
+      // Añadir eventos a las sugerencias
+      document.querySelectorAll('.suggestion-item').forEach(item => {
+        item.addEventListener('click', function() {
+          const type = this.getAttribute('data-type');
+          const name = this.getAttribute('data-name');
+          
+          searchInput.value = name;
+          suggestionsContainer.classList.add('hidden');
+          
+          // Simular búsqueda
+          if (type === 'producto') {
+            highlightSection(productosSection, '¡Producto encontrado! Haz clic en "Productos" para más detalles.');
+          } else {
+            highlightSection(serviciosSection, '¡Servicio encontrado! Haz clic en "Servicios" para más detalles.');
+          }
+        });
+      });
+    }
+
+    // Resaltar secciones relevantes según búsqueda
+    function highlightRelevantSections(searchTerm) {
+      resetSectionHighlights();
+      
+      const lowerSearchTerm = searchTerm.toLowerCase();
+      
+      // Verificar si la búsqueda se relaciona con productos
+      const productoKeywords = ["producto", "equipo", "hardware", "laptop", "servidor", "monitor", "switch", "router", "impresora", "teclado", "mouse", "disco", "memoria", "procesador"];
+      const isProductoRelated = productoKeywords.some(keyword => lowerSearchTerm.includes(keyword));
+      
+      // Verificar si la búsqueda se relaciona con servicios
+      const servicioKeywords = ["servicio", "soporte", "consultoría", "capacitación", "instalación", "migración", "desarrollo", "automatización", "ciberseguridad", "auditoría", "backup", "monitoreo"];
+      const isServicioRelated = servicioKeywords.some(keyword => lowerSearchTerm.includes(keyword));
+      
+      // Resaltar secciones según coincidencias
+      if (isProductoRelated) {
+        productosSection.classList.add('searching');
+      }
+      
+      if (isServicioRelated) {
+        serviciosSection.classList.add('searching');
+      }
+    }
+
+    // Resaltar una sección específica
+    function highlightSection(section, message) {
+      section.classList.add('highlighted');
+      
+      // Mostrar mensaje temporal
+      const existingMessage = section.querySelector('.search-message');
+      if (existingMessage) existingMessage.remove();
+      
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'search-message bg-blue-900/50 text-blue-200 p-3 rounded-lg mb-4 text-center font-medium animate-pulse border border-blue-700';
+      messageDiv.textContent = message;
+      section.querySelector('.text-center').insertAdjacentElement('beforebegin', messageDiv);
+      
+      // Eliminar mensaje y efecto después de 3 segundos
+      setTimeout(() => {
+        section.classList.remove('highlighted');
+        messageDiv.remove();
+      }, 3000);
+    }
+
+    // Resetear resaltados
+    function resetSectionHighlights() {
+      productosSection.classList.remove('searching');
+      serviciosSection.classList.remove('searching');
+    }
+
+    // Tecla Enter para buscar
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        const searchTerm = searchInput.value.toLowerCase();
+        
+        // Buscar en productos
+        const productoMatch = searchDatabase.productos.some(item => 
+          item.nombre.toLowerCase().includes(searchTerm) || 
+          item.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm))
+        );
+        
+        // Buscar en servicios
+        const servicioMatch = searchDatabase.servicios.some(item => 
+          item.nombre.toLowerCase().includes(searchTerm) || 
+          item.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm))
+        );
+        
+        // Resaltar según coincidencia
+        if (productoMatch) {
+          highlightSection(productosSection, '¡Producto encontrado! Haz clic en "Productos" para más detalles.');
+        } else if (servicioMatch) {
+          highlightSection(serviciosSection, '¡Servicio encontrado! Haz clic en "Servicios" para más detalles.');
+        } else {
+          // Si no hay coincidencias
+          highlightSection(productosSection, 'No encontramos coincidencias exactas. Explora nuestros productos.');
+          highlightSection(serviciosSection, 'No encontramos coincidencias exactas. Explora nuestros servicios.');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios Profesionales YottaByte Cia. Ltda.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    }
+    .search-input {
+      transition: all 0.3s ease;
+    }
+    .search-input:focus {
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans flex flex-col min-h-screen">
+  <!-- Encabezado Fijo -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center py-4 gap-4">
+        <!-- Contenedor izquierdo: Gráfico + Logo + Nombre -->
+        <div class="flex items-center">
+          <!-- TU GRÁFICO PERSONALIZADO (superior izquierda) -->
+          <img src="./assets/images/grafico-top-left.png" alt="Gráfico YottaByte" class="w-12 h-12 mr-4 hidden md:block">
+          
+          <!-- LOGO -->
+          <img src="https://placehold.co/60x60/2563eb/ffffff?text=YB" alt="Logo YottaByte" class="w-14 h-14 object-cover rounded-lg">
+          
+          <!-- NOMBRE COMPLETO -->
+          <div class="ml-4">
+            <h1 class="text-xl md:text-2xl font-bold text-gray-900">Servicios Profesionales YottaByte Cia. Ltda.</h1>
+            <p class="text-blue-700 font-medium text-sm md:text-base">"Soluciones más allá del requerimiento....."</p>
+          </div>
+        </div>
+
+        <!-- Contenedor derecho: Búsqueda + Menú -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+          <!-- Campo de Búsqueda -->
+          <div class="relative w-full sm:w-64">
+            <input 
+              type="text" 
+              id="search-input"
+              placeholder="Buscar producto o servicio..." 
+              class="search-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            >
+            <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+
+          <!-- Menú de navegación -->
+          <nav class="flex space-x-4">
+            <a href="#inicio" class="text-gray-700 hover:text-blue-700 transition-colors font-medium text-sm">Inicio</a>
+            <a href="#productos" class="text-gray-700 hover:text-blue-700 transition-colors font-medium text-sm">Productos</a>
+            <a href="#servicios" class="text-gray-700 hover:text-blue-700 transition-colors font-medium text-sm">Servicios</a>
+            <a href="#contacto" class="text-gray-700 hover:text-blue-700 transition-colors font-medium text-sm">Contáctanos</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Bienvenido a YottaByte</h2>
+        <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
+          Encuentra rápidamente lo que necesitas con nuestra búsqueda inteligente.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sección de Productos y Servicios -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <!-- Cuadro de Productos -->
+          <div id="productos" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-shadow">
+            <div class="text-center mb-8">
+              <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-box-open text-3xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-gray-900 mb-4">Productos</h3>
+              <p class="text-gray-700 text-lg mb-6">
+                Equipamiento tecnológico de alta calidad para potenciar tu negocio.
+              </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="tel:+59323945678" class="bg-blue-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-800 transition-colors flex items-center">
+                <i class="fas fa-phone mr-2"></i> Llamar
+              </a>
+              <a href="https://wa.me/593998765432" target="_blank" class="bg-green-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center">
+                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+              </a>
+              <a href="mailto:ventas@yottabyte.com.ec" class="bg-gray-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors flex items-center">
+                <i class="fas fa-envelope mr-2"></i> Email
+              </a>
+            </div>
+          </div>
+
+          <!-- Cuadro de Servicios -->
+          <div id="servicios" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-shadow">
+            <div class="text-center mb-8">
+              <div class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-concierge-bell text-3xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-gray-900 mb-4">Servicios</h3>
+              <p class="text-gray-700 text-lg mb-6">
+                Soluciones profesionales personalizadas para tus necesidades tecnológicas.
+              </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="tel:+59323945678" class="bg-blue-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-800 transition-colors flex items-center">
+                <i class="fas fa-phone mr-2"></i> Llamar
+              </a>
+              <a href="https://wa.me/593998765432" target="_blank" class="bg-green-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center">
+                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+              </a>
+              <a href="mailto:servicios@yottabyte.com.ec" class="bg-gray-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors flex items-center">
+                <i class="fas fa-envelope mr-2"></i> Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página Fijo -->
+  <footer id="contacto" class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div>
+          <div class="flex items-center mb-4">
+            <img src="https://placehold.co/60x60/2563eb/ffffff?text=YB" alt="Logo YottaByte" class="w-12 h-12 object-cover rounded-lg">
+            <h3 class="ml-3 text-lg font-bold">Servicios Profesionales YottaByte Cia. Ltda.</h3>
+          </div>
+          <p class="text-gray-400 text-sm">
+            "Soluciones más allá del requerimiento....."
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4">Contacto</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-2 text-blue-500"></i>
+              <span>Av. Amazonas N34-123, Quito, Ecuador</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-2 text-blue-500"></i>
+              <span>Teléfono: +593 2 394 5678</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fab fa-whatsapp mt-1 mr-2 text-green-500"></i>
+              <span>WhatsApp: +593 99 876 5432</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-2 text-blue-500"></i>
+              <span>info@yottabyte.com.ec</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-4">Horario</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+            <li>Sábado: 9:00 AM - 1:00 PM</li>
+            <li class="mt-4">Soporte técnico 24/7 para clientes con contrato</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400 text-sm">
+        <p>&copy; 2024 Servicios Profesionales YottaByte Cia. Ltda. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Funcionalidad básica de búsqueda (filtrado visual)
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('search-input');
+      
+      searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        
+        // Si el usuario escribe algo relacionado con productos o servicios, podemos dar feedback visual
+        if (searchTerm.includes('producto') || searchTerm.includes('equipo') || searchTerm.includes('laptop') || searchTerm.includes('servidor')) {
+          // Podríamos resaltar el cuadro de productos, o redirigir, etc.
+          console.log('Buscando en productos...');
+        } else if (searchTerm.includes('servicio') || searchTerm.includes('soporte') || searchTerm.includes('consultoría') || searchTerm.includes('capacitación')) {
+          // Podríamos resaltar el cuadro de servicios
+          console.log('Buscando en servicios...');
+        }
+        
+        // En una versión avanzada, esto filtraría una lista real de productos/servicios
+        // Por ahora, solo muestra en consola lo que busca el usuario
+      });
+    });
+  </script>
+</body>
+</html>
