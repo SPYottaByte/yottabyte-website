@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infraestructura TI - YottaByte</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      scroll-behavior: smooth;
+      background-color: #111827;
+    }
+    .service-card {
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #374151;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      background: #4b5563;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
+  <!-- Botón de Modo Noche/Día -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Encabezado Fijo -->
+  <header class="bg-gray-900 border-b border-gray-700 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+        <div class="flex items-center">
+          <!-- Imagen del robot -->
+          <div class="mr-4">
+            <img src="../../assets/images/grafico-top-left.png" alt="Robot YottaByte" class="w-28 h-28 rounded-lg shadow-lg">
+          </div>
+          
+          <!-- Logo YB -->
+          <div class="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mr-4">
+            <span class="text-white font-bold text-xl">YB</span>
+          </div>
+          
+          <!-- Nombre y eslogan -->
+          <div>
+            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">Servicios Profesionales YottaByte Cia. Ltda.</h1>
+            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento....."</p>
+          </div>
+        </div>
+
+        <!-- Búsqueda -->
+        <div class="relative w-64">
+          <input 
+            type="text" 
+            placeholder="Buscar en Infraestructura TI..." 
+            class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
+          >
+          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menú de navegación -->
+      <div class="border-t border-gray-700">
+        <nav class="flex flex-wrap justify-center py-3 space-x-6">
+          <a href="../../index.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Inicio</a>
+          <a href="../../productos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Productos</a>
+          <a href="../servicios.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Servicios</a>
+          <a href="../../quienes-somos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Quiénes Somos</a>
+          <a href="#contacto" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contáctanos</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-purple-700 to-purple-900 text-white py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Infraestructura TI</h1>
+        <p class="text-2xl md:text-3xl mb-10 max-w-4xl mx-auto leading-relaxed">
+          Diseño, implementación y gestión de infraestructuras tecnológicas robustas y escalables
+        </p>
+        <a href="../servicios.html" class="inline-flex items-center text-purple-200 font-medium hover:text-white transition-colors">
+          <i class="fas fa-arrow-left mr-2"></i>
+          <span>Volver a Servicios</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Subcategorías -->
+    <section class="py-16 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">Subcategorías</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Explora nuestras áreas de especialización en infraestructura TI
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Subcategoría 1 -->
+          <div class="bg-gray-800 rounded-2xl p-6 text-center hover:bg-gray-750 transition-colors">
+            <div class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-network-wired text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Diseño e Implementación</h3>
+            <p class="text-gray-400 text-sm">Redes cableadas e inalámbricas</p>
+          </div>
+
+          <!-- Subcategoría 2 -->
+          <div class="bg-gray-800 rounded-2xl p-6 text-center hover:bg-gray-750 transition-colors">
+            <div class="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-cogs text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Instalación y Configuración</h3>
+            <p class="text-gray-400 text-sm">Servidores y sistemas de almacenamiento</p>
+          </div>
+
+          <!-- Subcategoría 3 -->
+          <div class="bg-gray-800 rounded-2xl p-6 text-center hover:bg-gray-750 transition-colors">
+            <div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-cloud text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Virtualización y Cloud</h3>
+            <p class="text-gray-400 text-sm">VMware, Hyper-V, cloud privado</p>
+          </div>
+
+          <!-- Subcategoría 4 -->
+          <div class="bg-gray-800 rounded-2xl p-6 text-center hover:bg-gray-750 transition-colors">
+            <div class="w-16 h-16 bg-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-exchange-alt text-2xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Migración y Actualización</h3>
+            <p class="text-gray-400 text-sm">Sistemas legacy y continuidad</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Destacados -->
+    <section class="py-16 bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4">Servicios Destacados</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Algunos de nuestros servicios más solicitados
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Servicio 1 -->
+          <div class="service-card bg-gray-700 rounded-2xl overflow-hidden">
+            <div class="h-48 bg-gray-600 flex items-center justify-center">
+              <i class="fas fa-network-wired text-6xl text-blue-400"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">Diseño de Red Corporativa</h3>
+              <p class="text-gray-400 mb-4">Diseño e implementación de redes cableadas e inalámbricas para empresas de cualquier tamaño.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-green-400">Desde $500</span>
+                <div class="flex space-x-2">
+                  <a href="https://wa.me/593984673754" class="bg-green-600 text-white p-2 rounded-lg hover:bg-green-700 transition-colors" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                  <a href="mailto:servicios.yottabyte@gmail.com" class="bg-gray-600 text-white p-2 rounded-lg hover:bg-gray-500 transition-colors" title="Email">
+                    <i class="fas fa-envelope"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Servicio 2 -->
+          <div class="service-card bg-gray-700 rounded-2xl overflow-hidden">
+            <div class="h-48 bg-gray-600 flex items-center justify-center">
+              <i class="fas fa-server text-6xl text-purple-400"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">Configuración de Servidores</h3>
+              <p class="text-gray-400 mb-4">Instalación y configuración de servidores Windows/Linux para empresas.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-green-400">Desde $300</span>
+                <div class="flex space-x-2">
+                  <a href="https://wa.me/593984673754" class="bg-green-600 text-white p-2 rounded-lg hover:bg-green-700 transition-colors" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                  <a href="mailto:servicios.yottabyte@gmail.com" class="bg-gray-600 text-white p-2 rounded-lg hover:bg-gray-500 transition-colors" title="Email">
+                    <i class="fas fa-envelope"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Servicio 3 -->
+          <div class="service-card bg-gray-700 rounded-2xl overflow-hidden">
+            <div class="h-48 bg-gray-600 flex items-center justify-center">
+              <i class="fas fa-cloud text-6xl text-blue-400"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">Migración a Virtualización</h3>
+              <p class="text-gray-400 mb-4">Migración de servidores físicos a entornos virtualizados con VMware o Hyper-V.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-green-400">Desde $800</span>
+                <div class="flex space-x-2">
+                  <a href="https://wa.me/593984673754" class="bg-green-600 text-white p-2 rounded-lg hover:bg-green-700 transition-colors" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                  <a href="mailto:servicios.yottabyte@gmail.com" class="bg-gray-600 text-white p-2 rounded-lg hover:bg-gray-500 transition-colors" title="Email">
+                    <i class="fas fa-envelope"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#" class="inline-flex items-center bg-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors">
+            <span>Ver Todos los Servicios</span>
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="bg-gray-900 border-t border-gray-700 text-gray-300 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div>
+          <div class="flex items-center mb-6">
+            <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
+              <span class="text-white font-bold text-2xl">YB</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">YottaByte</h3>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            "Soluciones más allá del requerimiento....." 
+            Tecnología profesional para empresas que exigen lo mejor.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Servicios</h4>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="infraestructura-ti.html" class="hover:text-white transition-colors">Infraestructura TI</a></li>
+            <li><a href="../seguridad-ciberseguridad.html" class="hover:text-white transition-colors">Seguridad y Ciberseguridad</a></li>
+            <li><a href="../soporte-mantenimiento.html" class="hover:text-white transition-colors">Soporte y Mantenimiento</a></li>
+            <li><a href="../capacitacion-educacion.html" class="hover:text-white transition-colors">Capacitación y Educación</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Contacto</h4>
+          <ul class="space-y-4 text-gray-400">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+              <span>Sangolqui - Ecuador</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
+              <span>0984673754 / 0987082903</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fab fa-whatsapp mt-1 mr-3 text-green-400"></i>
+              <span>WhatsApp 24/7</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
+              <span>servicios.yottabyte@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Soporte</h4>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Preguntas Frecuentes</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+            <li><a href="#contacto" class="hover:text-white transition-colors">Contáctanos</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+        <p class="text-sm">
+          &copy; 2024 Servicios Profesionales YottaByte Cia. Ltda. Todos los derechos reservados.
+        </p>
+        <p class="text-xs mt-2">"Soluciones más allá del requerimiento....."</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Cambiar tema
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    
+    if (currentTheme === 'light') {
+      document.body.classList.remove('dark');
+      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+      document.body.classList.add('dark');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      if (document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      } else {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      }
+    });
+  </script>
+</body>
+</html>

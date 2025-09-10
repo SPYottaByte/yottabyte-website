@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capacitación para Principiantes - YottaByte</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      scroll-behavior: smooth;
+      background-color: #0f172a;
+    }
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #1e293b;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      background: #334155;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
+  <!-- Botón de Modo Noche/Día -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Encabezado Fijo -->
+  <header class="bg-gray-900 border-b border-gray-700 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+        <div class="flex items-center">
+          <!-- Imagen del robot -->
+          <div class="mr-4">
+            <img src="../assets/images/grafico-top-left.png" alt="Asistente YottaByte" class="w-28 h-28 rounded-lg shadow-lg">
+          </div>
+          
+          <!-- Logo YB -->
+          <div class="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mr-4">
+            <span class="text-white font-bold text-xl">YB</span>
+          </div>
+          
+          <!-- Nombre y eslogan -->
+          <div>
+            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">Servicios Profesionales YottaByte Cia. Ltda.</h1>
+            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones más allá del requerimiento....."</p>
+          </div>
+        </div>
+
+        <!-- Búsqueda -->
+        <div class="relative w-64">
+          <input 
+            type="text" 
+            placeholder="¿Qué necesitas hoy?" 
+            class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
+          >
+          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menú de navegación -->
+      <div class="border-t border-gray-700">
+        <nav class="flex flex-wrap justify-center py-3 space-x-6">
+          <a href="../index.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Inicio</a>
+          <a href="../productos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Productos</a>
+          <a href="../servicios.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Servicios</a>
+          <a href="../quienes-somos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Quiénes Somos</a>
+          <a href="#contacto" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contáctanos</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-purple-700 to-purple-900 text-white py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Clases de Computación para Principiantes</h1>
+        <p class="text-2xl md:text-3xl mb-10 max-w-4xl mx-auto leading-relaxed">
+          Aprende a usar la computadora desde cero, sin miedo y a tu propio ritmo
+        </p>
+        <a href="../servicios.html" class="inline-flex items-center text-purple-200 font-medium hover:text-white transition-colors">
+          <i class="fas fa-arrow-left mr-2"></i>
+          <span>Volver a Servicios</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Detalle del Servicio -->
+    <section class="py-16 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gray-800 rounded-3xl p-8 md:p-12">
+          <div class="text-center mb-12">
+            <div class="w-24 h-24 bg-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-chalkboard-teacher text-4xl text-white"></i>
+            </div>
+            <h2 class="text-4xl font-bold text-white mb-4">Clases de Computación para Principiantes</h2>
+            <p class="text-xl text-gray-300 mb-6">
+              ¿Nunca has usado una computadora? ¿Te da miedo? ¡No te preocupes! Te enseñamos desde cero, con paciencia y a tu ritmo.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Información del Servicio -->
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-4">¿Qué aprenderás en estas clases?</h3>
+              <ul class="space-y-4 text-gray-300 mb-8">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                  <span><strong>Lo básico:</strong> Encender/apagar, usar el mouse y el teclado</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                  <span><strong>Internet:</strong> Navegar, buscar información, usar el correo electrónico</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                  <span><strong>Programas útiles:</strong> Word para escribir, Excel para cálculos, PowerPoint para presentaciones</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                  <span><strong>Redes sociales:</strong> Facebook, WhatsApp, Instagram (para estar en contacto con tu familia)</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                  <span><strong>Seguridad:</strong> Cómo proteger tus datos y evitar estafas en internet</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+                  <span><strong>Entretenimiento:</strong> Ver películas, escuchar música, jugar juegos sencillos</span>
+                </li>
+              </ul>
+
+              <div class="mb-8">
+                <h3 class="text-2xl font-bold text-white mb-4">¿Cómo son las clases?</h3>
+                <ol class="space-y-3 text-gray-300">
+                  <li class="flex">
+                    <span class="font-bold text-blue-400 mr-3">1.</span>
+                    <span><strong>Personalizadas:</strong> Aprendes lo que realmente necesitas, no un curso genérico</span>
+                  </li>
+                  <li class="flex">
+                    <span class="font-bold text-blue-400 mr-3">2.</span>
+                    <span><strong>A tu ritmo:</strong> Sin presión, repetimos las veces que sea necesario</span>
+                  </li>
+                  <li class="flex">
+                    <span class="font-bold text-blue-400 mr-3">3.</span>
+                    <span><strong>En tu casa:</strong> Te visitamos en tu hogar, con tu propia computadora</span>
+                  </li>
+                  <li class="flex">
+                    <span class="font-bold text-blue-400 mr-3">4.</span>
+                    <span><strong>Materiales incluidos:</strong> Te damos guías sencillas para repasar en casa</span>
+                  </li>
+                  <li class="flex">
+                    <span class="font-bold text-blue-400 mr-3">5.</span>
+                    <span><strong>Soporte posterior:</strong> Puedes contactarnos si tienes dudas después de las clases</span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Precios y Contacto -->
+            <div class="bg-gray-700 rounded-2xl p-8">
+              <h3 class="text-2xl font-bold text-white mb-6">Inversión y Contacto</h3>
+              
+              <div class="mb-8">
+                <div class="bg-gray-800 rounded-xl p-6">
+                  <h4 class="text-xl font-bold text-white mb-2">Opciones de Clases</h4>
+                  <div class="space-y-4 mt-4">
+                    <div>
+                      <h5 class="font-bold text-green-400">Clase Individual (2 horas)</h5>
+                      <p class="text-white">$25</p>
+                      <p class="text-gray-400 text-sm">Ideal para resolver dudas específicas</p>
+                    </div>
+                    <div>
+                      <h5 class="font-bold text-blue-400">Paquete de 5 Clases (10 horas)</h5>
+                      <p class="text-white">$100</p>
+                      <p class="text-gray-400 text-sm">Perfecto para aprender lo básico completo</p>
+                    </div>
+                    <div>
+                      <h5 class="font-bold text-purple-400">Paquete de 10 Clases (20 horas)</h5>
+                      <p class="text-white">$180</p>
+                      <p class="text-gray-400 text-sm">Para dominar la computadora y programas útiles</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-8">
+                <h4 class="text-xl font-bold text-white mb-4">¿Cómo agendar tus clases?</h4>
+                <p class="text-gray-300 mb-6">
+                  Contáctanos para una evaluación gratuita de tus necesidades y diseñamos un plan de clases personalizado.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <a href="https://wa.me/593984673754" class="bg-green-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                  </a>
+                  <a href="mailto:servicios.yottabyte@gmail.com" class="bg-gray-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-700 transition-colors flex items-center">
+                    <i class="fas fa-envelope mr-2"></i> Email
+                  </a>
+                  <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-purple-700 transition-colors flex items-center">
+                    <i class="fas fa-calendar-alt mr-2"></i> Agendar
+                  </a>
+                </div>
+              </div>
+
+              <div class="border-t border-gray-600 pt-6">
+                <h4 class="text-xl font-bold text-white mb-4">Garantía de Satisfacción</h4>
+                <p class="text-gray-300">
+                  Si después de la primera clase no te sientes cómodo, te devolvemos tu dinero. ¡Queremos que aprendas sin estrés!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Testimonios -->
+    <section class="py-16 bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-4">Lo que dicen nuestros estudiantes</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Testimonio 1 -->
+          <div class="bg-gray-700 p-6 rounded-2xl">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+                <span class="text-white font-bold">R</span>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-white font-bold">Rosa, 68 años</h4>
+                <p class="text-gray-400 text-sm">Ama de casa</p>
+              </div>
+            </div>
+            <p class="text-gray-300 italic">"Nunca había tocado una computadora y me daba miedo. La profesora fue muy paciente y ahora puedo ver fotos de mis nietos y hasta hacer videollamadas. ¡Gracias por enseñarme!"</p>
+          </div>
+
+          <!-- Testimonio 2 -->
+          <div class="bg-gray-700 p-6 rounded-2xl">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                <span class="text-white font-bold">J</span>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-white font-bold">Jorge, 52 años</h4>
+                <p class="text-gray-400 text-sm">Empleado público</p>
+              </div>
+            </div>
+            <p class="text-gray-300 italic">"En mi trabajo me pidieron usar la computadora y me sentía avergonzado. Con 5 clases aprendí lo básico y ahora me siento más seguro. ¡Excelente servicio!"</p>
+          </div>
+
+          <!-- Testimonio 3 -->
+          <div class="bg-gray-700 p-6 rounded-2xl">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                <span class="text-white font-bold">M</span>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-white font-bold">María, 45 años</h4>
+                <p class="text-gray-400 text-sm">Madre de familia</p>
+              </div>
+            </div>
+            <p class="text-gray-300 italic">"Quería ayudar a mis hijos con sus tareas pero no sabía usar la computadora. Ahora puedo buscar información, imprimir trabajos y hasta ayudarles con sus presentaciones. ¡Muy recomendado!"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="bg-gray-900 border-t border-gray-700 text-gray-300 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div>
+          <div class="flex items-center mb-6">
+            <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
+              <span class="text-white font-bold text-2xl">YB</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">YottaByte</h3>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            "Soluciones más allá del requerimiento....." 
+            Tecnología profesional para empresas, instituciones educativas y personas particulares.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Productos</h4>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="../productos.html" class="hover:text-white transition-colors">Para tu Hogar</a></li>
+            <li><a href="../productos.html" class="hover:text-white transition-colors">Para Estudiantes</a></li>
+            <li><a href="../productos.html" class="hover:text-white transition-colors">Para Entretenimiento</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Servicios</h4>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="../servicios.html" class="hover:text-white transition-colors">Soporte a Domicilio</a></li>
+            <li><a href="../servicios.html" class="hover:text-white transition-colors">Capacitación</a></li>
+            <li><a href="../servicios.html" class="hover:text-white transition-colors">Configuración</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Contacto</h4>
+          <ul class="space-y-4 text-gray-400">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+              <span>Sangolqui - Ecuador</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
+              <span>0984673754 / 0987082903</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fab fa-whatsapp mt-1 mr-3 text-green-400"></i>
+              <span>WhatsApp 24/7</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
+              <span>servicios.yottabyte@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+        <p class="text-sm">
+          &copy; 2024 Servicios Profesionales YottaByte Cia. Ltda. Todos los derechos reservados.
+        </p>
+        <p class="text-xs mt-2">"Soluciones más allá del requerimiento....."</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Cambiar tema
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    
+    if (currentTheme === 'light') {
+      document.body.classList.remove('dark');
+      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+      document.body.classList.add('dark');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      if (document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      } else {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      }
+    });
+  </script>
+</body>
+</html>
