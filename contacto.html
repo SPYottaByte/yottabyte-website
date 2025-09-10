@@ -1,270 +1,334 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios Profesionales YottaByte</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --text-primary: #e2e8f0;
-            --accent: #38bdf8;
-            --accent-highlight: #fbbf24;
-            --card-bg: #1e293b;
-            --border: #334155;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        header {
-            background: var(--bg-secondary);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        header img {
-            height: 50px; /* ← TU LOGO VA AQUÍ */
-        }
-
-        nav a {
-            color: var(--text-primary);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        main {
-            padding: 100px 5% 140px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('assets/banner-hero.jpg') center/cover no-repeat; /* ← IMAGEN DE FONDO AQUÍ */
-            color: white;
-            text-align: center;
-            padding: 6rem 1rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 900px;
-            margin: 0 auto 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent-highlight);
-            color: #0f172a;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
-        }
-
-        /* Sección: ¿Qué ofrecemos? */
-        .offerings {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .offering-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s;
-            border: 1px solid var(--border);
-        }
-
-        .offering-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .offering-icon-img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1rem;
-        }
-
-        /* Sección: Servicios destacados */
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin: 3rem 0 2rem;
-            color: var(--accent);
-            position: relative;
-        }
-
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: var(--accent-highlight);
-            margin: 10px auto;
-            border-radius: 3px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-secondary);
-            padding: 2rem 5%;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            border-top: 2px solid var(--accent);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .footer-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.1rem; }
-            nav a { margin-left: 1rem; font-size: 0.9rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contáctanos - YottaByte</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      scroll-behavior: smooth;
+      background-color: #0f172a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #f59e0b;
+      border-radius: 2px;
+    }
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #1e293b;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      background: #334155;
+    }
+    .contact-card {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      border-color: #f59e0b;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+    .tech-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <div>
-            <!-- 👇 TU LOGO VA AQUÍ -->
-            <img src="assets/logo.png" alt="YottaByte">
+<body class="bg-gray-900 text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
+  <!-- Botón de Modo Noche/Día -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Encabezado Fijo -->
+  <header class="bg-gray-900 border-b border-gray-700 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+        <div class="flex items-center">
+          <!-- Imagen del robot -->
+          <div class="mr-4">
+            <img src="./assets/images/grafico-top-left.png" alt="Robot YottaByte" class="w-28 h-28 rounded-lg shadow-lg">
+          </div>
+          
+          <!-- Logo YB -->
+          <div class="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mr-4">
+            <span class="text-white font-bold text-xl">YB</span>
+          </div>
+          
+          <!-- Nombre y eslogan -->
+          <div>
+            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">Servicios Profesionales YottaByte Cia. Ltda.</h1>
+            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento....."</p>
+          </div>
         </div>
-        <nav>
-            <a href="servicios.html">Servicios</a>
-            <a href="equipos.html">Equipos</a>
-            <a href="electronica.html">Electrónica</a>
-            <a href="contacto.html">Contacto</a>
+
+        <!-- Búsqueda -->
+        <div class="relative w-64">
+          <input 
+            type="text" 
+            placeholder="Buscar en Contacto..." 
+            class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
+          >
+          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menú de navegación -->
+      <div class="border-t border-gray-700">
+        <nav class="flex flex-wrap justify-center py-3 space-x-6">
+          <a href="index.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Inicio</a>
+          <a href="productos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Productos</a>
+          <a href="servicios.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Servicios</a>
+          <a href="quienes-somos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Quiénes Somos</a>
+          <a href="contacto.html" class="text-blue-400 font-medium border-b-2 border-blue-400">Contáctanos</a>
         </nav>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Soluciones más allá del requerimiento</h1>
-            <p>Expertos en configuración, mantenimiento y venta de equipos tecnológicos de alto rendimiento. ¡Tu socio tecnológico de confianza!</p>
-            <a href="contacto.html" class="btn">¡Hablemos de tu proyecto!</a>
-        </section>
+  <!-- Contenido Principal -->
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Contáctanos</h1>
+        <p class="text-2xl md:text-3xl mb-10 max-w-4xl mx-auto leading-relaxed">
+          Estamos aquí para ayudarte, ya seas una empresa o un cliente final
+        </p>
+      </div>
+    </section>
 
-        <!-- ¿Qué ofrecemos? -->
-        <h2 class="section-title">¿Qué ofrecemos?</h2>
-        <div class="offerings">
-            <div class="offering-card">
-                <!-- 👇 ICONO DE SERVICIOS TÉCNICOS -->
-                <img src="assets/icons/server-icon.svg" alt="Servidores" class="offering-icon-img">
-                <h3>Servicios Técnicos</h3>
-                <p>Mantenimiento, configuración y soporte para servidores y PCs.</p>
-            </div>
-            <div class="offering-card">
-                <!-- 👇 ICONO DE EQUIPOS -->
-                <img src="assets/icons/pc-icon.svg" alt="Equipos" class="offering-icon-img">
-                <h3>Equipos de Cómputo</h3>
-                <p>Servidores, PCs gamer, de oficina y más — ¡a tu medida!</p>
-            </div>
-            <div class="offering-card">
-                <!-- 👇 ICONO DE ELECTRÓNICA -->
-                <img src="assets/icons/electronics-icon.svg" alt="Electrónica" class="offering-icon-img">
-                <h3>Componentes Electrónicos</h3>
-                <p>Desde tarjetas de red hasta herramientas profesionales.</p>
-            </div>
+    <!-- Formas de Contacto -->
+    <section class="py-20 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4 section-title">¿Cómo podemos ayudarte?</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Elige la forma que mejor se adapte a tus necesidades
+          </p>
         </div>
 
-        <!-- Servicios destacados -->
-        <h2 class="section-title">Servicios Destacados</h2>
-        <div class="offerings">
-            <div class="offering-card">
-                <!-- 👇 IMAGEN DEL SERVICIO -->
-                <img src="assets/servicios/config-servidores.jpg" alt="Configuración de Servidores" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
-                <h3>Configuración de Servidores</h3>
-                <p>Desde $150. Ideal para PYMES. ¡Listos en 24h!</p>
-                <a href="servicios.html" style="color: var(--accent); text-decoration: underline; display: inline-block; margin-top: 1rem;">Ver más →</a>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <!-- Contacto para Empresas (B2B) -->
+          <div class="contact-card bg-gradient-to-br from-blue-900/20 to-blue-800/20 rounded-3xl p-8 border border-blue-800/30">
+            <div class="text-center mb-6">
+              <div class="tech-icon text-blue-400">
+                <i class="fas fa-building"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4">Para Empresas (B2B)</h3>
             </div>
-            <div class="offering-card">
-                <!-- 👇 IMAGEN DEL PRODUCTO -->
-                <img src="assets/equipos/pc-gamer-xtreme.jpg" alt="PC Gamer Xtreme 9000" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
-                <h3>PC Gamer Xtreme 9000</h3>
-                <p>Desde $1,800. ¡Potencia para jugar y crear!</p>
-                <a href="equipos.html" style="color: var(--accent); text-decoration: underline; display: inline-block; margin-top: 1rem;">Ver más →</a>
+            <p class="text-gray-300 mb-6">
+              Soluciones tecnológicas profesionales para potenciar tu negocio.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i class="fas fa-phone-alt text-blue-400 mr-3"></i>
+                <span>0984673754 (Línea empresarial)</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                <span>empresas@yottabyte.com.ec</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fab fa-whatsapp text-green-400 mr-3"></i>
+                <span>0984673754 (WhatsApp Empresas)</span>
+              </div>
             </div>
-            <div class="offering-card">
-                <!-- 👇 IMAGEN DEL SERVICIO -->
-                <img src="assets/servicios/soporte-remoto.jpg" alt="Soporte Técnico Remoto" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
-                <h3>Soporte Técnico Remoto</h3>
-                <p>Desde $25/hora. Resolvemos tu problema YA.</p>
-                <a href="servicios.html" style="color: var(--accent); text-decoration: underline; display: inline-block; margin-top: 1rem;">Ver más →</a>
+            <div class="mt-6 text-center">
+              <a href="https://wa.me/593984673754" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                Contactar como Empresa
+              </a>
             </div>
+          </div>
+
+          <!-- Contacto para Clientes Finales -->
+          <div class="contact-card bg-gradient-to-br from-green-900/20 to-green-800/20 rounded-3xl p-8 border border-green-800/30">
+            <div class="text-center mb-6">
+              <div class="tech-icon text-green-400">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4">Para Clientes Finales</h3>
+            </div>
+            <p class="text-gray-300 mb-6">
+              Estamos junto a ti en lo que necesites, con paciencia y dedicación.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i class="fas fa-phone-alt text-green-400 mr-3"></i>
+                <span>0987082903 (Línea clientes)</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-envelope text-green-400 mr-3"></i>
+                <span>clientes@yottabyte.com.ec</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fab fa-whatsapp text-green-400 mr-3"></i>
+                <span>0987082903 (WhatsApp Clientes)</span>
+              </div>
+            </div>
+            <div class="mt-6 text-center">
+              <a href="https://wa.me/593987082903" class="inline-block bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors">
+                Contactar como Cliente
+              </a>
+            </div>
+          </div>
+
+          <!-- Soporte Técnico -->
+          <div class="contact-card bg-gradient-to-br from-purple-900/20 to-purple-800/20 rounded-3xl p-8 border border-purple-800/30">
+            <div class="text-center mb-6">
+              <div class="tech-icon text-purple-400">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4">Soporte Técnico</h3>
+            </div>
+            <p class="text-gray-300 mb-6">
+              Asistencia inmediata para resolver tus problemas tecnológicos.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i class="fas fa-clock text-purple-400 mr-3"></i>
+                <span>24/7 para clientes con contrato</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-phone-alt text-purple-400 mr-3"></i>
+                <span>0984673754 (Soporte técnico)</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-envelope text-purple-400 mr-3"></i>
+                <span>soporte@yottabyte.com.ec</span>
+              </div>
+            </div>
+            <div class="mt-6 text-center">
+              <a href="mailto:soporte@yottabyte.com.ec" class="inline-block bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors">
+                Solicitar Soporte
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horario y Ubicación -->
+    <section class="py-20 bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4 section-title">Horario y Ubicación</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Te atendemos con gusto en nuestro local o a domicilio
+          </p>
         </div>
 
-        <!-- Testimonio -->
-        <div style="text-align: center; margin: 4rem 0; padding: 2rem; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border);">
-            <!-- 👇 FOTO DEL CLIENTE (OPCIONAL) -->
-            <img src="assets/team/tecnico-1.jpg" alt="Carlos M." style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 1rem;">
-            <p style="font-style: italic; font-size: 1.2rem;">“YottaByte resolvió nuestro problema de servidor en menos de 3 horas. ¡Profesionales de verdad!”</p>
-            <p><strong>— Carlos M., Gerente de Sistemas, Quito</strong></p>
-        </div>
-    </main>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Horario -->
+          <div class="bg-gray-700 p-8 rounded-3xl">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-clock text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white">Horario de Atención</h3>
+            </div>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex justify-between">
+                <span>Lunes - Viernes:</span>
+                <span class="font-medium">8:00 AM - 6:00 PM</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Sábado:</span>
+                <span class="font-medium">9:00 AM - 1:00 PM</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Soporte Técnico 24/7:</span>
+                <span class="font-medium text-green-400">Para clientes con contrato</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Emergencias:</span>
+                <span class="font-medium text-red-400">0984673754 (WhatsApp)</span>
+              </li>
+            </ul>
+          </div>
 
-    <footer>
-        <div class="footer-item">📞 +593 99 999 9999</div>
-        <div class="footer-item">💬 <a href="https://wa.me/593999999999" style="color: var(--accent); text-decoration: none;">WhatsApp</a></div>
-        <div class="footer-item">✉️ info@yottabyte.com</div>
-        <div class="footer-item">🏢 Quito, Ecuador</div>
-        <div class="footer-item">🕘 L-V: 9am - 6pm</div>
-    </footer>
-</body>
-</html>
+          <!-- Ubicación -->
+          <div class="bg-gray-700 p-8 rounded-3xl">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-map-marker-alt text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white">Ubicación</h3>
+            </div>
+            <div class="space-y-4 text-gray-300">
+              <p class="flex items-start">
+                <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-3"></i>
+                <span>Sangolqui - Ecuador</span>
+              </p>
+              <p class="flex items-start">
+                <i class="fas fa-building text-blue-400 mt-1 mr-3"></i>
+                <span>Zona comercial principal de Sangolqui</span>
+              </p>
+              <p class="flex items-start">
+                <i class="fas fa-car text-blue-400 mt-1 mr-3"></i>
+                <span>Estacionamiento disponible</span>
+              </p>
+              <p class="flex items-start">
+                <i class="fas fa-wheelchair text-blue-400 mt-1 mr-3"></i>
+                <span>Accesible para personas con movilidad reducida</span>
+              </p>
+            </div>
+            <div class="mt-6">
+              <a href="#" class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                <i class="fas fa-map-marked-alt mr-2"></i>
+                Ver en Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section class="py-20 bg-gray-900">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4 section-title">Envíanos un Mensaje</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Completa el formulario y nos pondremos en contacto contigo
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-8 rounded-3xl">
+          <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-gray-300 font-medium mb-2">Nombre Completo</label>
+              <input type="text" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Tu nombre completo">
+            </div>
+            <div>
+              <label class="block

@@ -1,69 +1,124 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios Profesionales YottaByte Cia. Ltda.</title>
+  <title>Quiénes Somos - YottaByte</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       scroll-behavior: smooth;
+      background-color: #0f172a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    .hero-bg {
-      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    .section-title {
+      position: relative;
+      display: inline-block;
     }
-    .search-input {
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #f59e0b;
+      border-radius: 2px;
+    }
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #1e293b;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
     }
-    .search-input:focus {
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      background: #334155;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 80px;
+      margin-bottom: 40px;
+    }
+    .timeline-year {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 60px;
+      height: 60px;
+      background: #f59e0b;
+      color: #0f172a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.25rem;
     }
   </style>
 </head>
-<body class="bg-gray-50 font-sans flex flex-col min-h-screen">
+<body class="bg-gray-900 text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
+  <!-- Botón de Modo Noche/Día -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+    <i class="fas fa-moon"></i>
+  </button>
+
   <!-- Encabezado Fijo -->
-  <header class="bg-white shadow-lg sticky top-0 z-50">
+  <header class="bg-gray-900 border-b border-gray-700 sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-center py-4 gap-4">
-        <!-- Contenedor izquierdo: Gráfico + Logo + Nombre -->
+      <div class="flex items-center justify-between py-4">
         <div class="flex items-center">
-          <!-- TU GRÁFICO PERSONALIZADO (superior izquierda) -->
-          <img src="./assets/images/grafico-top-left.png" alt="Gráfico YottaByte" class="w-12 h-12 mr-4 hidden md:block">
+          <!-- Imagen del robot -->
+          <div class="mr-4">
+            <img src="./assets/images/grafico-top-left.png" alt="Robot YottaByte" class="w-28 h-28 rounded-lg shadow-lg">
+          </div>
           
-          <!-- LOGO -->
-          <img src="https://placehold.co/60x60/2563eb/ffffff?text=YB" alt="Logo YottaByte" class="w-14 h-14 object-cover rounded-lg">
+          <!-- Logo YB -->
+          <div class="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mr-4">
+            <span class="text-white font-bold text-xl">YB</span>
+          </div>
           
-          <!-- NOMBRE COMPLETO -->
-          <div class="ml-4">
-            <h1 class="text-xl md:text-2xl font-bold text-gray-900">Servicios Profesionales YottaByte Cia. Ltda.</h1>
-            <p class="text-blue-700 font-medium text-sm md:text-base">"Soluciones más allá del requerimiento....."</p>
+          <!-- Nombre y eslogan -->
+          <div>
+            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">Servicios Profesionales YottaByte Cia. Ltda.</h1>
+            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento....."</p>
           </div>
         </div>
 
-        <!-- Contenedor derecho: Búsqueda + Menú -->
-        <div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
-          <!-- Campo de Búsqueda -->
-          <div class="relative w-full sm:w-64">
-            <input 
-              type="text" 
-              id="search-input"
-              placeholder="Buscar producto o servicio..." 
-              class="search-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-            >
-            <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-
-          <!-- Menú de navegación -->
-          <nav class="flex space-x-4">
-            <a href="#inicio" class="text-gray-700 hover:text-blue-700 transition-colors font-medium text-sm">Inicio</a>
-            <a href="#productos" class="text-gray-700 hover:text-blue-700 transition-colors font-medium text-sm">Productos</a>
-            <a href="#servicios" class="text-gray-700 hover:text-blue-700 transition-colors font-medium text-sm">Servicios</a>
-            <a href="#contacto" class="text-gray-700 hover:text-blue-700 transition-colors font-medium text-sm">Contáctanos</a>
-          </nav>
+        <!-- Búsqueda -->
+        <div class="relative w-64">
+          <input 
+            type="text" 
+            placeholder="Buscar en Quiénes Somos..." 
+            class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
+          >
+          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
+      </div>
+
+      <!-- Menú de navegación -->
+      <div class="border-t border-gray-700">
+        <nav class="flex flex-wrap justify-center py-3 space-x-6">
+          <a href="index.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Inicio</a>
+          <a href="productos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Productos</a>
+          <a href="servicios.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Servicios</a>
+          <a href="quienes-somos.html" class="text-blue-400 font-medium border-b-2 border-blue-400">Quiénes Somos</a>
+          <a href="contacto.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contáctanos</a>
+        </nav>
       </div>
     </div>
   </header>
@@ -71,143 +126,253 @@
   <!-- Contenido Principal -->
   <main class="flex-grow">
     <!-- Hero Section -->
-    <section id="inicio" class="hero-bg text-white py-20">
+    <section class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Bienvenido a YottaByte</h2>
-        <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
-          Encuentra rápidamente lo que necesitas con nuestra búsqueda inteligente.
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Quiénes Somos</h1>
+        <p class="text-2xl md:text-3xl mb-10 max-w-4xl mx-auto leading-relaxed">
+          12 años brindando soluciones tecnológicas en Ecuador
         </p>
       </div>
     </section>
 
-    <!-- Sección de Productos y Servicios -->
-    <section class="py-16 bg-white">
+    <!-- Nuestra Historia -->
+    <section class="py-20 bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <!-- Cuadro de Productos -->
-          <div id="productos" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-shadow">
-            <div class="text-center mb-8">
-              <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-box-open text-3xl text-white"></i>
-              </div>
-              <h3 class="text-3xl font-bold text-gray-900 mb-4">Productos</h3>
-              <p class="text-gray-700 text-lg mb-6">
-                Equipamiento tecnológico de alta calidad para potenciar tu negocio.
-              </p>
-            </div>
-            <div class="flex flex-wrap justify-center gap-4">
-              <a href="tel:+59323945678" class="bg-blue-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-800 transition-colors flex items-center">
-                <i class="fas fa-phone mr-2"></i> Llamar
-              </a>
-              <a href="https://wa.me/593998765432" target="_blank" class="bg-green-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center">
-                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
-              </a>
-              <a href="mailto:ventas@yottabyte.com.ec" class="bg-gray-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors flex items-center">
-                <i class="fas fa-envelope mr-2"></i> Email
-              </a>
-            </div>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4 section-title">Nuestra Historia</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Conoce cómo hemos crecido junto a nuestros clientes
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="timeline-item">
+            <div class="timeline-year">2012</div>
+            <h3 class="text-2xl font-bold text-white mb-4">Fundación de YottaByte</h3>
+            <p class="text-gray-300">
+              Comenzamos como un pequeño taller de reparación de computadoras en Sangolqui, con la visión de ofrecer soluciones tecnológicas más allá de lo que el cliente pedía.
+            </p>
           </div>
 
-          <!-- Cuadro de Servicios -->
-          <div id="servicios" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-shadow">
-            <div class="text-center mb-8">
-              <div class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-concierge-bell text-3xl text-white"></i>
-              </div>
-              <h3 class="text-3xl font-bold text-gray-900 mb-4">Servicios</h3>
-              <p class="text-gray-700 text-lg mb-6">
-                Soluciones profesionales personalizadas para tus necesidades tecnológicas.
-              </p>
+          <div class="timeline-item">
+            <div class="timeline-year">2015</div>
+            <h3 class="text-2xl font-bold text-white mb-4">Expansión de Servicios</h3>
+            <p class="text-gray-300">
+              Incorporamos servicios profesionales para empresas, manteniendo nuestro compromiso con el cliente final. "Soluciones más allá del requerimiento" se convirtió en nuestra filosofía.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2018</div>
+            <h3 class="text-2xl font-bold text-white mb-4">Alianzas Estratégicas</h3>
+            <p class="text-gray-300">
+              Establecimos alianzas con marcas internacionales para ofrecer productos de alta calidad, tanto a empresas como a personas particulares.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2021</div>
+            <h3 class="text-2xl font-bold text-white mb-4">Enfoque Dual</h3>
+            <p class="text-gray-300">
+              Desarrollamos nuestro enfoque actual: soluciones profesionales para empresas (B2B) y acompañamiento cercano para clientes finales ("Estamos junto a ti en lo que necesites").
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <h3 class="text-2xl font-bold text-white mb-4">Más de 2000 Clientes Satisfechos</h3>
+            <p class="text-gray-300">
+              Hoy servimos a más de 2000 clientes en Ecuador, desde grandes empresas hasta estudiantes y amas de casa, siempre con el mismo compromiso: soluciones más allá del requerimiento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="py-20 bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4 section-title">Misión y Visión</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Palabras sencillas, compromiso real
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Misión -->
+          <div class="bg-gray-700 p-8 rounded-3xl">
+            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-bullseye text-2xl text-white"></i>
             </div>
-            <div class="flex flex-wrap justify-center gap-4">
-              <a href="tel:+59323945678" class="bg-blue-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-800 transition-colors flex items-center">
-                <i class="fas fa-phone mr-2"></i> Llamar
-              </a>
-              <a href="https://wa.me/593998765432" target="_blank" class="bg-green-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center">
-                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
-              </a>
-              <a href="mailto:servicios@yottabyte.com.ec" class="bg-gray-700 text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors flex items-center">
-                <i class="fas fa-envelope mr-2"></i> Email
-              </a>
+            <h3 class="text-3xl font-bold text-white mb-6 text-center">Nuestra Misión</h3>
+            <p class="text-gray-300 text-lg leading-relaxed">
+              <strong class="text-yellow-400">Para empresas:</strong> Brindar soluciones tecnológicas profesionales que superen sus expectativas y les permitan crecer.
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed mt-6">
+              <strong class="text-yellow-400">Para clientes finales:</strong> Estar junto a ti en lo que necesites, con paciencia y dedicación, para que la tecnología sea tu aliada y no un problema.
+            </p>
+          </div>
+
+          <!-- Visión -->
+          <div class="bg-gray-700 p-8 rounded-3xl">
+            <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-eye text-2xl text-white"></i>
             </div>
+            <h3 class="text-3xl font-bold text-white mb-6 text-center">Nuestra Visión</h3>
+            <p class="text-gray-300 text-lg leading-relaxed">
+              <strong class="text-yellow-400">Para empresas:</strong> Ser el partner tecnológico de confianza que toda empresa en Ecuador busca para su transformación digital.
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed mt-6">
+              <strong class="text-yellow-400">Para clientes finales:</strong> Ser ese amigo tecnológico al que puedes llamar cuando necesitas ayuda, sin miedo ni vergüenza.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nuestro Equipo -->
+    <section class="py-20 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4 section-title">Nuestro Equipo</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Profesionales comprometidos con tu éxito tecnológico
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Miembro 1 -->
+          <div class="bg-gray-800 rounded-2xl p-6 text-center hover:bg-gray-750 transition-colors">
+            <div class="w-32 h-32 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-user-tie text-4xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Carlos M.</h3>
+            <p class="text-blue-400 font-medium mb-2">Director General</p>
+            <p class="text-gray-400 text-sm">
+              "12 años guiando a YottaByte con el lema: Soluciones más allá del requerimiento."
+            </p>
+          </div>
+
+          <!-- Miembro 2 -->
+          <div class="bg-gray-800 rounded-2xl p-6 text-center hover:bg-gray-750 transition-colors">
+            <div class="w-32 h-32 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-laptop-code text-4xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Ana R.</h3>
+            <p class="text-blue-400 font-medium mb-2">Especialista en Clientes Finales</p>
+            <p class="text-gray-400 text-sm">
+              "Estamos junto a ti en lo que necesites, sin tecnicismos, con paciencia y dedicación."
+            </p>
+          </div>
+
+          <!-- Miembro 3 -->
+          <div class="bg-gray-800 rounded-2xl p-6 text-center hover:bg-gray-750 transition-colors">
+            <div class="w-32 h-32 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-server text-4xl text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Luis T.</h3>
+            <p class="text-blue-400 font-medium mb-2">Consultor B2B</p>
+            <p class="text-gray-400 text-sm">
+              "Soluciones tecnológicas que impulsan el crecimiento de tu empresa."
+            </p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Pie de Página Fijo -->
-  <footer id="contacto" class="bg-gray-900 text-white py-12">
+  <!-- Pie de Página -->
+  <footer class="bg-gray-900 border-t border-gray-700 text-gray-300 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
         <div>
-          <div class="flex items-center mb-4">
-            <img src="https://placehold.co/60x60/2563eb/ffffff?text=YB" alt="Logo YottaByte" class="w-12 h-12 object-cover rounded-lg">
-            <h3 class="ml-3 text-lg font-bold">Servicios Profesionales YottaByte Cia. Ltda.</h3>
+          <div class="flex items-center mb-6">
+            <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
+              <span class="text-white font-bold text-2xl">YB</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">YottaByte</h3>
           </div>
-          <p class="text-gray-400 text-sm">
-            "Soluciones más allá del requerimiento....."
+          <p class="text-gray-400 text-sm leading-relaxed">
+            "Soluciones mas alla del requerimiento....." 
+            12 años brindando tecnología para empresas y clientes finales en Ecuador.
           </p>
         </div>
         
         <div>
-          <h4 class="font-bold text-lg mb-4">Contacto</h4>
-          <ul class="space-y-2 text-gray-400 text-sm">
-            <li class="flex items-start">
-              <i class="fas fa-map-marker-alt mt-1 mr-2 text-blue-500"></i>
-              <span>Av. Amazonas N34-123, Quito, Ecuador</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-phone-alt mt-1 mr-2 text-blue-500"></i>
-              <span>Teléfono: +593 2 394 5678</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fab fa-whatsapp mt-1 mr-2 text-green-500"></i>
-              <span>WhatsApp: +593 99 876 5432</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-envelope mt-1 mr-2 text-blue-500"></i>
-              <span>info@yottabyte.com.ec</span>
-            </li>
+          <h4 class="font-bold text-lg mb-6 text-white">Enlaces Rápidos</h4>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
+            <li><a href="productos.html" class="hover:text-white transition-colors">Productos</a></li>
+            <li><a href="servicios.html" class="hover:text-white transition-colors">Servicios</a></li>
+            <li><a href="quienes-somos.html" class="hover:text-white transition-colors">Quiénes Somos</a></li>
           </ul>
         </div>
         
         <div>
-          <h4 class="font-bold text-lg mb-4">Horario</h4>
-          <ul class="space-y-2 text-gray-400 text-sm">
-            <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
-            <li>Sábado: 9:00 AM - 1:00 PM</li>
-            <li class="mt-4">Soporte técnico 24/7 para clientes con contrato</li>
+          <h4 class="font-bold text-lg mb-6 text-white">Nuestro Enfoque</h4>
+          <ul class="space-y-3 text-gray-400">
+            <li><i class="fas fa-building mr-2 text-blue-400"></i> Empresas (B2B)</li>
+            <li><i class="fas fa-users mr-2 text-green-400"></i> Clientes Finales</li>
+            <li><i class="fas fa-hands-helping mr-2 text-purple-400"></i> Estamos junto a ti</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Contacto</h4>
+          <ul class="space-y-4 text-gray-400">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+              <span>Sangolqui - Ecuador</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
+              <span>0984673754 / 0987082903</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fab fa-whatsapp mt-1 mr-3 text-green-400"></i>
+              <span>WhatsApp 24/7</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
+              <span>servicios.yottabyte@gmail.com</span>
+            </li>
           </ul>
         </div>
       </div>
       
-      <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400 text-sm">
-        <p>&copy; 2024 Servicios Profesionales YottaByte Cia. Ltda. Todos los derechos reservados.</p>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+        <p class="text-sm">
+          &copy; 2024 Servicios Profesionales YottaByte Cia. Ltda. Todos los derechos reservados.
+        </p>
+        <p class="text-xs mt-2">"Soluciones mas alla del requerimiento....."</p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Funcionalidad básica de búsqueda (filtrado visual)
-    document.addEventListener('DOMContentLoaded', function() {
-      const searchInput = document.getElementById('search-input');
-      
-      searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        
-        // Si el usuario escribe algo relacionado con productos o servicios, podemos dar feedback visual
-        if (searchTerm.includes('producto') || searchTerm.includes('equipo') || searchTerm.includes('laptop') || searchTerm.includes('servidor')) {
-          // Podríamos resaltar el cuadro de productos, o redirigir, etc.
-          console.log('Buscando en productos...');
-        } else if (searchTerm.includes('servicio') || searchTerm.includes('soporte') || searchTerm.includes('consultoría') || searchTerm.includes('capacitación')) {
-          // Podríamos resaltar el cuadro de servicios
-          console.log('Buscando en servicios...');
-        }
-        
-        // En una versión avanzada, esto filtraría una lista real de productos/servicios
-        // Por ahora, solo muestra en consola lo que busca el usuario
-      });
+    // Cambiar tema
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    
+    if (currentTheme === 'light') {
+      document.body.classList.remove('dark');
+      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+      document.body.classList.add('dark');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      if (document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      } else {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      }
     });
   </script>
 </body>
