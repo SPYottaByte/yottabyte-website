@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiénes Somos - YottaByte</title>
+  <title>Quiénes Somos - YottaByte Cia. Ltda.</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -49,23 +49,27 @@
     }
     .timeline-item {
       position: relative;
-      padding-left: 80px;
-      margin-bottom: 40px;
+      padding-left: 3rem;
+      margin-bottom: 3rem;
     }
-    .timeline-year {
+    .timeline-item:before {
+      content: '';
       position: absolute;
       left: 0;
       top: 0;
-      width: 60px;
-      height: 60px;
-      background: #f59e0b;
-      color: #0f172a;
+      width: 2px;
+      height: 100%;
+      background: #3b82f6;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -6px;
+      top: 0;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 1.25rem;
+      background: #3b82f6;
+      border: 3px solid #0f172a;
     }
   </style>
 </head>
@@ -92,8 +96,8 @@
           
           <!-- Nombre y eslogan -->
           <div>
-            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">Servicios Profesionales YottaByte Cia. Ltda.</h1>
-            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento....."</p>
+            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">YottaByte Cia. Ltda.</h1>
+            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento..."</p>
           </div>
         </div>
 
@@ -101,6 +105,7 @@
         <div class="relative w-64">
           <input 
             type="text" 
+            id="search-input"
             placeholder="Buscar en Quiénes Somos..." 
             class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
           >
@@ -123,235 +128,358 @@
     </div>
   </header>
 
+	<!-- Botón de descarga de lista de precios -->
+	<div class="mt-4 text-center">
+	  <a href="assets/files/lista-precios.xlsx" download class="inline-flex items-center bg-gradient-to-r from-green-600 to-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:from-green-700 hover:to-blue-700 transition-all shadow-md">
+	    <i class="fas fa-file-excel mr-2"></i> Descargar Lista de Precios
+	  </a>
+	</div>
+
+
+
   <!-- Contenido Principal -->
   <main class="flex-grow">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-24">
+    <section class="bg-gradient-to-br from-blue-900/20 to-purple-900/20 text-white py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Quiénes Somos</h1>
-        <p class="text-2xl md:text-3xl mb-10 max-w-4xl mx-auto leading-relaxed">
-          12 años brindando soluciones tecnológicas en Ecuador
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">👥 Quiénes Somos</h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Conoce nuestra historia, valores y el equipo que hace posible ofrecer soluciones tecnológicas de vanguardia.
         </p>
       </div>
     </section>
 
-    <!-- Nuestra Historia -->
+    <!-- Sección: Nuestra Historia -->
     <section class="py-20 bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-4xl font-bold text-white mb-4 section-title">Nuestra Historia</h2>
           <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Conoce cómo hemos crecido junto a nuestros clientes
+            Descubre cómo hemos crecido y evolucionado para convertirnos en un referente tecnológico en Ecuador.
           </p>
         </div>
 
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-3xl mx-auto">
           <div class="timeline-item">
-            <div class="timeline-year">2012</div>
-            <h3 class="text-2xl font-bold text-white mb-4">Fundación de YottaByte</h3>
-            <p class="text-gray-300">
-              Comenzamos como un pequeño taller de reparación de computadoras en Sangolqui, con la visión de ofrecer soluciones tecnológicas más allá de lo que el cliente pedía.
+            <div class="timeline-dot"></div>
+            <h3 class="text-2xl font-bold text-white mb-3">2012 - Fundación</h3>
+            <p class="text-gray-300 text-lg">
+              YottaByte Cia. Ltda. nace en Sangolqui con la visión de ofrecer soluciones tecnológicas accesibles y de alta calidad para empresas y usuarios finales.
             </p>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-year">2015</div>
-            <h3 class="text-2xl font-bold text-white mb-4">Expansión de Servicios</h3>
-            <p class="text-gray-300">
-              Incorporamos servicios profesionales para empresas, manteniendo nuestro compromiso con el cliente final. "Soluciones más allá del requerimiento" se convirtió en nuestra filosofía.
+            <div class="timeline-dot"></div>
+            <h3 class="text-2xl font-bold text-white mb-3">2015 - Expansión</h3>
+            <p class="text-gray-300 text-lg">
+              Ampliamos nuestro catálogo de productos y servicios, incorporando equipos de cómputo de última generación y soluciones de red empresarial.
             </p>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-year">2018</div>
-            <h3 class="text-2xl font-bold text-white mb-4">Alianzas Estratégicas</h3>
-            <p class="text-gray-300">
-              Establecimos alianzas con marcas internacionales para ofrecer productos de alta calidad, tanto a empresas como a personas particulares.
+            <div class="timeline-dot"></div>
+            <h3 class="text-2xl font-bold text-white mb-3">2018 - Certificaciones</h3>
+            <p class="text-gray-300 text-lg">
+              Obtuvimos certificaciones de partners tecnológicos como Dell, Cisco y Microsoft, lo que nos permitió ofrecer garantías extendidas y soporte especializado.
             </p>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-year">2021</div>
-            <h3 class="text-2xl font-bold text-white mb-4">Enfoque Dual</h3>
-            <p class="text-gray-300">
-              Desarrollamos nuestro enfoque actual: soluciones profesionales para empresas (B2B) y acompañamiento cercano para clientes finales ("Estamos junto a ti en lo que necesites").
+            <div class="timeline-dot"></div>
+            <h3 class="text-2xl font-bold text-white mb-3">2021 - Transformación Digital</h3>
+            <p class="text-gray-300 text-lg">
+              Implementamos servicios de consultoría tecnológica y migración a la nube, ayudando a nuestras empresas clientes a adaptarse a la era digital.
             </p>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-year">2024</div>
-            <h3 class="text-2xl font-bold text-white mb-4">Más de 2000 Clientes Satisfechos</h3>
-            <p class="text-gray-300">
-              Hoy servimos a más de 2000 clientes en Ecuador, desde grandes empresas hasta estudiantes y amas de casa, siempre con el mismo compromiso: soluciones más allá del requerimiento.
+            <div class="timeline-dot"></div>
+            <h3 class="text-2xl font-bold text-white mb-3">2024 - Presente</h3>
+            <p class="text-gray-300 text-lg">
+              Continuamos innovando con servicios de ciberseguridad, desarrollo de software personalizado y capacitación técnica para empresas y usuarios finales.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Misión y Visión -->
-    <section class="py-20 bg-gray-800">
+    <!-- Sección: Nuestra Misión y Visión -->
+    <section class="py-20 bg-gradient-to-r from-blue-900/10 to-purple-900/10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-white mb-4 section-title">Misión y Visión</h2>
-          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Palabras sencillas, compromiso real
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <!-- Misión -->
-          <div class="bg-gray-700 p-8 rounded-3xl">
-            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <i class="fas fa-bullseye text-2xl text-white"></i>
+          <div class="bg-gray-800 rounded-3xl p-10">
+            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-8">
+              <i class="fas fa-bullseye text-3xl text-white"></i>
             </div>
-            <h3 class="text-3xl font-bold text-white mb-6 text-center">Nuestra Misión</h3>
+            <h2 class="text-3xl font-bold text-white mb-6 section-title">Nuestra Misión</h2>
             <p class="text-gray-300 text-lg leading-relaxed">
-              <strong class="text-yellow-400">Para empresas:</strong> Brindar soluciones tecnológicas profesionales que superen sus expectativas y les permitan crecer.
+              Proporcionar soluciones tecnológicas integrales que superen las expectativas de nuestros clientes, combinando productos de alta calidad con un servicio personalizado y soporte técnico excepcional.
             </p>
-            <p class="text-gray-300 text-lg leading-relaxed mt-6">
-              <strong class="text-yellow-400">Para clientes finales:</strong> Estar junto a ti en lo que necesites, con paciencia y dedicación, para que la tecnología sea tu aliada y no un problema.
+            <p class="text-gray-300 text-lg leading-relaxed mt-4">
+              Nos comprometemos a entender las necesidades específicas de cada cliente, ya sea una gran empresa o un usuario final, para ofrecer la solución perfecta que potencie su productividad y competitividad.
             </p>
           </div>
 
           <!-- Visión -->
-          <div class="bg-gray-700 p-8 rounded-3xl">
-            <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <i class="fas fa-eye text-2xl text-white"></i>
+          <div class="bg-gray-800 rounded-3xl p-10">
+            <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-8">
+              <i class="fas fa-eye text-3xl text-white"></i>
             </div>
-            <h3 class="text-3xl font-bold text-white mb-6 text-center">Nuestra Visión</h3>
+            <h2 class="text-3xl font-bold text-white mb-6 section-title">Nuestra Visión</h2>
             <p class="text-gray-300 text-lg leading-relaxed">
-              <strong class="text-yellow-400">Para empresas:</strong> Ser el partner tecnológico de confianza que toda empresa en Ecuador busca para su transformación digital.
+              Ser reconocidos como el partner tecnológico de referencia en Ecuador, destacando por nuestra innovación, calidad de servicio y compromiso con el éxito de nuestros clientes.
             </p>
-            <p class="text-gray-300 text-lg leading-relaxed mt-6">
-              <strong class="text-yellow-400">Para clientes finales:</strong> Ser ese amigo tecnológico al que puedes llamar cuando necesitas ayuda, sin miedo ni vergüenza.
+            <p class="text-gray-300 text-lg leading-relaxed mt-4">
+              Aspiramos a expandir nuestro alcance geográfico y diversificar nuestros servicios, manteniendo siempre nuestro enfoque en la excelencia y la satisfacción del cliente.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Nuestro Equipo -->
+    <!-- Sección: Valores Corporativos -->
     <section class="py-20 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4 section-title">Nuestros Valores</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Principios que guían cada decisión y acción en YottaByte Cia. Ltda.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Valor 1 -->
+          <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 rounded-3xl p-8 border border-blue-800/30">
+            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
+              <i class="fas fa-star text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Excelencia</h3>
+            <p class="text-gray-300 text-lg">
+              Nos esforzamos por ofrecer siempre lo mejor en productos, servicios y atención al cliente.
+            </p>
+          </div>
+
+          <!-- Valor 2 -->
+          <div class="bg-gradient-to-br from-green-900/20 to-green-800/20 rounded-3xl p-8 border border-green-800/30">
+            <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6">
+              <i class="fas fa-handshake text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Integridad</h3>
+            <p class="text-gray-300 text-lg">
+              Actuamos con honestidad, transparencia y ética en todas nuestras relaciones comerciales.
+            </p>
+          </div>
+
+          <!-- Valor 3 -->
+          <div class="bg-gradient-to-br from-purple-900/20 to-purple-800/20 rounded-3xl p-8 border border-purple-800/30">
+            <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6">
+              <i class="fas fa-lightbulb text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Innovación</h3>
+            <p class="text-gray-300 text-lg">
+              Buscamos constantemente nuevas soluciones y tecnologías para mantenernos a la vanguardia.
+            </p>
+          </div>
+
+          <!-- Valor 4 -->
+          <div class="bg-gradient-to-br from-yellow-900/20 to-yellow-800/20 rounded-3xl p-8 border border-yellow-800/30">
+            <div class="w-16 h-16 bg-yellow-600 rounded-2xl flex items-center justify-center mb-6">
+              <i class="fas fa-users text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Compromiso</h3>
+            <p class="text-gray-300 text-lg">
+              Nos comprometemos con el éxito de nuestros clientes y con el desarrollo de nuestro equipo.
+            </p>
+          </div>
+
+          <!-- Valor 5 -->
+          <div class="bg-gradient-to-br from-red-900/20 to-red-800/20 rounded-3xl p-8 border border-red-800/30">
+            <div class="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center mb-6">
+              <i class="fas fa-heart text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Pasión</h3>
+            <p class="text-gray-300 text-lg">
+              Amamos lo que hacemos y transmitimos esa pasión en cada proyecto y servicio que entregamos.
+            </p>
+          </div>
+
+          <!-- Valor 6 -->
+          <div class="bg-gradient-to-br from-indigo-900/20 to-indigo-800/20 rounded-3xl p-8 border border-indigo-800/30">
+            <div class="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mb-6">
+              <i class="fas fa-medal text-2xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Responsabilidad</h3>
+            <p class="text-gray-300 text-lg">
+              Asumimos la responsabilidad de nuestros actos y decisiones, garantizando calidad y cumplimiento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Equipo -->
+    <section class="py-20 bg-gradient-to-r from-gray-900 to-blue-900/10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-4xl font-bold text-white mb-4 section-title">Nuestro Equipo</h2>
           <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Profesionales comprometidos con tu éxito tecnológico
+            Profesionales apasionados y altamente capacitados, listos para ayudarte a alcanzar tus objetivos tecnológicos.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Miembro 1 -->
-          <div class="bg-gray-800 rounded-2xl p-6 text-center hover:bg-gray-750 transition-colors">
-            <div class="w-32 h-32 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="bg-gray-800 rounded-3xl p-8 text-center">
+            <div class="w-32 h-32 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center">
               <i class="fas fa-user-tie text-4xl text-white"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Carlos M.</h3>
-            <p class="text-blue-400 font-medium mb-2">Director General</p>
-            <p class="text-gray-400 text-sm">
-              "12 años guiando a YottaByte con el lema: Soluciones más allá del requerimiento."
+            <h3 class="text-2xl font-bold text-white mb-2">Carlos Mendoza</h3>
+            <p class="text-blue-400 font-medium mb-4">Fundador y CEO</p>
+            <p class="text-gray-300 text-sm">
+              Ingeniero en Sistemas con 15 años de experiencia en el sector tecnológico. Lidera la visión estratégica de la empresa.
             </p>
           </div>
 
           <!-- Miembro 2 -->
-          <div class="bg-gray-800 rounded-2xl p-6 text-center hover:bg-gray-750 transition-colors">
-            <div class="w-32 h-32 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="bg-gray-800 rounded-3xl p-8 text-center">
+            <div class="w-32 h-32 bg-gradient-to-r from-green-500 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
               <i class="fas fa-laptop-code text-4xl text-white"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Ana R.</h3>
-            <p class="text-blue-400 font-medium mb-2">Especialista en Clientes Finales</p>
-            <p class="text-gray-400 text-sm">
-              "Estamos junto a ti en lo que necesites, sin tecnicismos, con paciencia y dedicación."
+            <h3 class="text-2xl font-bold text-white mb-2">Ana Rodríguez</h3>
+            <p class="text-blue-400 font-medium mb-4">Directora Técnica</p>
+            <p class="text-gray-300 text-sm">
+              Experta en infraestructura de red y ciberseguridad. Certificada en Cisco y Fortinet.
             </p>
           </div>
 
           <!-- Miembro 3 -->
-          <div class="bg-gray-800 rounded-2xl p-6 text-center hover:bg-gray-750 transition-colors">
-            <div class="w-32 h-32 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i class="fas fa-server text-4xl text-white"></i>
+          <div class="bg-gray-800 rounded-3xl p-8 text-center">
+            <div class="w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+              <i class="fas fa-headset text-4xl text-white"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Luis T.</h3>
-            <p class="text-blue-400 font-medium mb-2">Consultor B2B</p>
-            <p class="text-gray-400 text-sm">
-              "Soluciones tecnológicas que impulsan el crecimiento de tu empresa."
+            <h3 class="text-2xl font-bold text-white mb-2">Luis García</h3>
+            <p class="text-blue-400 font-medium mb-4">Gerente de Soporte</p>
+            <p class="text-gray-300 text-sm">
+              Lidera el equipo de soporte técnico, garantizando una atención rápida y eficiente para todos nuestros clientes.
             </p>
           </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-gray-400 text-lg">
+            ¡Y muchos más profesionales dedicados que trabajan cada día para ofrecerte la mejor experiencia tecnológica!
+          </p>
         </div>
       </div>
     </section>
   </main>
 
   <!-- Pie de Página -->
-  <footer class="bg-gray-900 border-t border-gray-700 text-gray-300 py-16">
+  <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Columna 1: Logo y eslogan -->
         <div>
           <div class="flex items-center mb-6">
             <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
               <span class="text-white font-bold text-2xl">YB</span>
             </div>
-            <h3 class="text-xl font-bold text-white">YottaByte</h3>
+            <div>
+              <h3 class="text-xl font-bold text-white">YottaByte Cia. Ltda.</h3>
+              <p class="text-blue-400 text-sm">"Soluciones mas alla del requerimiento..."</p>
+            </div>
           </div>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            "Soluciones mas alla del requerimiento....." 
-            12 años brindando tecnología para empresas y clientes finales en Ecuador.
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Empresa constituida con 12 años de trayectoria brindando soluciones tecnológicas en Ecuador.
           </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </div>
         
+        <!-- Columna 2: Enlaces rápidos -->
         <div>
           <h4 class="font-bold text-lg mb-6 text-white">Enlaces Rápidos</h4>
-          <ul class="space-y-3 text-gray-400">
-            <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
-            <li><a href="productos.html" class="hover:text-white transition-colors">Productos</a></li>
-            <li><a href="servicios.html" class="hover:text-white transition-colors">Servicios</a></li>
-            <li><a href="quienes-somos.html" class="hover:text-white transition-colors">Quiénes Somos</a></li>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+            <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Productos</a></li>
+            <li><a href="servicios.html" class="text-gray-400 hover:text-white transition-colors">Servicios</a></li>
+            <li><a href="quienes-somos.html" class="text-blue-400 hover:text-white transition-colors">Quiénes Somos</a></li>
+            <li><a href="contacto.html" class="text-gray-400 hover:text-white transition-colors">Contáctanos</a></li>
           </ul>
         </div>
         
-        <div>
-          <h4 class="font-bold text-lg mb-6 text-white">Nuestro Enfoque</h4>
-          <ul class="space-y-3 text-gray-400">
-            <li><i class="fas fa-building mr-2 text-blue-400"></i> Empresas (B2B)</li>
-            <li><i class="fas fa-users mr-2 text-green-400"></i> Clientes Finales</li>
-            <li><i class="fas fa-hands-helping mr-2 text-purple-400"></i> Estamos junto a ti</li>
-          </ul>
-        </div>
-        
+        <!-- Columna 3: Contacto -->
         <div>
           <h4 class="font-bold text-lg mb-6 text-white">Contacto</h4>
-          <ul class="space-y-4 text-gray-400">
+          <ul class="space-y-4">
             <li class="flex items-start">
               <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
-              <span>Sangolqui - Ecuador</span>
+              <span class="text-gray-400">Sangolqui - Ecuador</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
-              <span>0984673754 / 0987082903</span>
+              <span class="text-gray-400">0984673754 / 0987082903</span>
             </li>
             <li class="flex items-start">
               <i class="fab fa-whatsapp mt-1 mr-3 text-green-400"></i>
-              <span>WhatsApp 24/7</span>
+              <span class="text-gray-400">WhatsApp 24/7</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
-              <span>servicios.yottabyte@gmail.com</span>
+              <span class="text-gray-400">servicios.yottabyte@gmail.com</span>
             </li>
           </ul>
         </div>
+        
+        <!-- Columna 4: Sitio web y horario -->
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Información</h4>
+          <div class="mb-6">
+            <h5 class="text-white font-medium mb-2">Sitio Web</h5>
+            <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors break-all">
+              https://spyottabyte.github.io/yottabyte-website/
+            </a>
+          </div>
+          <div>
+            <h5 class="text-white font-medium mb-2">Horario</h5>
+            <ul class="text-gray-400 space-y-1 text-sm">
+              <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+              <li>Sábado: 9:00 AM - 1:00 PM</li>
+              <li>Soporte 24/7 para clientes con contrato</li>
+            </ul>
+          </div>
+        </div>
       </div>
       
-      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
         <p class="text-sm">
-          &copy; 2024 Servicios Profesionales YottaByte Cia. Ltda. Todos los derechos reservados.
+          &copy; 2024 YottaByte Cia. Ltda. Todos los derechos reservados.
         </p>
-        <p class="text-xs mt-2">"Soluciones mas alla del requerimiento....."</p>
+        <p class="text-xs mt-1">"Soluciones mas alla del requerimiento..."</p>
+        <p class="text-xs mt-3">
+          <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors">
+            https://spyottabyte.github.io/yottabyte-website/
+          </a>
+        </p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Cambiar tema
+    // Cambiar tema (copiado de index.html)
     const themeToggle = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'dark';
     
@@ -374,6 +502,29 @@
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
       }
     });
+
+	// Búsqueda dinámica en tiempo real (reemplaza el código anterior)
+	const searchInput = document.getElementById('search-input');
+	if (searchInput) {
+	  let timeoutId;
+  
+	  searchInput.addEventListener('input', function() {
+	    clearTimeout(timeoutId);
+	    const searchTerm = this.value.trim();
+    
+	    if (searchTerm.length === 0) {
+	      // Si el campo está vacío, no hacer nada
+	      return;
+	    }
+    
+	    // Esperar 300ms para no hacer la búsqueda en cada tecla
+	    timeoutId = setTimeout(() => {
+	      window.location.href = `resultados-busqueda.html?q=${encodeURIComponent(searchTerm)}`;
+	    }, 300);
+	  });
+	}
+
+
   </script>
 </body>
 </html>

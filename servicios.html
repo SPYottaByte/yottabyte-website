@@ -3,21 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios - YottaByte</title>
+  <title>Servicios - YottaByte Cia. Ltda.</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       scroll-behavior: smooth;
       background-color: #0f172a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #f59e0b;
+      border-radius: 2px;
     }
     .category-card {
       transition: all 0.3s ease;
       border: 2px solid transparent;
+      background: rgba(30, 41, 59, 0.6);
+      height: 100%;
     }
     .category-card:hover {
       transform: translateY(-5px);
-      border-color: #f59e0b;
+      border-color: #3b82f6;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
     }
     .theme-toggle {
@@ -56,7 +73,7 @@
         <div class="flex items-center">
           <!-- Imagen del robot -->
           <div class="mr-4">
-            <img src="./assets/images/grafico-top-left.png" alt="Asistente YottaByte" class="w-28 h-28 rounded-lg shadow-lg">
+            <img src="./assets/images/grafico-top-left.png" alt="Robot YottaByte" class="w-28 h-28 rounded-lg shadow-lg">
           </div>
           
           <!-- Logo YB -->
@@ -66,8 +83,8 @@
           
           <!-- Nombre y eslogan -->
           <div>
-            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">Servicios Profesionales YottaByte Cia. Ltda.</h1>
-            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones más allá del requerimiento....."</p>
+            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">YottaByte Cia. Ltda.</h1>
+            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento..."</p>
           </div>
         </div>
 
@@ -75,7 +92,8 @@
         <div class="relative w-64">
           <input 
             type="text" 
-            placeholder="¿Qué servicio necesitas?" 
+            id="search-input"
+            placeholder="Buscar servicio..." 
             class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
           >
           <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
@@ -91,244 +109,255 @@
           <a href="productos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Productos</a>
           <a href="servicios.html" class="text-blue-400 font-medium border-b-2 border-blue-400">Servicios</a>
           <a href="quienes-somos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Quiénes Somos</a>
-          <a href="#contacto" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contáctanos</a>
+          <a href="contacto.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contáctanos</a>
         </nav>
       </div>
     </div>
   </header>
 
+	<!-- Botón de descarga de lista de precios -->
+	<div class="mt-4 text-center">
+	  <a href="assets/files/lista-precios.xlsx" download class="inline-flex items-center bg-gradient-to-r from-green-600 to-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:from-green-700 hover:to-blue-700 transition-all shadow-md">
+	    <i class="fas fa-file-excel mr-2"></i> Descargar Lista de Precios
+	  </a>
+	</div>
+
+
+
   <!-- Contenido Principal -->
   <main class="flex-grow">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-purple-700 to-purple-900 text-white py-24">
+    <section class="bg-gradient-to-br from-purple-900/20 to-blue-900/20 text-white py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Servicios de Ayuda Personalizada</h1>
-        <p class="text-2xl md:text-3xl mb-10 max-w-4xl mx-auto leading-relaxed">
-          Soporte técnico, capacitación y configuración para principiantes y familias
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Nuestros Servicios</h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Soluciones personalizadas con soporte experto para maximizar tu inversión tecnológica.
         </p>
       </div>
     </section>
 
-    <!-- Grid de Categorías -->
+    <!-- Sección de Categorías -->
     <section class="py-20 bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-white mb-4">¿En qué te podemos ayudar?</h2>
+          <h2 class="text-4xl font-bold text-white mb-4 section-title">Categorías de Servicios</h2>
           <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Servicios diseñados para personas que necesitan ayuda tecnológica en su día a día
+            Explora nuestras áreas de especialización y encuentra el servicio perfecto para tus necesidades.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <!-- Categoría 1: Soporte a Domicilio -->
-          <a href="servicio/detalle.html" class="category-card bg-gradient-to-br from-blue-900/20 to-blue-800/20 rounded-3xl p-8 border border-blue-800/30 hover:border-blue-500">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Categoría 1 -->
+          <a href="servicios/consultoria-tecnologica.html" class="category-card rounded-2xl p-8 border border-gray-700 hover:border-blue-500">
             <div class="text-center">
               <div class="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-house-user text-3xl text-white"></i>
+                <i class="fas fa-lightbulb text-3xl text-white"></i>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Soporte a Domicilio</h3>
-              <p class="text-gray-300 mb-6">
-                Te ayudamos en tu casa con cualquier problema tecnológico
+              <h3 class="text-2xl font-bold text-white mb-4">💡 Consultoría Tecnológica</h3>
+              <p class="text-gray-300 text-lg mb-6">
+                Análisis, planificación y estrategia tecnológica para optimizar tus procesos y recursos.
               </p>
-              <div class="inline-flex items-center text-blue-400 font-medium">
-                <span>Solicitar ayuda</span>
-                <i class="fas fa-arrow-right ml-2"></i>
+              <div class="inline-flex items-center text-blue-400 font-semibold">
+                <span>Explorar servicios</span>
+                <i class="fas fa-arrow-right ml-3"></i>
               </div>
             </div>
           </a>
 
-          <!-- Categoría 2: Capacitación para Principiantes -->
-          <a href="servicio/detalle.html" class="category-card bg-gradient-to-br from-green-900/20 to-green-800/20 rounded-3xl p-8 border border-green-800/30 hover:border-green-500">
+          <!-- Categoría 2 -->
+          <a href="servicios/soporte-tecnico.html" class="category-card rounded-2xl p-8 border border-gray-700 hover:border-green-500">
             <div class="text-center">
               <div class="w-20 h-20 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-chalkboard-teacher text-3xl text-white"></i>
+                <i class="fas fa-headset text-3xl text-white"></i>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Capacitación</h3>
-              <p class="text-gray-300 mb-6">
-                Clases personalizadas para aprender a usar tus dispositivos
+              <h3 class="text-2xl font-bold text-white mb-4">🎧 Soporte Técnico</h3>
+              <p class="text-gray-300 text-lg mb-6">
+                Asistencia remota y presencial para resolver problemas y mantener tus sistemas operativos.
               </p>
-              <div class="inline-flex items-center text-green-400 font-medium">
-                <span>Aprender más</span>
-                <i class="fas fa-arrow-right ml-2"></i>
+              <div class="inline-flex items-center text-green-400 font-semibold">
+                <span>Explorar servicios</span>
+                <i class="fas fa-arrow-right ml-3"></i>
               </div>
             </div>
           </a>
 
-          <!-- Categoría 3: Configuración de Redes en Casa -->
-          <a href="servicio/detalle.html" class="category-card bg-gradient-to-br from-purple-900/20 to-purple-800/20 rounded-3xl p-8 border border-purple-800/30 hover:border-purple-500">
+          <!-- Categoría 3 -->
+          <a href="servicios/desarrollo-software.html" class="category-card rounded-2xl p-8 border border-gray-700 hover:border-purple-500">
             <div class="text-center">
               <div class="w-20 h-20 bg-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-wifi text-3xl text-white"></i>
+                <i class="fas fa-code text-3xl text-white"></i>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Configuración de Redes</h3>
-              <p class="text-gray-300 mb-6">
-                Instalamos y configuramos internet y redes en tu hogar
+              <h3 class="text-2xl font-bold text-white mb-4">👨‍💻 Desarrollo de Software</h3>
+              <p class="text-gray-300 text-lg mb-6">
+                Creación de aplicaciones personalizadas, sistemas web y soluciones a medida para tu negocio.
               </p>
-              <div class="inline-flex items-center text-purple-400 font-medium">
-                <span>Configurar mi red</span>
-                <i class="fas fa-arrow-right ml-2"></i>
+              <div class="inline-flex items-center text-purple-400 font-semibold">
+                <span>Explorar servicios</span>
+                <i class="fas fa-arrow-right ml-3"></i>
               </div>
             </div>
           </a>
 
-          <!-- Categoría 4: Respaldo de Fotos y Documentos -->
-          <a href="servicio/detalle.html" class="category-card bg-gradient-to-br from-yellow-900/20 to-yellow-800/20 rounded-3xl p-8 border border-yellow-800/30 hover:border-yellow-500">
+          <!-- Categoría 4 -->
+          <a href="servicios/migracion-cloud.html" class="category-card rounded-2xl p-8 border border-gray-700 hover:border-yellow-500">
             <div class="text-center">
               <div class="w-20 h-20 bg-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-hdd text-3xl text-white"></i>
+                <i class="fas fa-cloud text-3xl text-white"></i>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Respaldo de Datos</h3>
-              <p class="text-gray-300 mb-6">
-                Salvamos tus fotos, documentos y recuerdos importantes
+              <h3 class="text-2xl font-bold text-white mb-4">☁️ Migración a la Nube</h3>
+              <p class="text-gray-300 text-lg mb-6">
+                Transición segura y eficiente de tus sistemas y datos a plataformas cloud como AWS, Azure o Google Cloud.
               </p>
-              <div class="inline-flex items-center text-yellow-400 font-medium">
-                <span>Proteger mis datos</span>
-                <i class="fas fa-arrow-right ml-2"></i>
+              <div class="inline-flex items-center text-yellow-400 font-semibold">
+                <span>Explorar servicios</span>
+                <i class="fas fa-arrow-right ml-3"></i>
               </div>
             </div>
           </a>
 
-          <!-- Categoría 5: Asesoría para Compras -->
-          <a href="servicio/detalle.html" class="category-card bg-gradient-to-br from-red-900/20 to-red-800/20 rounded-3xl p-8 border border-red-800/30 hover:border-red-500">
+          <!-- Categoría 5 -->
+          <a href="servicios/ciberseguridad.html" class="category-card rounded-2xl p-8 border border-gray-700 hover:border-red-500">
             <div class="text-center">
               <div class="w-20 h-20 bg-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-shopping-cart text-3xl text-white"></i>
+                <i class="fas fa-shield-alt text-3xl text-white"></i>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Asesoría para Compras</h3>
-              <p class="text-gray-300 mb-6">
-                Te ayudamos a elegir el equipo perfecto para tus necesidades
+              <h3 class="text-2xl font-bold text-white mb-4">🛡️ Ciberseguridad</h3>
+              <p class="text-gray-300 text-lg mb-6">
+                Auditorías, implementación de firewalls, políticas de seguridad y protección contra amenazas digitales.
               </p>
-              <div class="inline-flex items-center text-red-400 font-medium">
-                <span>Asesorarme</span>
-                <i class="fas fa-arrow-right ml-2"></i>
+              <div class="inline-flex items-center text-red-400 font-semibold">
+                <span>Explorar servicios</span>
+                <i class="fas fa-arrow-right ml-3"></i>
               </div>
             </div>
           </a>
 
-          <!-- Categoría 6: Soluciones para Estudiantes -->
-          <a href="servicio/detalle.html" class="category-card bg-gradient-to-br from-indigo-900/20 to-indigo-800/20 rounded-3xl p-8 border border-indigo-800/30 hover:border-indigo-500">
+          <!-- Categoría 6 -->
+          <a href="servicios/capacitacion-tecnica.html" class="category-card rounded-2xl p-8 border border-gray-700 hover:border-indigo-500">
             <div class="text-center">
               <div class="w-20 h-20 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <i class="fas fa-book text-3xl text-white"></i>
+                <i class="fas fa-graduation-cap text-3xl text-white"></i>
               </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Para Estudiantes</h3>
-              <p class="text-gray-300 mb-6">
-                Configuración de equipos y programas para tus estudios
+              <h3 class="text-2xl font-bold text-white mb-4">🎓 Capacitación Técnica</h3>
+              <p class="text-gray-300 text-lg mb-6">
+                Cursos y talleres personalizados para tu equipo en herramientas, software y buenas prácticas tecnológicas.
               </p>
-              <div class="inline-flex items-center text-indigo-400 font-medium">
-                <span>Ayuda con mis estudios</span>
-                <i class="fas fa-arrow-right ml-2"></i>
+              <div class="inline-flex items-center text-indigo-400 font-semibold">
+                <span>Explorar servicios</span>
+                <i class="fas fa-arrow-right ml-3"></i>
               </div>
             </div>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sección de Preguntas Frecuentes -->
-    <section class="py-20 bg-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-white mb-4">Preguntas Frecuentes</h2>
-          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Respuestas a las dudas más comunes de nuestros clientes
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-gray-700 p-6 rounded-xl">
-            <h3 class="text-xl font-bold text-white mb-3">¿Necesito conocimientos técnicos para usar sus servicios?</h3>
-            <p class="text-gray-300">¡Para nada! Nuestros servicios están diseñados especialmente para personas que no tienen experiencia técnica. Te explicamos todo en un lenguaje sencillo y claro.</p>
-          </div>
-
-          <div class="bg-gray-700 p-6 rounded-xl">
-            <h3 class="text-xl font-bold text-white mb-3">¿Cuánto cuesta una visita a domicilio?</h3>
-            <p class="text-gray-300">Las visitas a domicilio tienen un costo base de $25, que incluye la primera hora de servicio. Cada hora adicional tiene un costo de $15. ¡Te damos un presupuesto antes de empezar!</p>
-          </div>
-
-          <div class="bg-gray-700 p-6 rounded-xl">
-            <h3 class="text-xl font-bold text-white mb-3">¿Pueden ayudarme a configurar mi nueva laptop?</h3>
-            <p class="text-gray-300">¡Claro que sí! Te ayudamos a configurar tu nueva laptop, instalar los programas que necesitas, transferir tus archivos y enseñarte a usarla. ¡Te sentirás como un experto en poco tiempo!</p>
-          </div>
-
-          <div class="bg-gray-700 p-6 rounded-xl">
-            <h3 class="text-xl font-bold text-white mb-3">¿Qué zonas de Sangolqui atienden?</h3>
-            <p class="text-gray-300">Atendemos toda el área de Sangolqui. Si vives en otra zona, contáctanos para ver si podemos ayudarte. ¡Muchas veces podemos resolver problemas de forma remota sin necesidad de desplazarnos!</p>
-          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Pie de Página -->
-  <footer class="bg-gray-900 border-t border-gray-700 text-gray-300 py-16">
+  <!-- Pie de Página (Copiado exactamente de index.html) -->
+  <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Columna 1: Logo y eslogan -->
         <div>
           <div class="flex items-center mb-6">
             <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
               <span class="text-white font-bold text-2xl">YB</span>
             </div>
-            <h3 class="text-xl font-bold text-white">YottaByte</h3>
+            <div>
+              <h3 class="text-xl font-bold text-white">YottaByte Cia. Ltda.</h3>
+              <p class="text-blue-400 text-sm">"Soluciones mas alla del requerimiento..."</p>
+            </div>
           </div>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            "Soluciones más allá del requerimiento....." 
-            Tecnología profesional para empresas, instituciones educativas y personas particulares.
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Empresa constituida con 12 años de trayectoria brindando soluciones tecnológicas en Ecuador.
           </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </div>
         
+        <!-- Columna 2: Enlaces rápidos -->
         <div>
-          <h4 class="font-bold text-lg mb-6 text-white">Productos</h4>
-          <ul class="space-y-3 text-gray-400">
-            <li><a href="productos.html" class="hover:text-white transition-colors">Para tu Hogar</a></li>
-            <li><a href="productos.html" class="hover:text-white transition-colors">Para Estudiantes</a></li>
-            <li><a href="productos.html" class="hover:text-white transition-colors">Para Entretenimiento</a></li>
+          <h4 class="font-bold text-lg mb-6 text-white">Enlaces Rápidos</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+            <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Productos</a></li>
+            <li><a href="servicios.html" class="text-blue-400 hover:text-white transition-colors">Servicios</a></li>
+            <li><a href="quienes-somos.html" class="text-gray-400 hover:text-white transition-colors">Quiénes Somos</a></li>
+            <li><a href="contacto.html" class="text-gray-400 hover:text-white transition-colors">Contáctanos</a></li>
           </ul>
         </div>
         
-        <div>
-          <h4 class="font-bold text-lg mb-6 text-white">Servicios</h4>
-          <ul class="space-y-3 text-gray-400">
-            <li><a href="servicios.html" class="hover:text-white transition-colors">Soporte a Domicilio</a></li>
-            <li><a href="servicios.html" class="hover:text-white transition-colors">Capacitación</a></li>
-            <li><a href="servicios.html" class="hover:text-white transition-colors">Configuración</a></li>
-          </ul>
-        </div>
-        
+        <!-- Columna 3: Contacto -->
         <div>
           <h4 class="font-bold text-lg mb-6 text-white">Contacto</h4>
-          <ul class="space-y-4 text-gray-400">
+          <ul class="space-y-4">
             <li class="flex items-start">
               <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
-              <span>Sangolqui - Ecuador</span>
+              <span class="text-gray-400">Sangolqui - Ecuador</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
-              <span>0984673754 / 0987082903</span>
+              <span class="text-gray-400">0984673754 / 0987082903</span>
             </li>
             <li class="flex items-start">
               <i class="fab fa-whatsapp mt-1 mr-3 text-green-400"></i>
-              <span>WhatsApp 24/7</span>
+              <span class="text-gray-400">WhatsApp 24/7</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
-              <span>servicios.yottabyte@gmail.com</span>
+              <span class="text-gray-400">servicios.yottabyte@gmail.com</span>
             </li>
           </ul>
         </div>
+        
+        <!-- Columna 4: Sitio web y horario -->
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Información</h4>
+          <div class="mb-6">
+            <h5 class="text-white font-medium mb-2">Sitio Web</h5>
+            <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors break-all">
+              https://spyottabyte.github.io/yottabyte-website/
+            </a>
+          </div>
+          <div>
+            <h5 class="text-white font-medium mb-2">Horario</h5>
+            <ul class="text-gray-400 space-y-1 text-sm">
+              <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+              <li>Sábado: 9:00 AM - 1:00 PM</li>
+              <li>Soporte 24/7 para clientes con contrato</li>
+            </ul>
+          </div>
+        </div>
       </div>
       
-      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
         <p class="text-sm">
-          &copy; 2024 Servicios Profesionales YottaByte Cia. Ltda. Todos los derechos reservados.
+          &copy; 2024 YottaByte Cia. Ltda. Todos los derechos reservados.
         </p>
-        <p class="text-xs mt-2">"Soluciones más allá del requerimiento....."</p>
+        <p class="text-xs mt-1">"Soluciones mas alla del requerimiento..."</p>
+        <p class="text-xs mt-3">
+          <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors">
+            https://spyottabyte.github.io/yottabyte-website/
+          </a>
+        </p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Cambiar tema
+    // Cambiar tema (copiado de index.html)
     const themeToggle = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'dark';
     
@@ -351,6 +380,29 @@
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
       }
     });
+
+	// Búsqueda dinámica en tiempo real (reemplaza el código anterior)
+	const searchInput = document.getElementById('search-input');
+	if (searchInput) {
+	  let timeoutId;
+  
+	  searchInput.addEventListener('input', function() {
+	    clearTimeout(timeoutId);
+	    const searchTerm = this.value.trim();
+    
+	    if (searchTerm.length === 0) {
+	      // Si el campo está vacío, no hacer nada
+	      return;
+	    }
+    
+	    // Esperar 300ms para no hacer la búsqueda en cada tecla
+	    timeoutId = setTimeout(() => {
+	      window.location.href = `resultados-busqueda.html?q=${encodeURIComponent(searchTerm)}`;
+	    }, 300);
+	  });
+	}
+
+
   </script>
 </body>
 </html>

@@ -3,13 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Capacitación para Principiantes - YottaByte</title>
+  <title>Detalle de Servicio - YottaByte Cia. Ltda.</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       scroll-behavior: smooth;
       background-color: #0f172a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #f59e0b;
+      border-radius: 2px;
     }
     .theme-toggle {
       position: fixed;
@@ -32,6 +47,12 @@
       transform: scale(1.1);
       background: #334155;
     }
+    .feature-item {
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
@@ -47,7 +68,7 @@
         <div class="flex items-center">
           <!-- Imagen del robot -->
           <div class="mr-4">
-            <img src="../assets/images/grafico-top-left.png" alt="Asistente YottaByte" class="w-28 h-28 rounded-lg shadow-lg">
+            <img src="../assets/images/grafico-top-left.png" alt="Robot YottaByte" class="w-28 h-28 rounded-lg shadow-lg">
           </div>
           
           <!-- Logo YB -->
@@ -57,8 +78,8 @@
           
           <!-- Nombre y eslogan -->
           <div>
-            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">Servicios Profesionales YottaByte Cia. Ltda.</h1>
-            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones más allá del requerimiento....."</p>
+            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">YottaByte Cia. Ltda.</h1>
+            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento..."</p>
           </div>
         </div>
 
@@ -66,7 +87,8 @@
         <div class="relative w-64">
           <input 
             type="text" 
-            placeholder="¿Qué necesitas hoy?" 
+            id="search-input"
+            placeholder="Buscar servicio..." 
             class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
           >
           <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
@@ -80,9 +102,9 @@
         <nav class="flex flex-wrap justify-center py-3 space-x-6">
           <a href="../index.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Inicio</a>
           <a href="../productos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Productos</a>
-          <a href="../servicios.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Servicios</a>
+          <a href="../servicios.html" class="text-blue-400 font-medium border-b-2 border-blue-400">Servicios</a>
           <a href="../quienes-somos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Quiénes Somos</a>
-          <a href="#contacto" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contáctanos</a>
+          <a href="../contacto.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contáctanos</a>
         </nav>
       </div>
     </div>
@@ -91,271 +113,171 @@
   <!-- Contenido Principal -->
   <main class="flex-grow">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-purple-700 to-purple-900 text-white py-24">
+    <section class="bg-gradient-to-br from-blue-900/20 to-purple-900/20 text-white py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Clases de Computación para Principiantes</h1>
-        <p class="text-2xl md:text-3xl mb-10 max-w-4xl mx-auto leading-relaxed">
-          Aprende a usar la computadora desde cero, sin miedo y a tu propio ritmo
-        </p>
-        <a href="../servicios.html" class="inline-flex items-center text-purple-200 font-medium hover:text-white transition-colors">
-          <i class="fas fa-arrow-left mr-2"></i>
-          <span>Volver a Servicios</span>
-        </a>
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-4" id="service-title">Cargando servicio...</h1>
+        <p class="text-lg text-gray-300" id="service-category">Categoría: Cargando...</p>
       </div>
     </section>
 
     <!-- Detalle del Servicio -->
     <section class="py-16 bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gray-800 rounded-3xl p-8 md:p-12">
-          <div class="text-center mb-12">
-            <div class="w-24 h-24 bg-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <i class="fas fa-chalkboard-teacher text-4xl text-white"></i>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Imagen del Servicio -->
+          <div class="flex justify-center">
+            <div class="w-full max-w-md h-80 bg-gray-800 rounded-2xl flex items-center justify-center shadow-2xl" id="service-image-container">
+              <i class="fas fa-cogs text-8xl text-blue-400" id="service-icon"></i>
             </div>
-            <h2 class="text-4xl font-bold text-white mb-4">Clases de Computación para Principiantes</h2>
-            <p class="text-xl text-gray-300 mb-6">
-              ¿Nunca has usado una computadora? ¿Te da miedo? ¡No te preocupes! Te enseñamos desde cero, con paciencia y a tu ritmo.
-            </p>
           </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Información del Servicio -->
-            <div>
-              <h3 class="text-2xl font-bold text-white mb-4">¿Qué aprenderás en estas clases?</h3>
-              <ul class="space-y-4 text-gray-300 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
-                  <span><strong>Lo básico:</strong> Encender/apagar, usar el mouse y el teclado</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
-                  <span><strong>Internet:</strong> Navegar, buscar información, usar el correo electrónico</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
-                  <span><strong>Programas útiles:</strong> Word para escribir, Excel para cálculos, PowerPoint para presentaciones</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
-                  <span><strong>Redes sociales:</strong> Facebook, WhatsApp, Instagram (para estar en contacto con tu familia)</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
-                  <span><strong>Seguridad:</strong> Cómo proteger tus datos y evitar estafas en internet</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
-                  <span><strong>Entretenimiento:</strong> Ver películas, escuchar música, jugar juegos sencillos</span>
-                </li>
-              </ul>
-
-              <div class="mb-8">
-                <h3 class="text-2xl font-bold text-white mb-4">¿Cómo son las clases?</h3>
-                <ol class="space-y-3 text-gray-300">
-                  <li class="flex">
-                    <span class="font-bold text-blue-400 mr-3">1.</span>
-                    <span><strong>Personalizadas:</strong> Aprendes lo que realmente necesitas, no un curso genérico</span>
-                  </li>
-                  <li class="flex">
-                    <span class="font-bold text-blue-400 mr-3">2.</span>
-                    <span><strong>A tu ritmo:</strong> Sin presión, repetimos las veces que sea necesario</span>
-                  </li>
-                  <li class="flex">
-                    <span class="font-bold text-blue-400 mr-3">3.</span>
-                    <span><strong>En tu casa:</strong> Te visitamos en tu hogar, con tu propia computadora</span>
-                  </li>
-                  <li class="flex">
-                    <span class="font-bold text-blue-400 mr-3">4.</span>
-                    <span><strong>Materiales incluidos:</strong> Te damos guías sencillas para repasar en casa</span>
-                  </li>
-                  <li class="flex">
-                    <span class="font-bold text-blue-400 mr-3">5.</span>
-                    <span><strong>Soporte posterior:</strong> Puedes contactarnos si tienes dudas después de las clases</span>
-                  </li>
-                </ol>
+          
+          <!-- Información del Servicio -->
+          <div>
+            <div class="bg-gray-800 rounded-2xl p-8">
+              <h2 class="text-2xl font-bold text-white mb-6">Características Principales</h2>
+              <div id="service-features" class="space-y-4">
+                <!-- Las características se cargarán aquí dinámicamente -->
+                <div class="feature-item">
+                  <strong class="text-blue-400">Cargando...</strong>
+                  <p class="text-gray-300">Los datos se cargarán automáticamente.</p>
+                </div>
               </div>
-            </div>
-
-            <!-- Precios y Contacto -->
-            <div class="bg-gray-700 rounded-2xl p-8">
-              <h3 class="text-2xl font-bold text-white mb-6">Inversión y Contacto</h3>
               
-              <div class="mb-8">
-                <div class="bg-gray-800 rounded-xl p-6">
-                  <h4 class="text-xl font-bold text-white mb-2">Opciones de Clases</h4>
-                  <div class="space-y-4 mt-4">
-                    <div>
-                      <h5 class="font-bold text-green-400">Clase Individual (2 horas)</h5>
-                      <p class="text-white">$25</p>
-                      <p class="text-gray-400 text-sm">Ideal para resolver dudas específicas</p>
-                    </div>
-                    <div>
-                      <h5 class="font-bold text-blue-400">Paquete de 5 Clases (10 horas)</h5>
-                      <p class="text-white">$100</p>
-                      <p class="text-gray-400 text-sm">Perfecto para aprender lo básico completo</p>
-                    </div>
-                    <div>
-                      <h5 class="font-bold text-purple-400">Paquete de 10 Clases (20 horas)</h5>
-                      <p class="text-white">$180</p>
-                      <p class="text-gray-400 text-sm">Para dominar la computadora y programas útiles</p>
-                    </div>
-                  </div>
+              <div class="mt-8 pt-6 border-t border-gray-700">
+                <div class="flex justify-between items-center mb-6">
+                  <span class="text-3xl font-bold text-blue-400" id="service-price">Cargando...</span>
+                  <span class="text-sm bg-green-600 text-white px-3 py-1 rounded-full" id="service-status">Cargando</span>
                 </div>
-              </div>
-
-              <div class="mb-8">
-                <h4 class="text-xl font-bold text-white mb-4">¿Cómo agendar tus clases?</h4>
-                <p class="text-gray-300 mb-6">
-                  Contáctanos para una evaluación gratuita de tus necesidades y diseñamos un plan de clases personalizado.
+                
+                <p class="text-gray-400 mb-6 text-sm">
+                  <i class="fas fa-info-circle mr-2"></i>
+                  Este servicio se personaliza según las necesidades de tu empresa. Contáctanos para una cotización detallada.
                 </p>
-                <div class="flex flex-wrap gap-4">
-                  <a href="https://wa.me/593984673754" class="bg-green-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center">
-                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
-                  </a>
-                  <a href="mailto:servicios.yottabyte@gmail.com" class="bg-gray-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-700 transition-colors flex items-center">
-                    <i class="fas fa-envelope mr-2"></i> Email
-                  </a>
-                  <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-purple-700 transition-colors flex items-center">
-                    <i class="fas fa-calendar-alt mr-2"></i> Agendar
-                  </a>
-                </div>
-              </div>
-
-              <div class="border-t border-gray-600 pt-6">
-                <h4 class="text-xl font-bold text-white mb-4">Garantía de Satisfacción</h4>
-                <p class="text-gray-300">
-                  Si después de la primera clase no te sientes cómodo, te devolvemos tu dinero. ¡Queremos que aprendas sin estrés!
-                </p>
+                
+                <a href="../contacto.html" class="w-full block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-xl font-bold text-center hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg">
+                  <i class="fas fa-phone-alt mr-3"></i> Solicitar Cotización
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Sección Testimonios -->
-    <section class="py-16 bg-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-white mb-4">Lo que dicen nuestros estudiantes</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Testimonio 1 -->
-          <div class="bg-gray-700 p-6 rounded-2xl">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
-                <span class="text-white font-bold">R</span>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-white font-bold">Rosa, 68 años</h4>
-                <p class="text-gray-400 text-sm">Ama de casa</p>
-              </div>
-            </div>
-            <p class="text-gray-300 italic">"Nunca había tocado una computadora y me daba miedo. La profesora fue muy paciente y ahora puedo ver fotos de mis nietos y hasta hacer videollamadas. ¡Gracias por enseñarme!"</p>
-          </div>
-
-          <!-- Testimonio 2 -->
-          <div class="bg-gray-700 p-6 rounded-2xl">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                <span class="text-white font-bold">J</span>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-white font-bold">Jorge, 52 años</h4>
-                <p class="text-gray-400 text-sm">Empleado público</p>
-              </div>
-            </div>
-            <p class="text-gray-300 italic">"En mi trabajo me pidieron usar la computadora y me sentía avergonzado. Con 5 clases aprendí lo básico y ahora me siento más seguro. ¡Excelente servicio!"</p>
-          </div>
-
-          <!-- Testimonio 3 -->
-          <div class="bg-gray-700 p-6 rounded-2xl">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
-                <span class="text-white font-bold">M</span>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-white font-bold">María, 45 años</h4>
-                <p class="text-gray-400 text-sm">Madre de familia</p>
-              </div>
-            </div>
-            <p class="text-gray-300 italic">"Quería ayudar a mis hijos con sus tareas pero no sabía usar la computadora. Ahora puedo buscar información, imprimir trabajos y hasta ayudarles con sus presentaciones. ¡Muy recomendado!"</p>
-          </div>
+        
+        <!-- Descripción Detallada -->
+        <div class="mt-16 bg-gray-800 rounded-2xl p-8">
+          <h2 class="text-2xl font-bold text-white mb-6 section-title">Descripción Completa</h2>
+          <p class="text-gray-300 text-lg leading-relaxed" id="service-description">
+            Cargando descripción detallada del servicio...
+          </p>
         </div>
       </div>
     </section>
   </main>
 
   <!-- Pie de Página -->
-  <footer class="bg-gray-900 border-t border-gray-700 text-gray-300 py-16">
+  <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Columna 1: Logo y eslogan -->
         <div>
           <div class="flex items-center mb-6">
             <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
               <span class="text-white font-bold text-2xl">YB</span>
             </div>
-            <h3 class="text-xl font-bold text-white">YottaByte</h3>
+            <div>
+              <h3 class="text-xl font-bold text-white">YottaByte Cia. Ltda.</h3>
+              <p class="text-blue-400 text-sm">"Soluciones mas alla del requerimiento..."</p>
+            </div>
           </div>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            "Soluciones más allá del requerimiento....." 
-            Tecnología profesional para empresas, instituciones educativas y personas particulares.
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Empresa constituida con 12 años de trayectoria brindando soluciones tecnológicas en Ecuador.
           </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </div>
         
+        <!-- Columna 2: Enlaces rápidos -->
         <div>
-          <h4 class="font-bold text-lg mb-6 text-white">Productos</h4>
-          <ul class="space-y-3 text-gray-400">
-            <li><a href="../productos.html" class="hover:text-white transition-colors">Para tu Hogar</a></li>
-            <li><a href="../productos.html" class="hover:text-white transition-colors">Para Estudiantes</a></li>
-            <li><a href="../productos.html" class="hover:text-white transition-colors">Para Entretenimiento</a></li>
+          <h4 class="font-bold text-lg mb-6 text-white">Enlaces Rápidos</h4>
+          <ul class="space-y-3">
+            <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+            <li><a href="../productos.html" class="text-gray-400 hover:text-white transition-colors">Productos</a></li>
+            <li><a href="../servicios.html" class="text-blue-400 hover:text-white transition-colors">Servicios</a></li>
+            <li><a href="../quienes-somos.html" class="text-gray-400 hover:text-white transition-colors">Quiénes Somos</a></li>
+            <li><a href="../contacto.html" class="text-gray-400 hover:text-white transition-colors">Contáctanos</a></li>
           </ul>
         </div>
         
-        <div>
-          <h4 class="font-bold text-lg mb-6 text-white">Servicios</h4>
-          <ul class="space-y-3 text-gray-400">
-            <li><a href="../servicios.html" class="hover:text-white transition-colors">Soporte a Domicilio</a></li>
-            <li><a href="../servicios.html" class="hover:text-white transition-colors">Capacitación</a></li>
-            <li><a href="../servicios.html" class="hover:text-white transition-colors">Configuración</a></li>
-          </ul>
-        </div>
-        
+        <!-- Columna 3: Contacto -->
         <div>
           <h4 class="font-bold text-lg mb-6 text-white">Contacto</h4>
-          <ul class="space-y-4 text-gray-400">
+          <ul class="space-y-4">
             <li class="flex items-start">
               <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
-              <span>Sangolqui - Ecuador</span>
+              <span class="text-gray-400">Sangolqui - Ecuador</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
-              <span>0984673754 / 0987082903</span>
+              <span class="text-gray-400">0984673754 / 0987082903</span>
             </li>
             <li class="flex items-start">
               <i class="fab fa-whatsapp mt-1 mr-3 text-green-400"></i>
-              <span>WhatsApp 24/7</span>
+              <span class="text-gray-400">WhatsApp 24/7</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
-              <span>servicios.yottabyte@gmail.com</span>
+              <span class="text-gray-400">servicios.yottabyte@gmail.com</span>
             </li>
           </ul>
         </div>
+        
+        <!-- Columna 4: Sitio web y horario -->
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Información</h4>
+          <div class="mb-6">
+            <h5 class="text-white font-medium mb-2">Sitio Web</h5>
+            <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors break-all">
+              https://spyottabyte.github.io/yottabyte-website/
+            </a>
+          </div>
+          <div>
+            <h5 class="text-white font-medium mb-2">Horario</h5>
+            <ul class="text-gray-400 space-y-1 text-sm">
+              <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+              <li>Sábado: 9:00 AM - 1:00 PM</li>
+              <li>Soporte 24/7 para clientes con contrato</li>
+            </ul>
+          </div>
+        </div>
       </div>
       
-      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
         <p class="text-sm">
-          &copy; 2024 Servicios Profesionales YottaByte Cia. Ltda. Todos los derechos reservados.
+          &copy; 2024 YottaByte Cia. Ltda. Todos los derechos reservados.
         </p>
-        <p class="text-xs mt-2">"Soluciones más allá del requerimiento....."</p>
+        <p class="text-xs mt-1">"Soluciones mas alla del requerimiento..."</p>
+        <p class="text-xs mt-3">
+          <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors">
+            https://spyottabyte.github.io/yottabyte-website/
+          </a>
+        </p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Cambiar tema
+    // Cambiar tema (copiado de index.html)
     const themeToggle = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'dark';
     
@@ -378,6 +300,99 @@
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
       }
     });
+
+    // Búsqueda (copiado de index.html)
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      if (searchTerm.length > 2) {
+        console.log('Buscando:', searchTerm);
+      }
+    });
+
+    // Simulación de carga de datos del servicio
+    const servicesData = {
+      'analisis-sistemas': {
+        title: 'Análisis de Sistemas',
+        category: 'Consultoría Tecnológica',
+        icon: 'fa-chart-line',
+        price: 'Desde $500',
+        status: 'Recomendado',
+        features: [
+          { label: 'Duración', value: '2-4 semanas según complejidad' },
+          { label: 'Entregables', value: 'Informe detallado con recomendaciones y hoja de ruta' },
+          { label: 'Metodología', value: 'Análisis de procesos, entrevistas con stakeholders, revisión de documentación' },
+          { label: 'Beneficios', value: 'Identificación de cuellos de botella, oportunidades de automatización y optimización de recursos' }
+        ],
+        description: 'Nuestro servicio de Análisis de Sistemas es el primer paso para transformar digitalmente tu organización. Realizamos un diagnóstico profundo de tus procesos actuales, identificamos ineficiencias y proponemos soluciones tecnológicas que se alinean con tus objetivos de negocio. Trabajamos en estrecha colaboración con tu equipo para entender tus necesidades específicas y entregar un informe detallado con recomendaciones prácticas y una hoja de ruta clara para la implementación.'
+      },
+      'planificacion-tecnologica': {
+        title: 'Planificación Tecnológica',
+        category: 'Consultoría Tecnológica',
+        icon: 'fa-road',
+        price: 'Desde $800',
+        status: 'Estratégico',
+        features: [
+          { label: 'Horizonte', value: 'Planificación a 1, 3 y 5 años' },
+          { label: 'Enfoque', value: 'Alineación de TI con objetivos de negocio' },
+          { label: 'Componentes', value: 'Evaluación de infraestructura actual, roadmap de inversiones, plan de adopción de nuevas tecnologías' },
+          { label: 'Resultado', value: 'Documento estratégico con prioridades, presupuestos estimados y métricas de éxito' }
+        ],
+        description: 'La Planificación Tecnológica es esencial para asegurar que tus inversiones en tecnología generen el máximo retorno. Desarrollamos una hoja de ruta estratégica que alinea tus objetivos de negocio con las capacidades tecnológicas necesarias. Evaluamos tu infraestructura actual, identificamos brechas y proponemos un plan de acción con prioridades claras, presupuestos estimados y métricas de éxito. Este servicio te permitirá tomar decisiones informadas y evitar inversiones en tecnología que no aporten valor a tu organización.'
+      },
+      'auditoria-ti': {
+        title: 'Auditoría de TI',
+        category: 'Consultoría Tecnológica',
+        icon: 'fa-clipboard-check',
+        price: 'Desde $1,200',
+        status: 'Integral',
+        features: [
+          { label: 'Alcance', value: 'Infraestructura, seguridad, procesos y cumplimiento' },
+          { label: 'Metodología', value: 'Basada en estándares internacionales (ISO 27001, COBIT, ITIL)' },
+          { label: 'Entregables', value: 'Informe de hallazgos, plan de acción con prioridades y recomendaciones de mejora' },
+          { label: 'Valor', value: 'Reducción de riesgos, mejora de la eficiencia operativa y preparación para certificaciones' }
+        ],
+        description: 'Nuestra Auditoría de TI es una evaluación integral de tu entorno tecnológico. Examinamos tu infraestructura, políticas de seguridad, procesos de gestión y cumplimiento normativo, utilizando estándares internacionales como ISO 27001, COBIT e ITIL. El resultado es un informe detallado con hallazgos, riesgos identificados y un plan de acción con recomendaciones prioritarias para mejorar la seguridad, eficiencia y cumplimiento de tu departamento de TI. Este servicio es ideal para organizaciones que buscan reducir riesgos, optimizar sus operaciones y prepararse para certificaciones internacionales.'
+      }
+      // Puedes agregar más servicios aquí
+    };
+
+    // Función para cargar los datos del servicio
+    function loadServiceData() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceId = urlParams.get('servicio');
+      
+      if (!serviceId || !servicesData[serviceId]) {
+        document.getElementById('service-title').textContent = 'Servicio no encontrado';
+        document.getElementById('service-category').textContent = 'Error';
+        document.getElementById('service-description').textContent = 'Lo sentimos, no pudimos encontrar el servicio que estás buscando.';
+        return;
+      }
+      
+      const service = servicesData[serviceId];
+      
+      document.getElementById('service-title').textContent = service.title;
+      document.getElementById('service-category').textContent = `Categoría: ${service.category}`;
+      document.getElementById('service-icon').className = `fas ${service.icon} text-8xl text-blue-400`;
+      document.getElementById('service-price').textContent = service.price;
+      document.getElementById('service-status').textContent = service.status;
+      document.getElementById('service-description').textContent = service.description;
+      
+      const featuresContainer = document.getElementById('service-features');
+      featuresContainer.innerHTML = '';
+      
+      service.features.forEach(feature => {
+        const featureElement = document.createElement('div');
+        featureElement.className = 'feature-item';
+        featureElement.innerHTML = `
+          <strong class="text-blue-400">${feature.label}:</strong>
+          <p class="text-gray-300">${feature.value}</p>
+        `;
+        featuresContainer.appendChild(featureElement);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadServiceData);
   </script>
 </body>
 </html>

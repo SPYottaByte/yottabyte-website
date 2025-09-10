@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contáctanos - YottaByte</title>
+  <title>Contáctanos - YottaByte Cia. Ltda.</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -50,15 +50,18 @@
     .contact-card {
       transition: all 0.3s ease;
       border: 2px solid transparent;
+      background: rgba(30, 41, 59, 0.6);
     }
     .contact-card:hover {
       transform: translateY(-5px);
-      border-color: #f59e0b;
+      border-color: #3b82f6;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
     }
-    .tech-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    .form-input {
+      @apply w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400;
+    }
+    .form-textarea {
+      @apply w-full px-4 py-3 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400 resize-none;
     }
   </style>
 </head>
@@ -85,8 +88,8 @@
           
           <!-- Nombre y eslogan -->
           <div>
-            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">Servicios Profesionales YottaByte Cia. Ltda.</h1>
-            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento....."</p>
+            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">YottaByte Cia. Ltda.</h1>
+            <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento..."</p>
           </div>
         </div>
 
@@ -94,7 +97,8 @@
         <div class="relative w-64">
           <input 
             type="text" 
-            placeholder="Buscar en Contacto..." 
+            id="search-input"
+            placeholder="Buscar en Contáctanos..." 
             class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
           >
           <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
@@ -116,219 +120,358 @@
     </div>
   </header>
 
+	<!-- Botón de descarga de lista de precios -->
+	<div class="mt-4 text-center">
+	  <a href="assets/files/lista-precios.xlsx" download class="inline-flex items-center bg-gradient-to-r from-green-600 to-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:from-green-700 hover:to-blue-700 transition-all shadow-md">
+	    <i class="fas fa-file-excel mr-2"></i> Descargar Lista de Precios
+	  </a>
+	</div>
+
+
+
   <!-- Contenido Principal -->
   <main class="flex-grow">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-24">
+    <section class="bg-gradient-to-br from-blue-900/20 to-green-900/20 text-white py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6">Contáctanos</h1>
-        <p class="text-2xl md:text-3xl mb-10 max-w-4xl mx-auto leading-relaxed">
-          Estamos aquí para ayudarte, ya seas una empresa o un cliente final
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">📞 Contáctanos</h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Estamos aquí para ayudarte. Elige el método que prefieras para ponerte en contacto con nosotros.
         </p>
       </div>
     </section>
 
-    <!-- Formas de Contacto -->
+    <!-- Sección: Formulario de Contacto -->
     <section class="py-20 bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-white mb-4 section-title">¿Cómo podemos ayudarte?</h2>
-          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Elige la forma que mejor se adapte a tus necesidades
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <!-- Contacto para Empresas (B2B) -->
-          <div class="contact-card bg-gradient-to-br from-blue-900/20 to-blue-800/20 rounded-3xl p-8 border border-blue-800/30">
-            <div class="text-center mb-6">
-              <div class="tech-icon text-blue-400">
-                <i class="fas fa-building"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Para Empresas (B2B)</h3>
-            </div>
-            <p class="text-gray-300 mb-6">
-              Soluciones tecnológicas profesionales para potenciar tu negocio.
-            </p>
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <i class="fas fa-phone-alt text-blue-400 mr-3"></i>
-                <span>0984673754 (Línea empresarial)</span>
-              </div>
-              <div class="flex items-center">
-                <i class="fas fa-envelope text-blue-400 mr-3"></i>
-                <span>empresas@yottabyte.com.ec</span>
-              </div>
-              <div class="flex items-center">
-                <i class="fab fa-whatsapp text-green-400 mr-3"></i>
-                <span>0984673754 (WhatsApp Empresas)</span>
-              </div>
-            </div>
-            <div class="mt-6 text-center">
-              <a href="https://wa.me/593984673754" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                Contactar como Empresa
-              </a>
-            </div>
-          </div>
-
-          <!-- Contacto para Clientes Finales -->
-          <div class="contact-card bg-gradient-to-br from-green-900/20 to-green-800/20 rounded-3xl p-8 border border-green-800/30">
-            <div class="text-center mb-6">
-              <div class="tech-icon text-green-400">
-                <i class="fas fa-users"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Para Clientes Finales</h3>
-            </div>
-            <p class="text-gray-300 mb-6">
-              Estamos junto a ti en lo que necesites, con paciencia y dedicación.
-            </p>
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <i class="fas fa-phone-alt text-green-400 mr-3"></i>
-                <span>0987082903 (Línea clientes)</span>
-              </div>
-              <div class="flex items-center">
-                <i class="fas fa-envelope text-green-400 mr-3"></i>
-                <span>clientes@yottabyte.com.ec</span>
-              </div>
-              <div class="flex items-center">
-                <i class="fab fa-whatsapp text-green-400 mr-3"></i>
-                <span>0987082903 (WhatsApp Clientes)</span>
-              </div>
-            </div>
-            <div class="mt-6 text-center">
-              <a href="https://wa.me/593987082903" class="inline-block bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors">
-                Contactar como Cliente
-              </a>
-            </div>
-          </div>
-
-          <!-- Soporte Técnico -->
-          <div class="contact-card bg-gradient-to-br from-purple-900/20 to-purple-800/20 rounded-3xl p-8 border border-purple-800/30">
-            <div class="text-center mb-6">
-              <div class="tech-icon text-purple-400">
-                <i class="fas fa-headset"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-4">Soporte Técnico</h3>
-            </div>
-            <p class="text-gray-300 mb-6">
-              Asistencia inmediata para resolver tus problemas tecnológicos.
-            </p>
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <i class="fas fa-clock text-purple-400 mr-3"></i>
-                <span>24/7 para clientes con contrato</span>
-              </div>
-              <div class="flex items-center">
-                <i class="fas fa-phone-alt text-purple-400 mr-3"></i>
-                <span>0984673754 (Soporte técnico)</span>
-              </div>
-              <div class="flex items-center">
-                <i class="fas fa-envelope text-purple-400 mr-3"></i>
-                <span>soporte@yottabyte.com.ec</span>
-              </div>
-            </div>
-            <div class="mt-6 text-center">
-              <a href="mailto:soporte@yottabyte.com.ec" class="inline-block bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors">
-                Solicitar Soporte
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Horario y Ubicación -->
-    <section class="py-20 bg-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-white mb-4 section-title">Horario y Ubicación</h2>
-          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Te atendemos con gusto en nuestro local o a domicilio
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <!-- Horario -->
-          <div class="bg-gray-700 p-8 rounded-3xl">
-            <div class="flex items-center mb-6">
-              <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center mr-4">
-                <i class="fas fa-clock text-white"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-white">Horario de Atención</h3>
-            </div>
-            <ul class="space-y-4 text-gray-300">
-              <li class="flex justify-between">
-                <span>Lunes - Viernes:</span>
-                <span class="font-medium">8:00 AM - 6:00 PM</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Sábado:</span>
-                <span class="font-medium">9:00 AM - 1:00 PM</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Soporte Técnico 24/7:</span>
-                <span class="font-medium text-green-400">Para clientes con contrato</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Emergencias:</span>
-                <span class="font-medium text-red-400">0984673754 (WhatsApp)</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Ubicación -->
-          <div class="bg-gray-700 p-8 rounded-3xl">
-            <div class="flex items-center mb-6">
-              <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
-                <i class="fas fa-map-marker-alt text-white"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-white">Ubicación</h3>
-            </div>
-            <div class="space-y-4 text-gray-300">
-              <p class="flex items-start">
-                <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-3"></i>
-                <span>Sangolqui - Ecuador</span>
-              </p>
-              <p class="flex items-start">
-                <i class="fas fa-building text-blue-400 mt-1 mr-3"></i>
-                <span>Zona comercial principal de Sangolqui</span>
-              </p>
-              <p class="flex items-start">
-                <i class="fas fa-car text-blue-400 mt-1 mr-3"></i>
-                <span>Estacionamiento disponible</span>
-              </p>
-              <p class="flex items-start">
-                <i class="fas fa-wheelchair text-blue-400 mt-1 mr-3"></i>
-                <span>Accesible para personas con movilidad reducida</span>
-              </p>
-            </div>
-            <div class="mt-6">
-              <a href="#" class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                <i class="fas fa-map-marked-alt mr-2"></i>
-                Ver en Google Maps
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Formulario de Contacto -->
-    <section class="py-20 bg-gray-900">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-4xl font-bold text-white mb-4 section-title">Envíanos un Mensaje</h2>
           <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Completa el formulario y nos pondremos en contacto contigo
+            Completa el formulario y nos pondremos en contacto contigo lo antes posible.
           </p>
         </div>
 
-        <div class="bg-gray-800 p-8 rounded-3xl">
-          <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="max-w-4xl mx-auto bg-gray-800 rounded-3xl p-10 shadow-2xl">
+          <form id="contact-form" class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <label for="name" class="block text-lg font-medium text-white mb-3">Nombre Completo *</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre completo" required>
+              </div>
+              <div>
+                <label for="email" class="block text-lg font-medium text-white mb-3">Correo Electrónico *</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+              </div>
+            </div>
+
             <div>
-              <label class="block text-gray-300 font-medium mb-2">Nombre Completo</label>
-              <input type="text" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Tu nombre completo">
+              <label for="phone" class="block text-lg font-medium text-white mb-3">Teléfono *</label>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="099 999 9999" required>
+            </div>
+
+            <div>
+              <label for="subject" class="block text-lg font-medium text-white mb-3">Asunto *</label>
+              <select id="subject" name="subject" class="form-input" required>
+                <option value="">Selecciona un asunto</option>
+                <option value="consulta-producto">Consulta sobre Producto</option>
+                <option value="cotizacion-servicio">Cotización de Servicio</option>
+                <option value="soporte-tecnico">Soporte Técnico</option>
+                <option value="otros">Otros</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-lg font-medium text-white mb-3">Mensaje *</label>
+              <textarea id="message" name="message" rows="6" class="form-textarea" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+            </div>
+
+            <div class="flex items-center">
+              <input type="checkbox" id="terms" name="terms" class="w-5 h-5 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500" required>
+              <label for="terms" class="ml-3 text-gray-300">
+                Acepto los <a href="#" class="text-blue-400 hover:underline">términos y condiciones</a> y la <a href="#" class="text-blue-400 hover:underline">política de privacidad</a>.
+              </label>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="bg-gradient-to-r from-blue-600 to-green-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-green-700 transition-all shadow-lg">
+                <i class="fas fa-paper-plane mr-3"></i> Enviar Mensaje
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Métodos de Contacto Alternativos -->
+    <section class="py-20 bg-gradient-to-r from-gray-900 to-blue-900/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4 section-title">Otras Formas de Contactarnos</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Si prefieres contactarnos por otros medios, aquí tienes todas las opciones disponibles.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- WhatsApp -->
+          <a href="https://wa.me/593984673754" target="_blank" class="contact-card rounded-3xl p-8 border border-gray-700 hover:border-green-500">
+            <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+              <i class="fab fa-whatsapp text-3xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 text-center">WhatsApp</h3>
+            <p class="text-gray-300 text-lg text-center mb-4">
+              Contacto directo y rápido. ¡Escríbenos en cualquier momento!
+            </p>
+            <div class="text-center">
+              <p class="text-green-400 font-bold text-xl">+593 984 673 754</p>
+              <p class="text-gray-400 text-sm">Disponible 24/7</p>
+            </div>
+          </a>
+
+          <!-- Teléfono -->
+          <a href="tel:+593984673754" class="contact-card rounded-3xl p-8 border border-gray-700 hover:border-blue-500">
+            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+              <i class="fas fa-phone-alt text-3xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 text-center">Llamada Telefónica</h3>
+            <p class="text-gray-300 text-lg text-center mb-4">
+              Llámanos durante nuestro horario de atención para una asesoría personalizada.
+            </p>
+            <div class="text-center">
+              <p class="text-blue-400 font-bold text-xl">+593 984 673 754</p>
+              <p class="text-gray-400 text-sm">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+            </div>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:servicios.yottabyte@gmail.com" class="contact-card rounded-3xl p-8 border border-gray-700 hover:border-yellow-500">
+            <div class="w-16 h-16 bg-yellow-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+              <i class="fas fa-envelope text-3xl text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4 text-center">Correo Electrónico</h3>
+            <p class="text-gray-300 text-lg text-center mb-4">
+              Envíanos un email con tus consultas o requerimientos. Te responderemos a la brevedad.
+            </p>
+            <div class="text-center">
+              <p class="text-yellow-400 font-bold text-xl">servicios.yottabyte@gmail.com</p>
+              <p class="text-gray-400 text-sm">Respuesta en 24 horas hábiles</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Ubicación -->
+    <section class="py-20 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-white mb-4 section-title">Nuestra Ubicación</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Visítanos en nuestras oficinas en Sangolqui, Ecuador. Estamos para atenderte personalmente.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 rounded-3xl p-8">
+          <div class="flex flex-col lg:flex-row items-center gap-8">
+            <div class="lg:w-1/2">
+              <h3 class="text-2xl font-bold text-white mb-6">Dirección</h3>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <i class="fas fa-map-marker-alt mt-1 mr-4 text-blue-400 text-xl"></i>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white">Oficinas Principales</h4>
+                    <p class="text-gray-300">Sangolqui, Ecuador</p>
+                    <p class="text-gray-400 text-sm">Cerca de la Universidad de las Fuerzas Armadas ESPE</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-clock mt-1 mr-4 text-blue-400 text-xl"></i>
+                  <div>
+                    <h4 class="text-lg font-semibold text-white">Horario de Atención</h4>
+                    <p class="text-gray-300">Lunes - Viernes: 8:00 AM - 6:00 PM</p>
+                    <p class="text-gray-300">Sábado: 9:00 AM - 1:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/2">
+              <div class="bg-gray-700 rounded-2xl h-80 flex items-center justify-center">
+                <div class="text-center">
+                  <i class="fas fa-map-marked-alt text-6xl text-blue-400 mb-4"></i>
+                  <h4 class="text-xl font-bold text-white mb-2">Mapa de Ubicación</h4>
+                  <p class="text-gray-300">Próximamente integraremos un mapa interactivo.</p>
+                  <p class="text-gray-400 text-sm mt-2">Por ahora, contáctanos por WhatsApp para obtener indicaciones precisas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Columna 1: Logo y eslogan -->
+        <div>
+          <div class="flex items-center mb-6">
+            <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
+              <span class="text-white font-bold text-2xl">YB</span>
             </div>
             <div>
-              <label class="block
+              <h3 class="text-xl font-bold text-white">YottaByte Cia. Ltda.</h3>
+              <p class="text-blue-400 text-sm">"Soluciones mas alla del requerimiento..."</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Empresa constituida con 12 años de trayectoria brindando soluciones tecnológicas en Ecuador.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Columna 2: Enlaces rápidos -->
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Enlaces Rápidos</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+            <li><a href="productos.html" class="text-gray-400 hover:text-white transition-colors">Productos</a></li>
+            <li><a href="servicios.html" class="text-gray-400 hover:text-white transition-colors">Servicios</a></li>
+            <li><a href="quienes-somos.html" class="text-gray-400 hover:text-white transition-colors">Quiénes Somos</a></li>
+            <li><a href="contacto.html" class="text-blue-400 hover:text-white transition-colors">Contáctanos</a></li>
+          </ul>
+        </div>
+        
+        <!-- Columna 3: Contacto -->
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Contacto</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+              <span class="text-gray-400">Sangolqui - Ecuador</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
+              <span class="text-gray-400">0984673754 / 0987082903</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fab fa-whatsapp mt-1 mr-3 text-green-400"></i>
+              <span class="text-gray-400">WhatsApp 24/7</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
+              <span class="text-gray-400">servicios.yottabyte@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Columna 4: Sitio web y horario -->
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-white">Información</h4>
+          <div class="mb-6">
+            <h5 class="text-white font-medium mb-2">Sitio Web</h5>
+            <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors break-all">
+              https://spyottabyte.github.io/yottabyte-website/
+            </a>
+          </div>
+          <div>
+            <h5 class="text-white font-medium mb-2">Horario</h5>
+            <ul class="text-gray-400 space-y-1 text-sm">
+              <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+              <li>Sábado: 9:00 AM - 1:00 PM</li>
+              <li>Soporte 24/7 para clientes con contrato</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+        <p class="text-sm">
+          &copy; 2024 YottaByte Cia. Ltda. Todos los derechos reservados.
+        </p>
+        <p class="text-xs mt-1">"Soluciones mas alla del requerimiento..."</p>
+        <p class="text-xs mt-3">
+          <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors">
+            https://spyottabyte.github.io/yottabyte-website/
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Cambiar tema (copiado de index.html)
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    
+    if (currentTheme === 'light') {
+      document.body.classList.remove('dark');
+      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+      document.body.classList.add('dark');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      if (document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      } else {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      }
+    });
+
+	// Búsqueda dinámica en tiempo real (reemplaza el código anterior)
+	const searchInput = document.getElementById('search-input');
+	if (searchInput) {
+	  let timeoutId;
+  
+	  searchInput.addEventListener('input', function() {
+	    clearTimeout(timeoutId);
+	    const searchTerm = this.value.trim();
+    
+	    if (searchTerm.length === 0) {
+	      // Si el campo está vacío, no hacer nada
+	      return;
+	    }
+    
+	    // Esperar 300ms para no hacer la búsqueda en cada tecla
+	    timeoutId = setTimeout(() => {
+	      window.location.href = `resultados-busqueda.html?q=${encodeURIComponent(searchTerm)}`;
+	    }, 300);
+	  });
+	}
+
+
+    // Formulario de contacto (simulado)
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Aquí normalmente enviarías los datos a un servidor
+      // Por ahora, mostramos un mensaje de éxito
+      alert('¡Gracias por contactarnos! Hemos recibido tu mensaje y nos pondremos en contacto contigo lo antes posible.');
+      
+      // Limpiar el formulario
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
