@@ -47,11 +47,21 @@
       transform: scale(1.1);
       background: #334155;
     }
-    .spec-item {
-      background: rgba(30, 41, 59, 0.5);
-      border-radius: 0.5rem;
-      padding: 1rem;
-      margin-bottom: 0.5rem;
+    .feature-item {
+      background: rgba(30, 41, 59, 0.3);
+      border-radius: 0.375rem;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+    }
+    .feature-item strong {
+      min-width: 80px;
+      color: #60a5fa;
+    }
+    .feature-item p {
+      margin: 0;
+      color: #e2e8f0;
     }
   </style>
 </head>
@@ -61,7 +71,7 @@
     <i class="fas fa-moon"></i>
   </button>
 
-  <!-- Encabezado Fijo -->
+  <!-- Encabezado Fijo (COPIADO EXACTAMENTE DE index.html) -->
   <header class="bg-gray-900 border-b border-gray-700 sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between py-4">
@@ -90,8 +100,9 @@
             id="search-input"
             placeholder="Buscar producto..." 
             class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
+            onkeydown="if (event.key === 'Enter') handleSearchHome()"
           >
-          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
+          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300" onclick="handleSearchHome()">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -101,7 +112,7 @@
       <div class="border-t border-gray-700">
         <nav class="flex flex-wrap justify-center py-3 space-x-6">
           <a href="../index.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Inicio</a>
-          <a href="../productos.html" class="text-blue-400 font-medium border-b-2 border-blue-400">Productos</a>
+          <a href="../productos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Productos</a>
           <a href="../servicios.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Servicios</a>
           <a href="../quienes-somos.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Quiénes Somos</a>
           <a href="../contacto.html" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Contáctanos</a>
@@ -121,276 +132,485 @@
     </section>
 
     <!-- Detalle del Producto -->
-    <section class="py-16 bg-gray-900">
+    <section class="py-12 bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <!-- Imagen del Producto -->
-          <div class="flex justify-center">
-            <img 
-              src="../assets/images/placeholder.jpg" 
-              alt="Producto" 
-              id="product-image"
-              class="w-full max-w-md h-auto rounded-2xl shadow-2xl"
-            >
+        <!-- Fotos del Producto (4-6 miniaturas) -->
+        <div class="mb-12 flex flex-col lg:flex-row gap-4">
+          <!-- Columna de fotos (izquierda) - AHORA 50% -->
+          <div class="lg:w-1/2 flex-shrink-0">
+            <h2 class="text-2xl font-bold text-white mb-4 section-title">Imágenes del Producto</h2>
+            <!-- Grid de 2 columnas, GAP FIJO DE 16px (1cm) -->
+            <div class="grid grid-cols-2 gap-4">
+              <img 
+                src="../assets/images/placeholder.jpg" 
+                alt="Foto 1" 
+                class="w-full aspect-[3/4] object-cover rounded-lg border-2 border-transparent hover:border-blue-400 transition-all cursor-pointer"
+                onclick="openModal(this.src)"
+              >
+              <img 
+                src="../assets/images/placeholder.jpg" 
+                alt="Foto 2" 
+                class="w-full aspect-[3/4] object-cover rounded-lg border-2 border-transparent hover:border-blue-400 transition-all cursor-pointer"
+                onclick="openModal(this.src)"
+              >
+              <img 
+                src="../assets/images/placeholder.jpg" 
+                alt="Foto 3" 
+                class="w-full aspect-[3/4] object-cover rounded-lg border-2 border-transparent hover:border-blue-400 transition-all cursor-pointer"
+                onclick="openModal(this.src)"
+              >
+              <img 
+                src="../assets/images/placeholder.jpg" 
+                alt="Foto 4" 
+                class="w-full aspect-[3/4] object-cover rounded-lg border-2 border-transparent hover:border-blue-400 transition-all cursor-pointer"
+                onclick="openModal(this.src)"
+              >
+            </div>
           </div>
-          
-          <!-- Información del Producto -->
-          <div>
-            <div class="bg-gray-800 rounded-2xl p-8">
-              <h2 class="text-2xl font-bold text-white mb-6">Especificaciones Técnicas</h2>
-              <div id="product-specs" class="space-y-4">
-                <!-- Las especificaciones se cargarán aquí dinámicamente -->
-                <div class="spec-item">
-                  <strong class="text-blue-400">Cargando...</strong>
-                  <p class="text-gray-300">Los datos se cargarán automáticamente.</p>
+
+          <!-- Información del Producto (derecha) - AHORA 50% SIN DESPLAZAMIENTO -->
+          <div class="lg:w-1/2">
+              <h2 class="text-2xl font-bold text-white mb-4 section-title">Especificaciones Técnicas</h2>
+            <div class="bg-gray-800 rounded-xl p-5">
+              <div id="product-specs" class="space-y-1">
+                <!-- Se llenará dinámicamente -->
+                <div class="feature-item">
+                  <strong>Marca:</strong>
+                  <p>TP-Link</p>
+                </div>
+                <div class="feature-item">
+                  <strong>Modelo:</strong>
+                  <p>Archer C50</p>
+                </div>
+                <div class="feature-item">
+                  <strong>Tipo:</strong>
+                  <p>Router Dual Band</p>
+                </div>
+                <div class="feature-item">
+                  <strong>Velocidad:</strong>
+                  <p>300 Mbps (2.4 GHz) + 867 Mbps (5 GHz)</p>
                 </div>
               </div>
               
-              <div class="mt-8 pt-6 border-t border-gray-700">
-                <div class="flex justify-between items-center mb-6">
-                  <span class="text-3xl font-bold text-blue-400" id="product-price">Cargando...</span>
-                  <span class="text-sm bg-green-600 text-white px-3 py-1 rounded-full" id="product-status">Cargando</span>
+              <div class="mt-4 pt-3 border-t border-gray-700">
+                <div class="flex justify-between items-center mb-3">
+                  <span class="text-xl font-bold text-blue-400" id="product-price">$25.00</span>
+                  <span class="text-xs bg-green-600 text-white px-2 py-1 rounded-full" id="product-status">Nuevo</span>
                 </div>
                 
-                <p class="text-gray-400 mb-6 text-sm">
-                  <i class="fas fa-info-circle mr-2"></i>
-                  Este producto no está disponible para venta en línea. Contáctanos para cotización y disponibilidad.
-                </p>
-                
-                <a href="../contacto.html" class="w-full block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-xl font-bold text-center hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg">
-                  <i class="fas fa-phone-alt mr-3"></i> Solicitar Cotización
-                </a>
+
+		<p class="text-gray-300 mb-4 text-center text-sm md:text-base leading-relaxed">
+		  <strong>Este producto no está disponible para venta en línea.</strong><br>
+		  <strong>Contáctanos por WhatsApp para cotizaciones y disponibilidad.</strong>
+		</p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center mt-4">
+		  <a href="https://wa.me/593984673754" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-lg text-base font-medium hover:bg-green-600 transition flex items-center justify-center">
+		    <i class="fab fa-whatsapp mr-2"></i> 09-84-67-37-54
+		  </a>
+		  <a href="https://wa.me/593987082903" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-lg text-base font-medium hover:bg-green-600 transition flex items-center justify-center">
+		    <i class="fab fa-whatsapp mr-2"></i> 09-870-829-03          
+		  </a>
+		</div>
               </div>
             </div>
           </div>
         </div>
-        
-        <!-- Descripción Detallada -->
-        <div class="mt-16 bg-gray-800 rounded-2xl p-8">
-          <h2 class="text-2xl font-bold text-white mb-6 section-title">Descripción Completa</h2>
-          <p class="text-gray-300 text-lg leading-relaxed" id="product-description">
+
+        <!-- Descripción Detallada - LETRA MÁS GRANDE (text-base) -->
+        <div class="mt-8 bg-gray-800 rounded-xl p-5">
+          <h2 class="text-xl font-bold text-white mb-3 section-title">Descripción Completa</h2>
+          <p class="text-gray-300 text-base leading-relaxed" id="product-description">
             Cargando descripción detallada del producto...
           </p>
         </div>
+
+        <!-- Tabla de Características Técnicas - LETRA MÁS GRANDE (text-base) -->
+        <div class="mt-6 bg-gray-800 rounded-xl p-5 border border-gray-700" id="technical-table-container">
+          <h3 class="text-xl font-bold text-white mb-3">Características Técnicas</h3>
+          <div class="overflow-x-auto text-base">
+            <table class="w-full text-left border-collapse" id="technical-table">
+              <thead>
+                <tr class="bg-gray-700">
+                  <th class="py-2 px-3 text-sm font-semibold text-gray-300">Categoría</th>
+                  <th class="py-2 px-3 text-sm font-semibold text-gray-300">Detalles</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Se llenará dinámicamente -->
+                <tr>
+                  <td colspan="2" class="py-2 px-3 text-center text-gray-400">Cargando características técnicas...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
-  </main>
 
-  <!-- Pie de Página -->
-  <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-        <!-- Columna 1: Logo y eslogan -->
-        <div>
-          <div class="flex items-center mb-6">
-            <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
-              <span class="text-white font-bold text-2xl">YB</span>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-white">YottaByte Cia. Ltda.</h3>
-              <p class="text-blue-400 text-sm">"Soluciones mas alla del requerimiento..."</p>
-            </div>
-          </div>
-          <p class="text-gray-400 text-sm leading-relaxed mb-6">
-            Empresa constituida con 12 años de trayectoria brindando soluciones tecnológicas en Ecuador.
-          </p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Columna 2: Enlaces rápidos -->
-        <div>
-          <h4 class="font-bold text-lg mb-6 text-white">Enlaces Rápidos</h4>
-          <ul class="space-y-3">
-            <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
-            <li><a href="../productos.html" class="text-blue-400 hover:text-white transition-colors">Productos</a></li>
-            <li><a href="../servicios.html" class="text-gray-400 hover:text-white transition-colors">Servicios</a></li>
-            <li><a href="../quienes-somos.html" class="text-gray-400 hover:text-white transition-colors">Quiénes Somos</a></li>
-            <li><a href="../contacto.html" class="text-gray-400 hover:text-white transition-colors">Contáctanos</a></li>
-          </ul>
-        </div>
-        
-        <!-- Columna 3: Contacto -->
-        <div>
-          <h4 class="font-bold text-lg mb-6 text-white">Contacto</h4>
-          <ul class="space-y-4">
-            <li class="flex items-start">
-              <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
-              <span class="text-gray-400">Sangolqui - Ecuador</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
-              <span class="text-gray-400">0984673754 / 0987082903</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fab fa-whatsapp mt-1 mr-3 text-green-400"></i>
-              <span class="text-gray-400">WhatsApp 24/7</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
-              <span class="text-gray-400">servicios.yottabyte@gmail.com</span>
-            </li>
-          </ul>
-        </div>
-        
-        <!-- Columna 4: Sitio web y horario -->
-        <div>
-          <h4 class="font-bold text-lg mb-6 text-white">Información</h4>
-          <div class="mb-6">
-            <h5 class="text-white font-medium mb-2">Sitio Web</h5>
-            <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors break-all">
-              https://spyottabyte.github.io/yottabyte-website/
-            </a>
-          </div>
-          <div>
-            <h5 class="text-white font-medium mb-2">Horario</h5>
-            <ul class="text-gray-400 space-y-1 text-sm">
-              <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
-              <li>Sábado: 9:00 AM - 1:00 PM</li>
-              <li>Soporte 24/7 para clientes con contrato</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-        <p class="text-sm">
-          &copy; 2024 YottaByte Cia. Ltda. Todos los derechos reservados.
-        </p>
-        <p class="text-xs mt-1">"Soluciones mas alla del requerimiento..."</p>
-        <p class="text-xs mt-3">
-          <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors">
-            https://spyottabyte.github.io/yottabyte-website/
-          </a>
-        </p>
+    <!-- Modal de Zoom -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
+      <div class="relative max-w-6xl mx-4">
+        <img id="modalImage" src="" alt="Imagen Ampliada" class="max-h-[90vh] max-w-full object-contain rounded-lg">
+        <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white text-4xl p-2 rounded-full hover:bg-opacity-75 transition-all">
+          ‹
+        </button>
+        <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white text-4xl p-2 rounded-full hover:bg-opacity-75 transition-all">
+          ›
+        </button>
+        <button id="closeModal" class="absolute top-2 right-2 text-white text-2xl font-bold p-2 rounded-full hover:bg-black hover:bg-opacity-50 transition-all">
+          ×
+        </button>
       </div>
     </div>
-  </footer>
 
-  <script>
-    // Cambiar tema (copiado de index.html)
-    const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    
-    if (currentTheme === 'light') {
-      document.body.classList.remove('dark');
-      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    } else {
-      document.body.classList.add('dark');
-      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
-    
-    themeToggle.addEventListener('click', () => {
-      if (document.body.classList.contains('dark')) {
+    <!-- Pie de Página (COPIADO EXACTAMENTE DE index.html) -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <!-- Columna 1: Logo y eslogan -->
+          <div>
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mr-4">
+                <span class="text-white font-bold text-2xl">YB</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">YottaByte Cia. Ltda.</h3>
+                <p class="text-blue-400 text-sm">"Soluciones mas alla del requerimiento..."</p>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              Empresa constituida con 12 años de trayectoria brindando soluciones tecnológicas en Ecuador.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Columna 2: Enlaces rápidos -->
+          <div>
+            <h4 class="font-bold text-lg mb-6 text-white">Enlaces Rápidos</h4>
+            <ul class="space-y-3">
+              <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+              <li><a href="../productos.html" class="text-gray-400 hover:text-white transition-colors">Productos</a></li>
+              <li><a href="../servicios.html" class="text-gray-400 hover:text-white transition-colors">Servicios</a></li>
+              <li><a href="../quienes-somos.html" class="text-gray-400 hover:text-white transition-colors">Quiénes Somos</a></li>
+              <li><a href="../contacto.html" class="text-gray-400 hover:text-white transition-colors">Contáctanos</a></li>
+            </ul>
+          </div>
+          
+          <!-- Columna 3: Contacto -->
+          <div>
+            <h4 class="font-bold text-lg mb-6 text-white">Contacto</h4>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                <span class="text-gray-400">Sangolqui - Ecuador</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-phone-alt mt-1 mr-3 text-blue-400"></i>
+                <span class="text-gray-400">0984673754 / 0987082903</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fab fa-whatsapp mt-1 mr-3 text-green-400"></i>
+                <span class="text-gray-400">WhatsApp 24/7</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
+                <span class="text-gray-400">servicios.yottabyte@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Columna 4: Sitio web y horario -->
+          <div>
+            <h4 class="font-bold text-lg mb-6 text-white">Información</h4>
+            <div class="mb-6">
+              <h5 class="text-white font-medium mb-2">Sitio Web</h5>
+              <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors break-all">
+                https://spyottabyte.github.io/yottabyte-website/
+              </a>
+            </div>
+            <div>
+              <h5 class="text-white font-medium mb-2">Horario</h5>
+              <ul class="text-gray-400 space-y-1 text-sm">
+                <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+                <li>Sábado: 9:00 AM - 1:00 PM</li>
+                <li>Soporte 24/7 para clientes con contrato</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+          <p class="text-sm">
+            &copy; 2024 YottaByte Cia. Ltda. Todos los derechos reservados.
+          </p>
+          <p class="text-xs mt-1">"Soluciones mas alla del requerimiento..."</p>
+          <p class="text-xs mt-3">
+            <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors">
+              https://spyottabyte.github.io/yottabyte-website/
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Cambiar tema
+      const themeToggle = document.getElementById('theme-toggle');
+      const currentTheme = localStorage.getItem('theme') || 'dark';
+      
+      if (currentTheme === 'light') {
         document.body.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
         themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
       } else {
         document.body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
       }
-    });
-
-    // Búsqueda (copiado de index.html)
-    const searchInput = document.getElementById('search-input');
-    searchInput.addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase();
-      if (searchTerm.length > 2) {
-        console.log('Buscando:', searchTerm);
-      }
-    });
-
-    // Simulación de carga de datos del producto
-    const productsData = {
-      'laptop-thinkpad': {
-        title: 'Laptop ThinkPad X1 Carbon Gen 10',
-        category: 'Equipos de Cómputo',
-        image: '../assets/images/productos/laptop-thinkpad.jpg',
-        price: '$1,299',
-        status: 'Nuevo',
-        specs: [
-          { label: 'Procesador', value: 'Intel Core i7-1260P (12 núcleos, hasta 4.7 GHz)' },
-          { label: 'Memoria RAM', value: '32GB LPDDR5' },
-          { label: 'Almacenamiento', value: '1TB SSD PCIe Gen 4' },
-          { label: 'Pantalla', value: '14" WQXGA (2560 x 1600), IPS, antirreflejos' },
-          { label: 'Sistema Operativo', value: 'Windows 11 Pro' },
-          { label: 'Conectividad', value: 'Wi-Fi 6E, Bluetooth 5.2, 2x Thunderbolt 4' },
-          { label: 'Batería', value: 'Hasta 15 horas de uso' },
-          { label: 'Peso', value: '1.12 kg' }
-        ],
-        description: 'La laptop ThinkPad X1 Carbon Gen 10 combina un diseño ultraligero y duradero con un rendimiento excepcional. Perfecta para profesionales que necesitan movilidad sin sacrificar potencia. Su teclado legendario de ThinkPad ofrece una experiencia de escritura incomparable, y su pantalla de alta resolución garantiza colores precisos y detalles nítidos. Construida con materiales de grado militar, está diseñada para resistir las exigencias del entorno empresarial.'
-      },
-      'servidor-dell': {
-        title: 'Servidor Dell PowerEdge R750',
-        category: 'Equipos de Cómputo',
-        image: '../assets/images/productos/servidor-dell.jpg',
-        price: '$3,499',
-        status: 'Disponible',
-        specs: [
-          { label: 'Procesadores', value: '2x Intel Xeon Silver 4310 (12 núcleos cada uno)' },
-          { label: 'Memoria RAM', value: '128GB DDR4 ECC (8x 16GB)' },
-          { label: 'Almacenamiento', value: '8 bahías para discos de 2.5", soporte para SSD NVMe' },
-          { label: 'RAID', value: 'Controlador PERC H755 con batería de respaldo' },
-          { label: 'Red', value: '2x puertos 1GbE, 1x puerto 10GbE SFP+' },
-          { label: 'Fuente de Poder', value: '2x 800W redundantes (80 PLUS Platinum)' },
-          { label: 'Gestión', value: 'iDRAC9 Enterprise para administración remota' },
-          { label: 'Garantía', value: '3 años ProSupport Plus con respuesta al día siguiente' }
-        ],
-        description: 'El servidor Dell PowerEdge R750 es una solución empresarial de alto rendimiento diseñada para cargas de trabajo exigentes como virtualización, bases de datos y aplicaciones empresariales. Su arquitectura modular y escalable permite adaptarse a las necesidades cambiantes de tu negocio. Con gestión avanzada a través de iDRAC9, puedes monitorear y administrar tu infraestructura desde cualquier lugar. La redundancia en componentes críticos garantiza máxima disponibilidad para tus operaciones más importantes.'
-      }
-      // Puedes agregar más productos aquí
-    };
-
-    // Función para cargar los datos del producto
-    function loadProductData() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = urlParams.get('producto');
       
-      if (!productId || !productsData[productId]) {
-        document.getElementById('product-title').textContent = 'Producto no encontrado';
-        document.getElementById('product-category').textContent = 'Error';
-        document.getElementById('product-description').textContent = 'Lo sentimos, no pudimos encontrar el producto que estás buscando.';
-        return;
-      }
-      
-      const product = productsData[productId];
-      
-      document.getElementById('product-title').textContent = product.title;
-      document.getElementById('product-category').textContent = `Categoría: ${product.category}`;
-      document.getElementById('product-image').src = product.image;
-      document.getElementById('product-image').alt = product.title;
-      document.getElementById('product-price').textContent = product.price;
-      document.getElementById('product-status').textContent = product.status;
-      document.getElementById('product-description').textContent = product.description;
-      
-      const specsContainer = document.getElementById('product-specs');
-      specsContainer.innerHTML = '';
-      
-      product.specs.forEach(spec => {
-        const specElement = document.createElement('div');
-        specElement.className = 'spec-item';
-        specElement.innerHTML = `
-          <strong class="text-blue-400">${spec.label}:</strong>
-          <p class="text-gray-300">${spec.value}</p>
-        `;
-        specsContainer.appendChild(specElement);
+      themeToggle.addEventListener('click', () => {
+        if (document.body.classList.contains('dark')) {
+          document.body.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+          themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        } else {
+          document.body.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+          themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
       });
-    }
 
-    document.addEventListener('DOMContentLoaded', loadProductData);
-  </script>
+      // Variables globales para el modal
+      let currentImageIndex = 0;
+      let currentProductImages = [];
+
+      // Función para abrir el modal con la imagen ampliada
+      function openModal(src) {
+        const productId = new URLSearchParams(window.location.search).get('producto');
+        if (productId && productsData[productId]) {
+          currentProductImages = productsData[productId].images;
+          currentImageIndex = currentProductImages.indexOf(src);
+          if (currentImageIndex === -1) currentImageIndex = 0;
+        }
+        
+        document.getElementById('modalImage').src = src;
+        document.getElementById('imageModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      // Función para cerrar el modal
+      function closeModal() {
+        document.getElementById('imageModal').classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      // Función para imagen anterior
+      function prevImage() {
+        if (currentProductImages.length > 0) {
+          currentImageIndex = (currentImageIndex - 1 + currentProductImages.length) % currentProductImages.length;
+          document.getElementById('modalImage').src = currentProductImages[currentImageIndex];
+        }
+      }
+
+      // Función para imagen siguiente
+      function nextImage() {
+        if (currentProductImages.length > 0) {
+          currentImageIndex = (currentImageIndex + 1) % currentProductImages.length;
+          document.getElementById('modalImage').src = currentProductImages[currentImageIndex];
+        }
+      }
+
+      // Evento para cerrar el modal al hacer clic en el botón X
+      document.getElementById('closeModal').addEventListener('click', closeModal);
+
+      // Evento para cerrar el modal al hacer clic fuera de la imagen
+      document.getElementById('imageModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeModal();
+        }
+      });
+
+      // Eventos para botones de navegación
+      document.getElementById('prevBtn').addEventListener('click', function(e) {
+        e.stopPropagation();
+        prevImage();
+      });
+
+      document.getElementById('nextBtn').addEventListener('click', function(e) {
+        e.stopPropagation();
+        nextImage();
+      });
+
+      // Navegación con teclado
+      document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('imageModal').classList.contains('hidden')) {
+          if (e.key === 'Escape') {
+            closeModal();
+          } else if (e.key === 'ArrowLeft') {
+            prevImage();
+          } else if (e.key === 'ArrowRight') {
+            nextImage();
+          }
+        }
+      });
+
+      // Búsqueda
+      function handleSearchHome() {
+        const query = document.getElementById('search-input').value.trim();
+        if (!query) return;
+        window.location.href = `../resultados-busqueda.html?q=${encodeURIComponent(query)}`;
+      }
+
+      // Datos del producto
+      const productsData = {
+        'redes-telecomunicaciones/router-tp-link-archer-c50': {
+          title: 'Router Wi-Fi de doble banda AC1200',
+          category: 'Redes y Telecomunicaciones',
+          images: [
+            '../assets/images/productos/redes-telecomunicaciones/YB-Router_Wi-Fi_doble_banda_ARCHERC50_AC1200/YB-Router_Wi-Fi_doble_banda_ARCHERC50_AC1200-01.webp',
+            '../assets/images/productos/redes-telecomunicaciones/YB-Router_Wi-Fi_doble_banda_ARCHERC50_AC1200/YB-Router_Wi-Fi_doble_banda_ARCHERC50_AC1200-02.webp',
+            '../assets/images/productos/redes-telecomunicaciones/YB-Router_Wi-Fi_doble_banda_ARCHERC50_AC1200/YB-Router_Wi-Fi_doble_banda_ARCHERC50_AC1200-03.webp',
+            '../assets/images/productos/redes-telecomunicaciones/YB-Router_Wi-Fi_doble_banda_ARCHERC50_AC1200/YB-Router_Wi-Fi_doble_banda_ARCHERC50_AC1200-01.jpg'
+          ],
+          price: '$25.00',
+          status: 'Nuevo',
+          specs: [
+            { label: 'Marca', value: 'TP-Link' },
+            { label: 'Modelo', value: 'Archer C50' },
+            { label: 'Velocidad Wi-Fi', value: 'AC1200 (867 Mbps en 5GHz + 300 Mbps en 2.4GHz)' },
+            { label: 'Antenas', value: '4 × antenas fijas con Beamforming' },
+            { label: 'Puertos Ethernet', value: '1 WAN + 4 LAN (10/100 Mbps)' },
+            { label: 'Controles Parentales', value: 'Sí, con filtrado por URL y horarios' },
+            { label: 'Red de Invitados', value: '1 red 5GHz + 1 red 2.4GHz' },
+            { label: 'Compatible con IPv6', value: 'Sí' },
+            { label: 'Dimensiones', value: '115 × 106.7 × 24.3 mm' }
+          ],
+          description: 'El Archer C50 de TP-Link es un router Wi-Fi de doble banda AC1200 ideal para hogares con 3 habitaciones. Ofrece transmisión 4K sin interrupciones, cobertura amplia gracias a sus 4 antenas y Beamforming, y modos flexibles (enrutador, punto de acceso, extensor de rango). Incluye controles parentales, red de invitados separada y es compatible con IPv6. Diseño compacto y montable para ahorrar espacio.',
+          technicalSpecs: {
+            'WIRELESS': [
+              '<strong>Standards:</strong><br>Wi-Fi 5<br>IEEE 802.11ac/n/a 5 GHz<br>IEEE 802.11n/b/g 2.4 GHz',
+              '<strong>WiFi Speeds:</strong><br>AC1200:<br>5 GHz: 867 Mbps (802.11ac)<br>2.4 GHz: 300 Mbps (802.11n)',
+              '<strong>WiFi Range:</strong><br>3 Bedroom Houses<br>4× Fixed Antennas<br>Beamforming<br>Concentrates wireless signal strength towards clients to expand WiFi range',
+              '<strong>WiFi Capacity:</strong><br>Medium<br>Dual-Band<br>Distribute devices to different bands for optimal performance<br>2×2 MU-MIMO<br>Simultaneously communicates with multiple MU-MIMO clients'
+            ],
+            'HARDWARE': [
+              '<strong>Ethernet Ports:</strong><br>1× 10/100 Mbps WAN Port<br>4× 10/100 Mbps LAN Ports',
+              '<strong>Botones:</strong><br>WPS/Reset Button<br><strong>Power:</strong><br>9 V ⎓ 0.85 A'
+            ],
+            'SOFTWARE': [
+              '<strong>Protocols:</strong><br>IPv4, IPv6',
+              '<strong>Parental Controls:</strong><br>URL Filtering, Time Controls',
+              '<strong>WAN Types:</strong><br>Dynamic IP, Static IP, PPPoE, PPTP, L2TP',
+              '<strong>Quality of Service:</strong><br>QoS by Device',
+              '<strong>Management Features:</strong><br>Tether App, Webpage'
+            ]
+          }
+        }
+      };
+
+      // Función para cargar los datos del producto
+      function loadProductData() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('producto');
+        
+        if (!productId || !productsData[productId]) {
+          document.getElementById('product-title').textContent = 'Producto no encontrado';
+          document.getElementById('product-category').textContent = 'Error';
+          document.getElementById('product-description').textContent = 'Lo sentimos, no pudimos encontrar el producto que estás buscando.';
+          return;
+        }
+        
+        const product = productsData[productId];
+        
+        // Cargar las imágenes
+        const imageContainer = document.querySelector('.grid.grid-cols-2.gap-4');
+        imageContainer.innerHTML = '';
+        
+        product.images.forEach((src, index) => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = `Foto ${index + 1}`;
+          img.className = 'w-full aspect-[3/4] object-cover rounded-lg border-2 border-transparent hover:border-blue-400 transition-all cursor-pointer';
+          img.onclick = () => openModal(src);
+          imageContainer.appendChild(img);
+        });
+
+        // Cargar el título, categoría y precio
+        document.getElementById('product-title').textContent = product.title;
+        document.getElementById('product-category').textContent = `Categoría: ${product.category}`;
+        document.getElementById('product-price').textContent = product.price;
+        document.getElementById('product-status').textContent = product.status;
+        document.getElementById('product-description').textContent = product.description;
+        
+        // Generar las especificaciones
+        const specsContainer = document.getElementById('product-specs');
+        specsContainer.innerHTML = '';
+        
+        product.specs.forEach(spec => {
+          const specElement = document.createElement('div');
+          specElement.className = 'feature-item';
+          specElement.innerHTML = `
+            <strong>${spec.label}:</strong>
+            <p>${spec.value}</p>
+          `;
+          specsContainer.appendChild(specElement);
+        });
+        
+        // Generar la tabla de características técnicas
+        const tableContainer = document.getElementById('technical-table-container');
+        const table = document.getElementById('technical-table');
+        table.innerHTML = '';
+        
+        const thead = document.createElement('thead');
+        thead.innerHTML = `
+          <tr class="bg-gray-700">
+            <th class="py-2 px-3 text-sm font-semibold text-gray-300">Categoría</th>
+            <th class="py-2 px-3 text-sm font-semibold text-gray-300">Detalles</th>
+          </tr>
+        `;
+        table.appendChild(thead);
+        
+        const tbody = document.createElement('tbody');
+        
+        for (let category in product.technicalSpecs) {
+          const specs = product.technicalSpecs[category];
+          specs.forEach((spec, index) => {
+            const tr = document.createElement('tr');
+            tr.className = 'border-b border-gray-700';
+            
+            if (index === 0) {
+              const tdCategory = document.createElement('td');
+              tdCategory.className = 'py-2 px-3 text-sm font-medium text-blue-400 align-top';
+              tdCategory.rowSpan = specs.length;
+              tdCategory.textContent = category;
+              tr.appendChild(tdCategory);
+            }
+            
+            const tdDetails = document.createElement('td');
+            tdDetails.className = 'py-2 px-3 text-base text-gray-300';
+            tdDetails.innerHTML = spec;
+            tr.appendChild(tdDetails);
+            
+            tbody.appendChild(tr);
+          });
+        }
+        
+        table.appendChild(tbody);
+      }
+
+      // Cargar los datos del producto cuando la página esté lista
+      document.addEventListener('DOMContentLoaded', loadProductData);
+    </script>
 </body>
 </html>

@@ -85,7 +85,7 @@
           
           <!-- Nombre y eslogan -->
           <div>
-            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">YottaByte Cia. Ltda.</h1>
+            <h1 class="text-xl md:text-2xl font-bold text-white whitespace-nowrap">Servicios Profesionales YottaByte Cia. Ltda.</h1>
             <p class="text-blue-400 font-medium text-sm md:text-base">"Soluciones mas alla del requerimiento..."</p> <!-- ¡3 puntos! -->
           </div>
         </div>
@@ -94,11 +94,12 @@
         <div class="relative w-64">
           <input 
             type="text" 
-            id="search-input"
+            id="search-input-home"
             placeholder="Buscar producto o servicio..." 
             class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
+            onkeydown="if (event.key === 'Enter') handleSearchHome()"
           >
-          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
+          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300" onclick="handleSearchHome()">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -123,8 +124,6 @@
 	    <i class="fas fa-file-excel mr-2"></i> Descargar Lista de Precios
 	  </a>
 	</div>
-
-
 
   <!-- Contenido Principal -->
   <main class="flex-grow">
@@ -215,7 +214,7 @@
     </section>
   </main>
 
-  <!-- Pie de Página (¡REDISEÑADO!) -->
+  <!-- Pie de Página -->
   <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -227,7 +226,7 @@
             </div>
             <div>
               <h3 class="text-xl font-bold text-white">YottaByte Cia. Ltda.</h3>
-              <p class="text-blue-400 text-sm">"Soluciones mas alla del requerimiento..."</p> <!-- ¡3 puntos! -->
+              <p class="text-blue-400 text-sm">"Soluciones mas alla del requerimiento..."</p>
             </div>
           </div>
           <p class="text-gray-400 text-sm leading-relaxed mb-6">
@@ -308,7 +307,7 @@
         <p class="text-sm">
           &copy; 2024 YottaByte Cia. Ltda. Todos los derechos reservados.
         </p>
-        <p class="text-xs mt-1">"Soluciones mas alla del requerimiento..."</p> <!-- ¡3 puntos! -->
+        <p class="text-xs mt-1">"Soluciones mas alla del requerimiento..."</p>
         <p class="text-xs mt-3">
           <a href="https://spyottabyte.github.io/yottabyte-website/" class="text-blue-400 hover:text-blue-300 transition-colors">
             https://spyottabyte.github.io/yottabyte-website/
@@ -342,28 +341,14 @@
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
       }
     });
-	
-	// Búsqueda dinámica en tiempo real (reemplaza el código anterior)
-	const searchInput = document.getElementById('search-input');
-	if (searchInput) {
-	  let timeoutId;
-  
-	  searchInput.addEventListener('input', function() {
-	    clearTimeout(timeoutId);
-	    const searchTerm = this.value.trim();
-    
-	    if (searchTerm.length === 0) {
-	      // Si el campo está vacío, no hacer nada
-	      return;
-	    }
-    
-	    // Esperar 300ms para no hacer la búsqueda en cada tecla
-	    timeoutId = setTimeout(() => {
-	      window.location.href = `resultados-busqueda.html?q=${encodeURIComponent(searchTerm)}`;
-	    }, 300);
-	  });
-	}
 
+    // Búsqueda restaurada (estilo anterior, más amigable)
+    function handleSearchHome() {
+      const query = document.getElementById('search-input-home').value.trim();
+      if (!query) return;
+      
+      window.location.href = `./resultados-busqueda.html?q=${encodeURIComponent(query)}`;
+    }
   </script>
 </body>
 </html>

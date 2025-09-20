@@ -1,0 +1,152 @@
+WIRELESS
+
+Standards and Protocols:
+Wi-Fi 5
+IEEE 802.11ac/n/a 5 GHz
+IEEE 802.11n/b/g 2.4 GHz
+
+WiFi Speeds:
+AC1200
+5 GHz: 867 Mbps (802.11ac)
+2.4 GHz: 300 Mbps (802.11n)
+
+WiFi Range:
+3 Bedroom Houses
+4× Fixed Antennas
+Multiple antennas form a signal-boosting array to cover more directions and large areas
+
+Beamforming:
+Concentrates wireless signal strength towards clients to expand WiFi range
+
+WiFi Capacity	Medium
+Dual-Band
+Allocate devices to different bands for optimal performance
+
+MU-MIMO
+Simultaneously communicates with multiple MU-MIMO clients
+Working Modes	Router Mode
+Access Point Mode
+Range Extender Mode
+
+SEGURIDAD
+
+Network Security:
+SPI Firewall
+Access Control
+IP & MAC Binding
+Application Layer Gateway
+
+Guest Network:
+1× 5 GHz Guest Network
+1× 2.4 GHz Guest Network
+
+WiFi Encryption
+WEP
+WPA
+WPA2
+WPA/WPA2-Enterprise (802.1x)
+
+HARDWARE
+
+Processor:
+Single-Core CPU
+
+Ethernet Ports:
+1× 10/100 Mbps WAN Port
+4× 10/100 Mbps LAN Ports
+
+Botones:
+WPS/Reset Button
+
+Power:
+9 V ⎓ 0.85 A
+
+SOFTWARE
+
+Protocols:
+IPv4
+IPv6
+
+Parental Controls:
+URL Filtering
+Time Controls
+
+WAN Types:
+Dynamic IP
+Static IP
+PPPoE
+PPTP
+L2TP
+
+Quality of Service:
+QoS by Device
+
+NAT Forwarding:
+Port Forwarding
+Port Triggering
+DMZ
+UPnP
+
+IPTV:
+IGMP Proxy
+IGMP Snooping
+Bridge
+Tag VLAN
+
+DHCP:
+Address Reservation
+DHCP Client List
+Server
+
+DDNS:
+NO-IP
+DynDNS
+
+Management Features:
+Tether App
+Webpage
+
+OTHER
+
+System Requirements Internet Explorer 11+, Firefox 12.0+, Chrome 20.0+, Safari 4.0+, or other JavaScript-enabled browser
+Cable or DSL Modem (if needed)
+Subscription with an internet service provider (for internet access)
+
+Certifications:
+FCC, CE, RoHS
+
+Environment:
+Operating Temperature: 0℃~40℃ (32℉ ~104℉)
+Storage Temperature: -40℃~60℃ (-40℉ ~140℉)
+Operating Humidity: 10%~90% non-condensing
+Storage Humidity: 5%~90% non-condensing
+
+TEST DATA
+
+WiFi Transmission Power:
+CE EIRP: <20dBm(2.4GHz), <23dBm(5GHz)
+FCC: <30dBm(2.4GHz & 5GHz)
+
+WiFi Reception Sensitivity:
+5GHz:
+11a 6Mbps:-93dBm；
+11a 54Mbps:-78dBm；
+11ac HT20 mcs8:69dBm;
+11ac HT40 mcs9:-66dBm;
+11ac HT80 mcs9:-62dBm;
+2.4GHz:
+11g 54Mbps:-78dBm;
+11n HT20 mcs7:-74dBm;
+11n HT40 mcs7:-71dbm；
+
+PHYSICAL
+
+Dimensions (W×D×H):
+4.5 × 4.2 × 1.0 in
+(115 × 106.7 × 24.3 mm)
+
+Package Content:
+Wi-Fi Router Archer C50
+Power Adapter
+RJ45 Ethernet Cable
+Quick Installation Guide

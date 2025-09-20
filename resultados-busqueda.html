@@ -3,38 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resultados de Búsqueda - YottaByte Cia. Ltda.</title>
+  <title>Resultados de Búsqueda - YottaByte</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      scroll-behavior: smooth;
       background-color: #0f172a;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    .section-title {
-      position: relative;
-      display: inline-block;
-    }
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: #f59e0b;
-      border-radius: 2px;
-    }
-    .result-card {
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      background: rgba(30, 41, 59, 0.6);
-    }
-    .result-card:hover {
-      transform: translateY(-5px);
-      border-color: #3b82f6;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
     }
     .theme-toggle {
       position: fixed;
@@ -57,29 +32,29 @@
       transform: scale(1.1);
       background: #334155;
     }
-    .loading {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
+    .section-title {
+      position: relative;
+      display: inline-block;
     }
-    .loading i {
-      animation: spin 1s linear infinite;
-      margin-right: 1rem;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #f59e0b;
+      border-radius: 2px;
     }
   </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans flex flex-col min-h-screen transition-colors duration-300">
+<body class="bg-gray-900 text-gray-100 font-sans transition-colors duration-300">
   <!-- Botón de Modo Noche/Día -->
   <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
     <i class="fas fa-moon"></i>
   </button>
 
-  <!-- Encabezado Fijo -->
+  <!-- Encabezado Fijo (COMPLETO) -->
   <header class="bg-gray-900 border-b border-gray-700 sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between py-4">
@@ -101,15 +76,16 @@
           </div>
         </div>
 
-        <!-- Búsqueda -->
+        <!-- Búsqueda (FUNCIONAL EN TODAS LAS PÁGINAS) -->
         <div class="relative w-64">
           <input 
             type="text" 
-            id="search-input"
+            id="search-input-home"
             placeholder="Buscar producto o servicio..." 
             class="w-full px-4 py-2 bg-gray-800 border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-400"
+            onkeydown="if (event.key === 'Enter') handleSearchHome()"
           >
-          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300">
+          <button class="absolute right-3 top-2.5 text-gray-400 hover:text-gray-300" onclick="handleSearchHome()">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -129,48 +105,29 @@
   </header>
 
   <!-- Contenido Principal -->
-  <main class="flex-grow">
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-900/20 to-purple-900/20 text-white py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">🔍 Resultados de Búsqueda</h1>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-          Mostrando resultados para: <span id="search-term" class="font-bold text-blue-400">"cargando..."</span>
-        </p>
-        
-        <!-- Botón para volver a la página anterior -->
-        <div class="mt-6">
-          <button onclick="window.history.back()" class="inline-flex items-center bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors">
-            <i class="fas fa-arrow-left mr-2"></i> Volver
-          </button>
-        </div>
-      </div>
-    </section>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-white mb-2">Resultados para: "<span id="search-term" class="text-blue-400"></span>"</h1>
+      <p class="text-gray-400">Hemos encontrado <span id="result-count" class="text-white font-medium">0</span> productos.</p>
+    </div>
 
-    <!-- Sección de Resultados -->
-    <section class="py-16 bg-gray-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div id="results-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Los resultados se cargarán aquí dinámicamente -->
-          <div class="loading">
-            <i class="fas fa-spinner text-blue-400 text-3xl"></i>
-            <p class="text-white text-lg">Buscando resultados...</p>
-          </div>
-        </div>
+    <div id="results-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Los resultados se cargarán aquí dinámicamente -->
+    </div>
 
-        <div id="no-results" class="text-center py-16 hidden">
-          <i class="fas fa-exclamation-circle text-6xl text-red-500 mb-6"></i>
-          <h3 class="text-2xl font-bold text-white mb-4">No se encontraron resultados</h3>
-          <p class="text-gray-400 mb-6">Lo sentimos, no encontramos ningún producto o servicio que coincida con tu búsqueda.</p>
-          <a href="index.html" class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-            <i class="fas fa-home mr-2"></i> Volver al Inicio
-          </a>
-        </div>
+    <div id="no-results" class="text-center py-16 hidden">
+      <div class="bg-gray-800 rounded-2xl p-8 max-w-2xl mx-auto">
+        <i class="fas fa-search text-6xl text-gray-600 mb-4"></i>
+        <h3 class="text-2xl font-bold text-white mb-4">No se encontraron resultados</h3>
+        <p class="text-gray-400 mb-6">Lo sentimos, no encontramos productos que coincidan con tu búsqueda.</p>
+        <a href="index.html" class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+          <i class="fas fa-arrow-left mr-2"></i> Volver al inicio
+        </a>
       </div>
-    </section>
+    </div>
   </main>
 
-  <!-- Pie de Página -->
+  <!-- Pie de Página (COMPLETO) -->
   <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -274,7 +231,7 @@
   </footer>
 
   <script>
-    // Cambiar tema (copiado de index.html)
+    // Cambiar tema
     const themeToggle = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'dark';
     
@@ -298,151 +255,83 @@
       }
     });
 
-    // Datos de productos y servicios para búsqueda
-    const searchDatabase = {
-      productos: [
-        { nombre: "Laptop ThinkPad X1 Carbon", categoria: "equipos-computo", descripcion: "Procesador Intel i7, 32GB RAM, SSD 1TB, pantalla 4K.", precio: "$1,299", url: "productos/equipos-computo.html" },
-        { nombre: "Servidor Dell PowerEdge", categoria: "equipos-computo", descripcion: "Doble Xeon, 128GB RAM, 8 bahías HDD. Alta disponibilidad.", precio: "$3,499", url: "productos/equipos-computo.html" },
-        { nombre: "Switch Cisco Catalyst 2960", categoria: "redes-telecomunicaciones", descripcion: "24 puertos Gigabit, gestión remota, PoE+.", precio: "$489", url: "productos/redes-telecomunicaciones.html" },
-        { nombre: "Firewall Fortinet 60F", categoria: "redes-telecomunicaciones", descripcion: "Protección UTM, VPN, IPS, antivirus.", precio: "$899", url: "productos/redes-telecomunicaciones.html" },
-        { nombre: "Procesador Intel Core i9-13900K", categoria: "componentes-electronica", descripcion: "24 núcleos, 32 hilos, hasta 5.8 GHz.", precio: "$589", url: "productos/componentes-electronica.html" },
-        { nombre: "Memoria RAM Corsair Vengeance 32GB", categoria: "componentes-electronica", descripcion: "DDR5 6000MHz, CL36.", precio: "$159", url: "productos/componentes-electronica.html" },
-        { nombre: "Monitor LG UltraWide 34", categoria: "perifericos-accesorios", descripcion: "Resolución 3440x1440, 144Hz, HDR10.", precio: "$699", url: "productos/perifericos-accesorios.html" },
-        { nombre: "Teclado Logitech MX Keys", categoria: "perifericos-accesorios", descripcion: "Iluminación retro, diseño ergonómico.", precio: "$129", url: "productos/perifericos-accesorios.html" },
-        { nombre: "Windows Server 2022 Standard", categoria: "software-licencias", descripcion: "Licencia para 2 CPUs, 16 cores.", precio: "$882", url: "productos/software-licencias.html" },
-        { nombre: "Microsoft 365 E3", categoria: "software-licencias", descripcion: "Licencias por volumen. Incluye Word, Excel, Teams.", precio: "$32/mes", url: "productos/software-licencias.html" },
-        { nombre: "Tester de Red Fluke Networks", categoria: "herramientas-diagnostico", descripcion: "Verifica cableado Ethernet, mide longitud.", precio: "$299", url: "productos/herramientas-diagnostico.html" },
-        { nombre: "Kit de Limpieza para Equipos", categoria: "herramientas-diagnostico", descripcion: "Aire comprimido, cepillos, paños microfibra.", precio: "$29", url: "productos/herramientas-diagnostico.html" }
-      ],
-      servicios: [
-        { nombre: "Análisis de Sistemas", categoria: "consultoria-tecnologica", descripcion: "Evaluación de tus procesos actuales para identificar oportunidades.", precio: "Desde $500", url: "servicios/consultoria-tecnologica.html" },
-        { nombre: "Planificación Tecnológica", categoria: "consultoria-tecnologica", descripcion: "Diseño de hoja de ruta tecnológica a 1, 3 y 5 años.", precio: "Desde $800", url: "servicios/consultoria-tecnologica.html" },
-        { nombre: "Soporte Técnico Remoto", categoria: "soporte-tecnico", descripcion: "Asistencia inmediata vía remota para resolver problemas.", precio: "Desde $30/hora", url: "servicios/soporte-tecnico.html" },
-        { nombre: "Soporte Técnico Presencial", categoria: "soporte-tecnico", descripcion: "Visita técnica a tu oficina o domicilio.", precio: "Desde $50/hora", url: "servicios/soporte-tecnico.html" },
-        { nombre: "Aplicaciones Web", categoria: "desarrollo-software", descripcion: "Desarrollo de plataformas web personalizadas.", precio: "Desde $1,500", url: "servicios/desarrollo-software.html" },
-        { nombre: "Aplicaciones Móviles", categoria: "desarrollo-software", descripcion: "Desarrollo de apps nativas (iOS/Android) o híbridas.", precio: "Desde $2,000", url: "servicios/desarrollo-software.html" },
-        { nombre: "Evaluación y Planificación Cloud", categoria: "migracion-cloud", descripcion: "Análisis de tu infraestructura actual y diseño de estrategia.", precio: "Desde $800", url: "servicios/migracion-cloud.html" },
-        { nombre: "Migración de Datos", categoria: "migracion-cloud", descripcion: "Transferencia segura de bases de datos y aplicaciones.", precio: "Desde $1,500", url: "servicios/migracion-cloud.html" },
-        { nombre: "Auditoría de Seguridad", categoria: "ciberseguridad", descripcion: "Evaluación integral de vulnerabilidades en redes y sistemas.", precio: "Desde $1,200", url: "servicios/ciberseguridad.html" },
-        { nombre: "Implementación de Firewall", categoria: "ciberseguridad", descripcion: "Configuración e instalación de firewalls físicos o virtuales.", precio: "Desde $800", url: "servicios/ciberseguridad.html" },
-        { nombre: "Microsoft Office Avanzado", categoria: "capacitacion-tecnica", descripcion: "Dominio de Word, Excel, PowerPoint y Outlook.", precio: "Desde $200", url: "servicios/capacitacion-tecnica.html" },
-        { nombre: "Fundamentos de Redes", categoria: "capacitacion-tecnica", descripcion: "Conceptos básicos de redes, configuración de routers.", precio: "Desde $300", url: "servicios/capacitacion-tecnica.html" }
-      ]
-    };
-
-    // Función para cargar los resultados de búsqueda
-    function loadSearchResults() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const searchTerm = urlParams.get('q');
+    // Búsqueda (FUNCIONA EN CUALQUIER PÁGINA)
+    function handleSearchHome() {
+      const query = document.getElementById('search-input-home').value.trim();
+      if (!query) return;
       
-      if (!searchTerm) {
-        document.getElementById('search-term').textContent = 'Sin término de búsqueda';
-        document.getElementById('no-results').classList.remove('hidden');
-        document.getElementById('results-container').innerHTML = `
-          <div class="text-center py-12">
-            <i class="fas fa-search text-6xl text-gray-600 mb-6"></i>
-            <h3 class="text-2xl font-bold text-white mb-4">No se especificó término de búsqueda</h3>
-            <p class="text-gray-400">Por favor, escribe algo en el campo de búsqueda.</p>
-          </div>
-        `;
-        return;
-      }
-      
-      document.getElementById('search-term').textContent = `"${searchTerm}"`;
-      
-      const allResults = [...searchDatabase.productos, ...searchDatabase.servicios];
-      const filteredResults = allResults.filter(item => 
-        item.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.descripcion.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.categoria.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      
-      const resultsContainer = document.getElementById('results-container');
-      resultsContainer.innerHTML = '';
-      
-      if (filteredResults.length === 0) {
-        document.getElementById('no-results').classList.remove('hidden');
-        return;
-      }
-      
-      document.getElementById('no-results').classList.add('hidden');
-      
-      filteredResults.forEach(result => {
-        const resultCard = document.createElement('a');
-        resultCard.href = result.url;
-        resultCard.className = 'result-card rounded-2xl p-6 border border-gray-700';
-        resultCard.innerHTML = `
-          <div class="w-full h-48 bg-gray-800 rounded-xl mb-4 flex items-center justify-center">
-            <i class="fas fa-${result.categoria.includes('computo') ? 'laptop' : result.categoria.includes('redes') ? 'network-wired' : result.categoria.includes('electronica') ? 'microchip' : result.categoria.includes('accesorios') ? 'mouse' : result.categoria.includes('software') ? 'code' : 'tools'} text-6xl text-gray-400"></i>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">${result.nombre}</h3>
-          <p class="text-gray-400 text-sm mb-3">${result.descripcion}</p>
-          <div class="flex justify-between items-center">
-            <span class="text-blue-400 font-bold">${result.precio}</span>
-            <span class="text-xs bg-blue-600 text-white px-2 py-1 rounded">Ver más</span>
-          </div>
-        `;
-        resultsContainer.appendChild(resultCard);
-      });
+      window.location.href = `./resultados-busqueda.html?q=${encodeURIComponent(query)}`;
     }
 
-    // Función para configurar la búsqueda dinámica
-    function setupSearchFunctionality() {
-      const searchInput = document.getElementById('search-input');
-      if (searchInput) {
-        let timeoutId;
+    // Datos de productos (versión simple)
+    const productsData = {
+      'redes-telecomunicaciones/router-tp-link-archer-c50': {
+        title: 'Router Wi-Fi de doble banda AC1200',
+        category: 'Redes y Telecomunicaciones',
+        price: '$25.00',
+        image: './assets/images/productos/redes-telecomunicaciones/YB-Router_Wi-Fi_doble_banda_ARCHERC50_AC1200/YB-Router_Wi-Fi_doble_banda_ARCHERC50_AC1200-01.webp',
+        description: 'Router ideal para hogares con 3 habitaciones...'
+      },
+      'equipos-computo/laptop-thinkpad-t14': {
+        title: 'Laptop Lenovo ThinkPad T14',
+        category: 'Equipos de Cómputo',
+        price: '$899.00',
+        image: './assets/images/productos/equipos-computo/laptop-thinkpad-t14/foto1.webp',
+        description: 'Laptop empresarial robusta y confiable...'
+      }
+    };
+
+    // Función para cargar resultados
+    function loadResults() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchTerm = urlParams.get('q') || '';
+      
+      document.getElementById('search-term').textContent = searchTerm;
+      
+      const results = [];
+      for (let productId in productsData) {
+        if (productsData[productId].title.toLowerCase().includes(searchTerm.toLowerCase())) {
+          results.push({ id: productId, ...productsData[productId] });
+        }
+      }
+
+      document.getElementById('result-count').textContent = results.length;
+
+      if (results.length === 0) {
+        document.getElementById('no-results').classList.remove('hidden');
+        document.getElementById('results-container').classList.add('hidden');
+      } else {
+        document.getElementById('no-results').classList.add('hidden');
+        document.getElementById('results-container').classList.remove('hidden');
         
-        // Obtener el término de búsqueda de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const searchTerm = urlParams.get('q') || '';
-        searchInput.value = searchTerm;
+        const container = document.getElementById('results-container');
+        container.innerHTML = '';
         
-        searchInput.addEventListener('input', function() {
-          clearTimeout(timeoutId);
-          const newSearchTerm = this.value.trim();
-          
-          if (newSearchTerm.length === 0) {
-            // Si el campo está vacío, limpiar los resultados
-            document.getElementById('results-container').innerHTML = `
-              <div class="text-center py-12">
-                <i class="fas fa-search text-6xl text-gray-600 mb-6"></i>
-                <h3 class="text-2xl font-bold text-white mb-4">Escribe para buscar</h3>
-                <p class="text-gray-400">Comienza a escribir para ver resultados.</p>
+        results.forEach(product => {
+          const productElement = document.createElement('a');
+          productElement.href = `./producto/detalle.html?producto=${product.id}`;
+          productElement.className = 'block bg-gray-800 rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300';
+          productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.title}" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">${product.title}</h3>
+              <p class="text-blue-400 font-bold mb-3">${product.price}</p>
+              <p class="text-gray-400 text-sm mb-4">${product.description}</p>
+              <div class="flex justify-between items-center mt-4">
+                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">Nuevo</span>
+                <span class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+                  Ver Detalle
+                </span>
               </div>
-            `;
-            document.getElementById('no-results').classList.add('hidden');
-            document.getElementById('search-term').textContent = '""';
-            return;
-          }
-          
-          // Esperar 300ms antes de buscar
-          timeoutId = setTimeout(() => {
-            // Actualizar la URL sin recargar la página
-            const newUrl = `resultados-busqueda.html?q=${encodeURIComponent(newSearchTerm)}`;
-            window.history.replaceState(null, '', newUrl);
-            
-            // Mostrar indicador de carga
-            document.getElementById('results-container').innerHTML = `
-              <div class="loading col-span-full">
-                <i class="fas fa-spinner text-blue-400 text-3xl"></i>
-                <p class="text-white text-lg">Buscando resultados para "${newSearchTerm}"...</p>
-              </div>
-            `;
-            
-            // Cargar los resultados (simulamos un pequeño retraso para mejor UX)
-            setTimeout(() => {
-              loadSearchResults();
-            }, 300);
-          }, 300);
+            </div>
+          `;
+          container.appendChild(productElement);
         });
       }
     }
 
-    // Cargar resultados y configurar búsqueda cuando la página esté lista
-    document.addEventListener('DOMContentLoaded', function() {
-      loadSearchResults();
-      setupSearchFunctionality();
-    });
+    // Cargar resultados cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', loadResults);
   </script>
 </body>
 </html>
